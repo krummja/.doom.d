@@ -1,23 +1,23 @@
-<a id="orgd51b352"></a>
+<a id="org1c04931"></a>
 
 # Sakura-EMACS
 
 
 # Table of Contents     :TOC_2_ORG:
 
--   [Sakura-EMACS](#orgd51b352)
--   [About Emacs](#org699124a)
--   [About Doom-Emacs](#orgdf69290)
--   [About Sakura-Emacs](#org5661ccc)
-    -   [Screenshot](#org8a138f6)
-    -   [About README](#org0426335)
-    -   [Installation](#orgb8116f8)
-    -   [Modification](#org8cce364)
-    -   [Contribiution](#org78f3853)
-    -   [Special Thanks](#org1dd34dd)
+-   [Sakura-EMACS](#org1c04931)
+-   [About Emacs](#orgd17a631)
+-   [About Doom-Emacs](#org10d93a6)
+-   [About Sakura-Emacs](#orgc2438f3)
+    -   [Screenshot](#org7bc2ad7)
+    -   [About README](#orgfbc8c1f)
+    -   [Installation](#orgd06ab3e)
+    -   [Modification](#org2fa7392)
+    -   [Contribiution](#org2cb6523)
+    -   [Special Thanks](#org8494c7b)
 
 
-<a id="org699124a"></a>
+<a id="orgd17a631"></a>
 
 # About Emacs
 
@@ -45,10 +45,10 @@ Emacs has a **broad ecosystem**. If you want to edit code in a niche language, t
 
 Emacs doesn&rsquo;t have a monopoly on good ideas, and there are other great tools out there. Nonetheless, we believe the [Emacs learning curve](https://i.stack.imgur.com/7Cu9Z.jpg) pays off.
 
-*This beautifully written **About EMACS** section credits to [Remacs](https://github.com/remacs/remacs).*
+*This beautifully written **About Emacs** section credits to [Remacs](https://github.com/remacs/remacs).*
 
 
-<a id="orgdf69290"></a>
+<a id="org10d93a6"></a>
 
 # About Doom-Emacs
 
@@ -56,37 +56,39 @@ Doom is a configuration framework for [GNU Emacs 26.3+](https://www.gnu.org/soft
 
 Doom is an opinionated collection of reasonable (and optional) defaults with a focus on performance (both runtime and startup) and on abstraction-light, readable code design, so that there is less between you and Emacs.
 
+/This **About Doom-Emacs** section credits to [Doom-Emacs](https://github.com/hlissner/doom-emacs) /
 
-<a id="org5661ccc"></a>
+
+<a id="orgc2438f3"></a>
 
 # About Sakura-Emacs
 
 
-<a id="org8a138f6"></a>
+<a id="org7bc2ad7"></a>
 
 ## Screenshot
 
 
-<a id="org0426335"></a>
+<a id="orgfbc8c1f"></a>
 
 ## About README
 
 
-<a id="orgb8116f8"></a>
+<a id="orgd06ab3e"></a>
 
 ## Installation
 
 
-<a id="org8cce364"></a>
+<a id="org2fa7392"></a>
 
 ## Modification
 
 
-<a id="org78f3853"></a>
+<a id="org2cb6523"></a>
 
 ## Contribiution
 
 
-<a id="org1dd34dd"></a>
+<a id="org8494c7b"></a>
 
 ## Special Thanks
