@@ -1,26 +1,26 @@
-<a id="orgec83d2f"></a>
+<a id="org0d3bbf6"></a>
 
 # Sakura-EMACS
 
 
 # Table of Contents     :TOC_2_ORG:
 
--   [Sakura-EMACS](#orgec83d2f)
--   [Sakura-EMACS](#orgec83d2f)
--   [About EMACS](#orgd6af0f6)
--   [About Sakura-EMACS](#orgcce6af8)
-    -   [Screenshot](#org68ac381)
-    -   [About README](#orgdbc1492)
-    -   [Installation](#org4bd6ac3)
-    -   [Modification](#orgef0f87a)
-    -   [Contribiution](#org50fe4c5)
-    -   [Special Thanks](#orgdaeffc3)
+-   [Sakura-EMACS](#org0d3bbf6)
+-   [Sakura-EMACS](#org0d3bbf6)
+-   [About EMACS](#org521a24d)
+-   [About Sakura-EMACS](#orgadbb55a)
+    -   [Screenshot](#orge0bcf4d)
+    -   [About README](#org6ee1e87)
+    -   [Installation](#org687eccb)
+    -   [Modification](#org68621e8)
+    -   [Contribiution](#orgf8e6aea)
+    -   [Special Thanks](#org1465107)
 
 
 # Sakura-EMACS
 
 
-<a id="orgd6af0f6"></a>
+<a id="org521a24d"></a>
 
 # About EMACS
 
@@ -48,39 +48,39 @@ Emacs has a **broad ecosystem**. If you want to edit code in a niche language, t
 
 Emacs doesn&rsquo;t have a monopoly on good ideas, and there are other great tools out there. Nonetheless, we believe the [Emacs learning curve](https://i.stack.imgur.com/7Cu9Z.jpg) pays off.
 
-*This beautifully written **About EMACS** section credits to [Remacs](https://github.com/remacs/remacs).* About EMACS
+*This beautifully written **About EMACS** section credits to [Remacs](https://github.com/remacs/remacs).*
 
 
-<a id="orgcce6af8"></a>
+<a id="orgadbb55a"></a>
 
 # About Sakura-EMACS
 
 
-<a id="org68ac381"></a>
+<a id="orge0bcf4d"></a>
 
 ## Screenshot
 
 
-<a id="orgdbc1492"></a>
+<a id="org6ee1e87"></a>
 
 ## About README
 
 
-<a id="org4bd6ac3"></a>
+<a id="org687eccb"></a>
 
 ## Installation
 
 
-<a id="orgef0f87a"></a>
+<a id="org68621e8"></a>
 
 ## Modification
 
 
-<a id="org50fe4c5"></a>
+<a id="orgf8e6aea"></a>
 
 ## Contribiution
 
 
-<a id="orgdaeffc3"></a>
+<a id="org1465107"></a>
 
 ## Special Thanks
