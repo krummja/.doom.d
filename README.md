@@ -1,15 +1,3 @@
-- [Table of Contents](#orgaab5cb4)
-- [Sakura-EMACS](#orgf5f9841)
-- [About EMACS](#org2c48fa7)
-- [About Sakura-EMACS](#org676925d)
-  - [Screenshot](#orge5a2326)
-  - [About README](#org46feb98)
-  - [Installation](#org4103694)
-  - [Modification](#orgcfe05fd)
-  - [Contribiution](#org5399718)
-  - [Special Thanks](#org96a3b72)
-
-
 
 <a id="orgaab5cb4"></a>
 
