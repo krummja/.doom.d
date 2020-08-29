@@ -6,14 +6,16 @@
 * Table of Contents :TOC_2_ORG:
 - [[Sakura-EMACS][Sakura-EMACS]]
 - [[About Emacs][About Emacs]]
-- [[About Doom-Emacs][About Doom-Emacs]]
-- [[About Sakura-Emacs][About Sakura-Emacs]]
+- [[About Doom Emacs][About Doom Emacs]]
+- [[About Sakura Emacs][About Sakura Emacs]]
   - [[Screenshot][Screenshot]]
   - [[About README][About README]]
   - [[Installation][Installation]]
   - [[Modification][Modification]]
   - [[Contribiution][Contribiution]]
   - [[Special Thanks][Special Thanks]]
+- [[Global Configuration][Global Configuration]]
+  - [[User Information][User Information]]
 
 * About Emacs
 Emacs changes how you /think/ about programming.
@@ -40,7 +42,7 @@ Emacs changes how you /think/ about programming.
 
   /This beautifully written *About Emacs* section credits to [[https://github.com/remacs/remacs][Remacs]]./
 
-* About Doom-Emacs
+* About Doom Emacs
 Doom is a configuration framework for [[https://www.gnu.org/software/emacs/][GNU Emacs 26.3+]] tailored for Emacs
 bankruptcy veterans who want less framework in their frameworks and the
 performance of a hand rolled config (or better). It can be a foundation for your
@@ -53,10 +55,32 @@ readable code design, so that there is less between you and Emacs.
 
 /This *About Doom-Emacs* section credits to [[https://github.com/hlissner/doom-emacs][Doom-Emacs]]./
 
-* About Sakura-Emacs
+* About Sakura Emacs
+
+*Sakura Emacs* is a custom Doom Emacs configuration that aims to enhance the default Doom experience with certain opinionated package selections. Sakura's theming and color selection is based on my personal color palette that I use for my i3-regolith desktop configuration. One of my goals with this setup was to provide centralized documentation which can be easily navigated and referenced. This file contains virtually all of the configuration code for Sakura.
+
+As a neurodivergent grad student, I have gone through multiple productivity and notetaking suites, including many Emacs configurations, looking for the "perfect" setup for my research workflow. I have come to understand a few basic principles from this quest.
+
+1. There is no such thing as a single "perfect" suite or configuration.
+2. Cultivation and maintenance is more instrumental in promoting habit than trying to rely on a pre-configured framework.
+3. All best-laid plans for a system will inevitably go to shit - so learn to get ahead of that by being predictable and consistent.
+
+These principles have crystallized into a sort of philosophy that I try (sometimes unsuccessfully, granted) to apply to any situation where I interact with the digital landscape. This can be subsumed under a broader rubric of practicing mindfulness.
+
+This configuration is designed and tested for *GNU Emacs 28 and above only*.
+
 ** Screenshot
 ** About README
+
+This README is generated from `sakura.org` using `M-x org-gfm-export-to-markdown`. The code blocks found in this file are pulled in from the individual elisp files, which are themselves produced by running `M-x org-babel-tangle` on `index.org`. This provides me the benefit of having a clean documentation file for the entire configuration that is entirely decoupled from the back-end literate configuration - whatever its state of disarray.
+
 ** Installation
 ** Modification
 ** Contribiution
 ** Special Thanks
+
+* Global Configuration
+
+** User Information
+
+#+INCLUDE: "~/.doom.d/elisp/init-user-information.el" src emacs-lisp :lines "1-2"

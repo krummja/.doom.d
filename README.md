@@ -1,23 +1,25 @@
-<a id="org5ed349d"></a>
+<a id="org73771ab"></a>
 
 # Sakura-EMACS
 
 
 # Table of Contents     :TOC_2_ORG:
 
--   [Sakura-EMACS](#org5ed349d)
--   [About Emacs](#orgfae64cb)
--   [About Doom-Emacs](#orgb58a533)
--   [About Sakura-Emacs](#org06b2715)
-    -   [Screenshot](#orgdc00c48)
-    -   [About README](#org68e4bcb)
-    -   [Installation](#org9d11f07)
-    -   [Modification](#org9719a33)
-    -   [Contribiution](#org4fde7ae)
-    -   [Special Thanks](#org39d6185)
+-   [Sakura-EMACS](#org73771ab)
+-   [About Emacs](#orgcbf651f)
+-   [About Doom Emacs](#org7b2f912)
+-   [About Sakura Emacs](#org8d5af3d)
+    -   [Screenshot](#org93e41e9)
+    -   [About README](#orgebc0894)
+    -   [Installation](#org63f2576)
+    -   [Modification](#org5542269)
+    -   [Contribiution](#org765a277)
+    -   [Special Thanks](#org95c198b)
+-   [Global Configuration](#orgda89085)
+    -   [User Information](#org70cc22c)
 
 
-<a id="orgfae64cb"></a>
+<a id="orgcbf651f"></a>
 
 # About Emacs
 
@@ -48,9 +50,9 @@ Emacs doesn&rsquo;t have a monopoly on good ideas, and there are other great too
 *This beautifully written **About Emacs** section credits to [Remacs](https://github.com/remacs/remacs).*
 
 
-<a id="orgb58a533"></a>
+<a id="org7b2f912"></a>
 
-# About Doom-Emacs
+# About Doom Emacs
 
 Doom is a configuration framework for [GNU Emacs 26.3+](https://www.gnu.org/software/emacs/) tailored for Emacs bankruptcy veterans who want less framework in their frameworks and the performance of a hand rolled config (or better). It can be a foundation for your own config or a resource for Emacs enthusiasts to learn more about our favorite OS.
 
@@ -59,36 +61,64 @@ Doom is an opinionated collection of reasonable (and optional) defaults with a f
 *This **About Doom-Emacs** section credits to [Doom-Emacs](https://github.com/hlissner/doom-emacs).*
 
 
-<a id="org06b2715"></a>
+<a id="org8d5af3d"></a>
 
-# About Sakura-Emacs
+# About Sakura Emacs
+
+**Sakura Emacs** is a custom Doom Emacs configuration that aims to enhance the default Doom experience with certain opinionated package selections. Sakura&rsquo;s theming and color selection is based on my personal color palette that I use for my i3-regolith desktop configuration. One of my goals with this setup was to provide centralized documentation which can be easily navigated and referenced. This file contains virtually all of the configuration code for Sakura.
+
+As a neurodivergent grad student, I have gone through multiple productivity and notetaking suites, including many Emacs configurations, looking for the &ldquo;perfect&rdquo; setup for my research workflow. I have come to understand a few basic principles from this quest.
+
+1.  There is no such thing as a single &ldquo;perfect&rdquo; suite or configuration.
+2.  Cultivation and maintenance is more instrumental in promoting habit than trying to rely on a pre-configured framework.
+3.  All best-laid plans for a system will inevitably go to shit - so learn to get ahead of that by being predictable and consistent.
+
+These principles have crystallized into a sort of philosophy that I try (sometimes unsuccessfully, granted) to apply to any situation where I interact with the digital landscape. This can be subsumed under a broader rubric of practicing mindfulness.
+
+This configuration is designed and tested for **GNU Emacs 28 and above only**.
 
 
-<a id="orgdc00c48"></a>
+<a id="org93e41e9"></a>
 
 ## Screenshot
 
 
-<a id="org68e4bcb"></a>
+<a id="orgebc0894"></a>
 
 ## About README
 
+This README is generated from \`sakura.org\` using \`M-x org-gfm-export-to-markdown\`. The code blocks found in this file are pulled in from the individual elisp files, which are themselves produced by running \`M-x org-babel-tangle\` on \`index.org\`. This provides me the benefit of having a clean documentation file for the entire configuration that is entirely decoupled from the back-end literate configuration - whatever its state of disarray.
 
-<a id="org9d11f07"></a>
+
+<a id="org63f2576"></a>
 
 ## Installation
 
 
-<a id="org9719a33"></a>
+<a id="org5542269"></a>
 
 ## Modification
 
 
-<a id="org4fde7ae"></a>
+<a id="org765a277"></a>
 
 ## Contribiution
 
 
-<a id="org39d6185"></a>
+<a id="org95c198b"></a>
 
 ## Special Thanks
+
+
+<a id="orgda89085"></a>
+
+# Global Configuration
+
+
+<a id="org70cc22c"></a>
+
+## User Information
+
+```emacs-lisp
+(setq user-full-name "Jonathan Crum")
+```
