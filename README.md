@@ -1,25 +1,25 @@
-<a id="orgcb145a3"></a>
+<a id="org0639ee8"></a>
 
 # Sakura-EMACS
 
 
 # Table of Contents     :TOC_2_ORG:
 
--   [Sakura-EMACS](#orgcb145a3)
--   [About Emacs](#org110aacd)
--   [About Doom Emacs](#org8729232)
--   [About Sakura Emacs](#org451a44e)
-    -   [Screenshot](#org2fab87b)
-    -   [About README](#org03c0b3a)
-    -   [Installation](#orgd9d0311)
-    -   [Modification](#orgf129fae)
-    -   [Contribiution](#orgf299f44)
-    -   [Special Thanks](#org1bc0113)
--   [Global Configuration](#org11df6ec)
-    -   [User Information](#orgff4fa11)
+-   [Sakura-EMACS](#org0639ee8)
+-   [About Emacs](#orgcbf914a)
+-   [About Doom Emacs](#org95dd0e7)
+-   [About Sakura Emacs](#orga2db611)
+    -   [Screenshot](#org81ee263)
+    -   [About README](#org9ea2685)
+    -   [Installation](#orgd703acf)
+    -   [Modification](#org00c477a)
+    -   [Contribiution](#org7aaa6b2)
+    -   [Special Thanks](#org670da4b)
+-   [Global Configuration](#orgeec9e43)
+    -   [User Information](#org96384a7)
 
 
-<a id="org110aacd"></a>
+<a id="orgcbf914a"></a>
 
 # About Emacs
 
@@ -50,7 +50,7 @@ Emacs doesn&rsquo;t have a monopoly on good ideas, and there are other great too
 *This beautifully written **About Emacs** section credits to [Remacs](https://github.com/remacs/remacs).*
 
 
-<a id="org8729232"></a>
+<a id="org95dd0e7"></a>
 
 # About Doom Emacs
 
@@ -61,7 +61,7 @@ Doom is an opinionated collection of reasonable (and optional) defaults with a f
 *This **About Doom-Emacs** section credits to [Doom-Emacs](https://github.com/hlissner/doom-emacs).*
 
 
-<a id="org451a44e"></a>
+<a id="orga2db611"></a>
 
 # About Sakura Emacs
 
@@ -78,44 +78,44 @@ These principles have crystallized into a sort of philosophy that I try (sometim
 This configuration is designed and tested for **GNU Emacs 28 and above only**.
 
 
-<a id="org2fab87b"></a>
+<a id="org81ee263"></a>
 
 ## Screenshot
 
 
-<a id="org03c0b3a"></a>
+<a id="org9ea2685"></a>
 
 ## About README
 
-This README is generated from \`sakura.org\` using \`M-x org-gfm-export-to-markdown\`. The code blocks found in this file are pulled in from the individual elisp files, which are themselves produced by running \`M-x org-babel-tangle\` on \`index.org\`. This provides me the benefit of having a clean documentation file for the entire configuration that is entirely decoupled from the back-end literate configuration - whatever its state of disarray.
+This README is generated from `sakura.org` using `M-x org-gfm-export-to-markdown`. The code blocks found in this file are pulled in from the individual elisp files, which are themselves produced by running `M-x org-babel-tangle` on `index.org`. This provides me the benefit of having a clean documentation file for the entire configuration that is entirely decoupled from the back-end literate configuration - whatever its state of disarray.
 
 
-<a id="orgd9d0311"></a>
+<a id="orgd703acf"></a>
 
 ## Installation
 
 
-<a id="orgf129fae"></a>
+<a id="org00c477a"></a>
 
 ## Modification
 
 
-<a id="orgf299f44"></a>
+<a id="org7aaa6b2"></a>
 
 ## Contribiution
 
 
-<a id="org1bc0113"></a>
+<a id="org670da4b"></a>
 
 ## Special Thanks
 
 
-<a id="org11df6ec"></a>
+<a id="orgeec9e43"></a>
 
 # Global Configuration
 
 
-<a id="orgff4fa11"></a>
+<a id="org96384a7"></a>
 
 ## User Information
 
