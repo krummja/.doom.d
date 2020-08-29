@@ -5,7 +5,6 @@
 
 * Table of Contents :TOC_2_ORG:
 - [[Sakura-EMACS][Sakura-EMACS]]
-- [[Sakura-EMACS][Sakura-EMACS]]
 - [[About EMACS][About EMACS]]
 - [[About Sakura-EMACS][About Sakura-EMACS]]
   - [[Screenshot][Screenshot]]
@@ -15,7 +14,6 @@
   - [[Contribiution][Contribiution]]
   - [[Special Thanks][Special Thanks]]
 
-* Sakura-EMACS
 * About EMACS
 Emacs changes how you /think/ about programming.
 

@@ -1,26 +1,22 @@
-<a id="org0d3bbf6"></a>
+<a id="org4f8366f"></a>
 
 # Sakura-EMACS
 
 
 # Table of Contents     :TOC_2_ORG:
 
--   [Sakura-EMACS](#org0d3bbf6)
--   [Sakura-EMACS](#org0d3bbf6)
--   [About EMACS](#org521a24d)
--   [About Sakura-EMACS](#orgadbb55a)
-    -   [Screenshot](#orge0bcf4d)
-    -   [About README](#org6ee1e87)
-    -   [Installation](#org687eccb)
-    -   [Modification](#org68621e8)
-    -   [Contribiution](#orgf8e6aea)
-    -   [Special Thanks](#org1465107)
+-   [Sakura-EMACS](#org4f8366f)
+-   [About EMACS](#orgdc88bda)
+-   [About Sakura-EMACS](#org24bbd9a)
+    -   [Screenshot](#org7680959)
+    -   [About README](#orgfdd0179)
+    -   [Installation](#org79a8c8f)
+    -   [Modification](#org8f0cf1b)
+    -   [Contribiution](#orga5c96b0)
+    -   [Special Thanks](#orgcb41f92)
 
 
-# Sakura-EMACS
-
-
-<a id="org521a24d"></a>
+<a id="orgdc88bda"></a>
 
 # About EMACS
 
@@ -51,36 +47,36 @@ Emacs doesn&rsquo;t have a monopoly on good ideas, and there are other great too
 *This beautifully written **About EMACS** section credits to [Remacs](https://github.com/remacs/remacs).*
 
 
-<a id="orgadbb55a"></a>
+<a id="org24bbd9a"></a>
 
 # About Sakura-EMACS
 
 
-<a id="orge0bcf4d"></a>
+<a id="org7680959"></a>
 
 ## Screenshot
 
 
-<a id="org6ee1e87"></a>
+<a id="orgfdd0179"></a>
 
 ## About README
 
 
-<a id="org687eccb"></a>
+<a id="org79a8c8f"></a>
 
 ## Installation
 
 
-<a id="org68621e8"></a>
+<a id="org8f0cf1b"></a>
 
 ## Modification
 
 
-<a id="orgf8e6aea"></a>
+<a id="orga5c96b0"></a>
 
 ## Contribiution
 
 
-<a id="org1465107"></a>
+<a id="orgcb41f92"></a>
 
 ## Special Thanks
