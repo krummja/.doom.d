@@ -5,8 +5,9 @@
 
 * Table of Contents :TOC_2_ORG:
 - [[Sakura-EMACS][Sakura-EMACS]]
-- [[About EMACS][About EMACS]]
-- [[About Sakura-EMACS][About Sakura-EMACS]]
+- [[About Emacs][About Emacs]]
+- [[About Doom-Emacs][About Doom-Emacs]]
+- [[About Sakura-Emacs][About Sakura-Emacs]]
   - [[Screenshot][Screenshot]]
   - [[About README][About README]]
   - [[Installation][Installation]]
@@ -14,7 +15,7 @@
   - [[Contribiution][Contribiution]]
   - [[Special Thanks][Special Thanks]]
 
-* About EMACS
+* About Emacs
 Emacs changes how you /think/ about programming.
 
   Emacs is *totally introspectable*. You can always find out 'what code runs when I press this button?'.
@@ -38,7 +39,19 @@ Emacs changes how you /think/ about programming.
   Emacs doesn't have a monopoly on good ideas, and there are other great tools out there. Nonetheless, we believe the [[https://i.stack.imgur.com/7Cu9Z.jpg][Emacs learning curve]] pays off.
 
   /This beautifully written *About EMACS* section credits to [[https://github.com/remacs/remacs][Remacs]]./
-* About Sakura-EMACS
+
+* About Doom-Emacs
+Doom is a configuration framework for [[https://www.gnu.org/software/emacs/][GNU Emacs 26.3+]] tailored for Emacs
+bankruptcy veterans who want less framework in their frameworks and the
+performance of a hand rolled config (or better). It can be a foundation for your
+own config or a resource for Emacs enthusiasts to learn more about our favorite
+OS.
+
+Doom is an opinionated collection of reasonable (and optional) defaults with a
+focus on performance (both runtime and startup) and on abstraction-light,
+readable code design, so that there is less between you and Emacs.
+
+* About Sakura-Emacs
 ** Screenshot
 ** About README
 ** Installation

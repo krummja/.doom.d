@@ -1,24 +1,25 @@
-<a id="org4f8366f"></a>
+<a id="orgd51b352"></a>
 
 # Sakura-EMACS
 
 
 # Table of Contents     :TOC_2_ORG:
 
--   [Sakura-EMACS](#org4f8366f)
--   [About EMACS](#orgdc88bda)
--   [About Sakura-EMACS](#org24bbd9a)
-    -   [Screenshot](#org7680959)
-    -   [About README](#orgfdd0179)
-    -   [Installation](#org79a8c8f)
-    -   [Modification](#org8f0cf1b)
-    -   [Contribiution](#orga5c96b0)
-    -   [Special Thanks](#orgcb41f92)
+-   [Sakura-EMACS](#orgd51b352)
+-   [About Emacs](#org699124a)
+-   [About Doom-Emacs](#orgdf69290)
+-   [About Sakura-Emacs](#org5661ccc)
+    -   [Screenshot](#org8a138f6)
+    -   [About README](#org0426335)
+    -   [Installation](#orgb8116f8)
+    -   [Modification](#org8cce364)
+    -   [Contribiution](#org78f3853)
+    -   [Special Thanks](#org1dd34dd)
 
 
-<a id="orgdc88bda"></a>
+<a id="org699124a"></a>
 
-# About EMACS
+# About Emacs
 
 Emacs changes how you *think* about programming.
 
@@ -47,36 +48,45 @@ Emacs doesn&rsquo;t have a monopoly on good ideas, and there are other great too
 *This beautifully written **About EMACS** section credits to [Remacs](https://github.com/remacs/remacs).*
 
 
-<a id="org24bbd9a"></a>
+<a id="orgdf69290"></a>
 
-# About Sakura-EMACS
+# About Doom-Emacs
+
+Doom is a configuration framework for [GNU Emacs 26.3+](https://www.gnu.org/software/emacs/) tailored for Emacs bankruptcy veterans who want less framework in their frameworks and the performance of a hand rolled config (or better). It can be a foundation for your own config or a resource for Emacs enthusiasts to learn more about our favorite OS.
+
+Doom is an opinionated collection of reasonable (and optional) defaults with a focus on performance (both runtime and startup) and on abstraction-light, readable code design, so that there is less between you and Emacs.
 
 
-<a id="org7680959"></a>
+<a id="org5661ccc"></a>
+
+# About Sakura-Emacs
+
+
+<a id="org8a138f6"></a>
 
 ## Screenshot
 
 
-<a id="orgfdd0179"></a>
+<a id="org0426335"></a>
 
 ## About README
 
 
-<a id="org79a8c8f"></a>
+<a id="orgb8116f8"></a>
 
 ## Installation
 
 
-<a id="org8f0cf1b"></a>
+<a id="org8cce364"></a>
 
 ## Modification
 
 
-<a id="orga5c96b0"></a>
+<a id="org78f3853"></a>
 
 ## Contribiution
 
 
-<a id="orgcb41f92"></a>
+<a id="org1dd34dd"></a>
 
 ## Special Thanks
