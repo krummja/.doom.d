@@ -83,4 +83,4 @@ This README is generated from `sakura.org` using `M-x org-gfm-export-to-markdown
 
 ** User Information
 
-#+INCLUDE: "~/.doom.d/elisp/init-user-information.el" src emacs-lisp :lines "1-2"
+#+INCLUDE: "~/.doom.d/elisp/init-user-information.el" src emacs-lisp :lines "1-3"

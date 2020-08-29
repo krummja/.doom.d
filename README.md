@@ -1,25 +1,25 @@
-<a id="org73771ab"></a>
+<a id="orgcb145a3"></a>
 
 # Sakura-EMACS
 
 
 # Table of Contents     :TOC_2_ORG:
 
--   [Sakura-EMACS](#org73771ab)
--   [About Emacs](#orgcbf651f)
--   [About Doom Emacs](#org7b2f912)
--   [About Sakura Emacs](#org8d5af3d)
-    -   [Screenshot](#org93e41e9)
-    -   [About README](#orgebc0894)
-    -   [Installation](#org63f2576)
-    -   [Modification](#org5542269)
-    -   [Contribiution](#org765a277)
-    -   [Special Thanks](#org95c198b)
--   [Global Configuration](#orgda89085)
-    -   [User Information](#org70cc22c)
+-   [Sakura-EMACS](#orgcb145a3)
+-   [About Emacs](#org110aacd)
+-   [About Doom Emacs](#org8729232)
+-   [About Sakura Emacs](#org451a44e)
+    -   [Screenshot](#org2fab87b)
+    -   [About README](#org03c0b3a)
+    -   [Installation](#orgd9d0311)
+    -   [Modification](#orgf129fae)
+    -   [Contribiution](#orgf299f44)
+    -   [Special Thanks](#org1bc0113)
+-   [Global Configuration](#org11df6ec)
+    -   [User Information](#orgff4fa11)
 
 
-<a id="orgcbf651f"></a>
+<a id="org110aacd"></a>
 
 # About Emacs
 
@@ -50,7 +50,7 @@ Emacs doesn&rsquo;t have a monopoly on good ideas, and there are other great too
 *This beautifully written **About Emacs** section credits to [Remacs](https://github.com/remacs/remacs).*
 
 
-<a id="org7b2f912"></a>
+<a id="org8729232"></a>
 
 # About Doom Emacs
 
@@ -61,7 +61,7 @@ Doom is an opinionated collection of reasonable (and optional) defaults with a f
 *This **About Doom-Emacs** section credits to [Doom-Emacs](https://github.com/hlissner/doom-emacs).*
 
 
-<a id="org8d5af3d"></a>
+<a id="org451a44e"></a>
 
 # About Sakura Emacs
 
@@ -78,47 +78,48 @@ These principles have crystallized into a sort of philosophy that I try (sometim
 This configuration is designed and tested for **GNU Emacs 28 and above only**.
 
 
-<a id="org93e41e9"></a>
+<a id="org2fab87b"></a>
 
 ## Screenshot
 
 
-<a id="orgebc0894"></a>
+<a id="org03c0b3a"></a>
 
 ## About README
 
 This README is generated from \`sakura.org\` using \`M-x org-gfm-export-to-markdown\`. The code blocks found in this file are pulled in from the individual elisp files, which are themselves produced by running \`M-x org-babel-tangle\` on \`index.org\`. This provides me the benefit of having a clean documentation file for the entire configuration that is entirely decoupled from the back-end literate configuration - whatever its state of disarray.
 
 
-<a id="org63f2576"></a>
+<a id="orgd9d0311"></a>
 
 ## Installation
 
 
-<a id="org5542269"></a>
+<a id="orgf129fae"></a>
 
 ## Modification
 
 
-<a id="org765a277"></a>
+<a id="orgf299f44"></a>
 
 ## Contribiution
 
 
-<a id="org95c198b"></a>
+<a id="org1bc0113"></a>
 
 ## Special Thanks
 
 
-<a id="orgda89085"></a>
+<a id="org11df6ec"></a>
 
 # Global Configuration
 
 
-<a id="org70cc22c"></a>
+<a id="orgff4fa11"></a>
 
 ## User Information
 
 ```emacs-lisp
 (setq user-full-name "Jonathan Crum")
+(setq user-mail-address "crumja@uga.edu")
 ```
