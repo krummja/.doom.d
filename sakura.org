@@ -51,7 +51,7 @@ Doom is an opinionated collection of reasonable (and optional) defaults with a
 focus on performance (both runtime and startup) and on abstraction-light,
 readable code design, so that there is less between you and Emacs.
 
-/This *About Doom-Emacs* section credits to [[https://github.com/hlissner/doom-emacs][Doom-Emacs]] /
+/This *About Doom-Emacs* section credits to [[https://github.com/hlissner/doom-emacs][Doom-Emacs]]./
 
 * About Sakura-Emacs
 ** Screenshot

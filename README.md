@@ -1,23 +1,23 @@
-<a id="org1c04931"></a>
+<a id="org5ed349d"></a>
 
 # Sakura-EMACS
 
 
 # Table of Contents     :TOC_2_ORG:
 
--   [Sakura-EMACS](#org1c04931)
--   [About Emacs](#orgd17a631)
--   [About Doom-Emacs](#org10d93a6)
--   [About Sakura-Emacs](#orgc2438f3)
-    -   [Screenshot](#org7bc2ad7)
-    -   [About README](#orgfbc8c1f)
-    -   [Installation](#orgd06ab3e)
-    -   [Modification](#org2fa7392)
-    -   [Contribiution](#org2cb6523)
-    -   [Special Thanks](#org8494c7b)
+-   [Sakura-EMACS](#org5ed349d)
+-   [About Emacs](#orgfae64cb)
+-   [About Doom-Emacs](#orgb58a533)
+-   [About Sakura-Emacs](#org06b2715)
+    -   [Screenshot](#orgdc00c48)
+    -   [About README](#org68e4bcb)
+    -   [Installation](#org9d11f07)
+    -   [Modification](#org9719a33)
+    -   [Contribiution](#org4fde7ae)
+    -   [Special Thanks](#org39d6185)
 
 
-<a id="orgd17a631"></a>
+<a id="orgfae64cb"></a>
 
 # About Emacs
 
@@ -48,7 +48,7 @@ Emacs doesn&rsquo;t have a monopoly on good ideas, and there are other great too
 *This beautifully written **About Emacs** section credits to [Remacs](https://github.com/remacs/remacs).*
 
 
-<a id="org10d93a6"></a>
+<a id="orgb58a533"></a>
 
 # About Doom-Emacs
 
@@ -56,39 +56,39 @@ Doom is a configuration framework for [GNU Emacs 26.3+](https://www.gnu.org/soft
 
 Doom is an opinionated collection of reasonable (and optional) defaults with a focus on performance (both runtime and startup) and on abstraction-light, readable code design, so that there is less between you and Emacs.
 
-/This **About Doom-Emacs** section credits to [Doom-Emacs](https://github.com/hlissner/doom-emacs) /
+*This **About Doom-Emacs** section credits to [Doom-Emacs](https://github.com/hlissner/doom-emacs).*
 
 
-<a id="orgc2438f3"></a>
+<a id="org06b2715"></a>
 
 # About Sakura-Emacs
 
 
-<a id="org7bc2ad7"></a>
+<a id="orgdc00c48"></a>
 
 ## Screenshot
 
 
-<a id="orgfbc8c1f"></a>
+<a id="org68e4bcb"></a>
 
 ## About README
 
 
-<a id="orgd06ab3e"></a>
+<a id="org9d11f07"></a>
 
 ## Installation
 
 
-<a id="org2fa7392"></a>
+<a id="org9719a33"></a>
 
 ## Modification
 
 
-<a id="org2cb6523"></a>
+<a id="org4fde7ae"></a>
 
 ## Contribiution
 
 
-<a id="org8494c7b"></a>
+<a id="org39d6185"></a>
 
 ## Special Thanks
