@@ -72,7 +72,7 @@ This configuration is designed and tested for *GNU Emacs 28 and above only*.
 ** Screenshot
 ** About README
 
-This README is generated from `sakura.org` using `M-x org-gfm-export-to-markdown`. The code blocks found in this file are pulled in from the individual elisp files, which are themselves produced by running `M-x org-babel-tangle` on `index.org`. This provides me the benefit of having a clean documentation file for the entire configuration that is entirely decoupled from the back-end literate configuration - whatever its state of disarray.
+This README is generated from =sakura.org= using =M-x org-gfm-export-to-markdown=. The code blocks found in this file are pulled in from the individual elisp files, which are themselves produced by running =M-x org-babel-tangle= on =index.org=. This provides me the benefit of having a clean documentation file for the entire configuration that is entirely decoupled from the back-end literate configuration - whatever its state of disarray.
 
 ** Installation
 ** Modification
