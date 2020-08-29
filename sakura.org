@@ -6,6 +6,7 @@
 * Table of Contents :TOC_2_ORG:
 - [[Sakura-EMACS][Sakura-EMACS]]
 - [[Sakura-EMACS][Sakura-EMACS]]
+- [[About EMACS][About EMACS]]
 - [[About Sakura-EMACS][About Sakura-EMACS]]
   - [[Screenshot][Screenshot]]
   - [[About README][About README]]
@@ -15,7 +16,8 @@
   - [[Special Thanks][Special Thanks]]
 
 * Sakura-EMACS
-*Emacs changes how you /think/ about programming.
+* About EMACS
+Emacs changes how you /think/ about programming.
 
   Emacs is *totally introspectable*. You can always find out 'what code runs when I press this button?'.
 

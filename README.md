@@ -1,24 +1,30 @@
-<a id="orgfdccfee"></a>
+<a id="orgec83d2f"></a>
 
 # Sakura-EMACS
 
 
 # Table of Contents     :TOC_2_ORG:
 
--   [Sakura-EMACS](#orgfdccfee)
--   [Sakura-EMACS](#orgfdccfee)
--   [About Sakura-EMACS](#org60c058f)
-    -   [Screenshot](#org4e3198a)
-    -   [About README](#org29b18c9)
-    -   [Installation](#orgd4330f0)
-    -   [Modification](#org3f91f4b)
-    -   [Contribiution](#orgd249b7a)
-    -   [Special Thanks](#orgdb78de9)
+-   [Sakura-EMACS](#orgec83d2f)
+-   [Sakura-EMACS](#orgec83d2f)
+-   [About EMACS](#orgd6af0f6)
+-   [About Sakura-EMACS](#orgcce6af8)
+    -   [Screenshot](#org68ac381)
+    -   [About README](#orgdbc1492)
+    -   [Installation](#org4bd6ac3)
+    -   [Modification](#orgef0f87a)
+    -   [Contribiution](#org50fe4c5)
+    -   [Special Thanks](#orgdaeffc3)
 
 
 # Sakura-EMACS
 
-\*Emacs changes how you *think* about programming.
+
+<a id="orgd6af0f6"></a>
+
+# About EMACS
+
+Emacs changes how you *think* about programming.
 
 Emacs is **totally introspectable**. You can always find out &rsquo;what code runs when I press this button?&rsquo;.
 
@@ -45,36 +51,36 @@ Emacs doesn&rsquo;t have a monopoly on good ideas, and there are other great too
 *This beautifully written **About EMACS** section credits to [Remacs](https://github.com/remacs/remacs).* About EMACS
 
 
-<a id="org60c058f"></a>
+<a id="orgcce6af8"></a>
 
 # About Sakura-EMACS
 
 
-<a id="org4e3198a"></a>
+<a id="org68ac381"></a>
 
 ## Screenshot
 
 
-<a id="org29b18c9"></a>
+<a id="orgdbc1492"></a>
 
 ## About README
 
 
-<a id="orgd4330f0"></a>
+<a id="org4bd6ac3"></a>
 
 ## Installation
 
 
-<a id="org3f91f4b"></a>
+<a id="orgef0f87a"></a>
 
 ## Modification
 
 
-<a id="orgd249b7a"></a>
+<a id="org50fe4c5"></a>
 
 ## Contribiution
 
 
-<a id="orgdb78de9"></a>
+<a id="orgdaeffc3"></a>
 
 ## Special Thanks
