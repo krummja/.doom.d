@@ -12,7 +12,7 @@
   - [[About README][About README]]
   - [[Installation][Installation]]
   - [[Modification][Modification]]
-  - [[Contribiution][Contribiution]]
+  - [[Contribution][Contribution]]
   - [[Special Thanks][Special Thanks]]
 - [[Startup][Startup]]
 - [[Package Management][Package Management]]
@@ -99,7 +99,7 @@ As mentioned in the *About README* section above, this file and the =README.md= 
 
 You must manually update this README with new changes by doing the following steps:
 
-** Contribiution
+** Contribution
 
 If you have spotted a bug or have a suggestion for this configuration, please file an issue. If you have something you'd like to fix, feel free to create a pull request.
 

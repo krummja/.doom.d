@@ -1,25 +1,43 @@
-<a id="org0639ee8"></a>
+<a id="org70e8df6"></a>
 
 # Sakura-EMACS
 
 
 # Table of Contents     :TOC_2_ORG:
 
--   [Sakura-EMACS](#org0639ee8)
--   [About Emacs](#orgcbf914a)
--   [About Doom Emacs](#org95dd0e7)
--   [About Sakura Emacs](#orga2db611)
-    -   [Screenshot](#org81ee263)
-    -   [About README](#org9ea2685)
-    -   [Installation](#orgd703acf)
-    -   [Modification](#org00c477a)
-    -   [Contribiution](#org7aaa6b2)
-    -   [Special Thanks](#org670da4b)
--   [Global Configuration](#orgeec9e43)
-    -   [User Information](#org96384a7)
+-   [Sakura-EMACS](#org70e8df6)
+-   [About Emacs](#org58d6132)
+-   [About Doom Emacs](#org6d99a81)
+-   [About Sakura Emacs](#org55588d6)
+    -   [Screenshot](#org1a9203e)
+    -   [About README](#org030998b)
+    -   [Installation](#orgde13a0a)
+    -   [Modification](#orgcdb67b8)
+    -   [Contribution](#org5cd393c)
+    -   [Special Thanks](#orgaf43988)
+-   [Startup](#org0b86c91)
+-   [Package Management](#orgb20ecbf)
+-   [Global Configuration](#orgd7d3bcb)
+    -   [User Information](#org9ac12a2)
+-   [Theming and UI](#orga40ec0d)
+    -   [Treemacs](#org1cfc1c4)
+-   [Programming](#org60304e5)
+    -   [Clojure](#org50de1de)
+    -   [Dart](#orgee57a70)
+    -   [Elisp](#org6ee52d9)
+    -   [Python](#orgc6c7ce8)
+    -   [TypeScript](#orgab87c36)
+-   [Research](#orgda4708e)
+    -   [Helm-Org-BibTeX](#orgad50bbf)
+    -   [LaTeX](#org73aa378)
+    -   [Org](#orgce1ceb6)
+    -   [Org-Roam](#org50bd4c0)
+    -   [Org-Ref](#org1743118)
+    -   [Zotxt](#org925b03a)
+-   [Miscellaneous](#org22aad18)
 
 
-<a id="orgcbf914a"></a>
+<a id="org58d6132"></a>
 
 # About Emacs
 
@@ -50,7 +68,7 @@ Emacs doesn&rsquo;t have a monopoly on good ideas, and there are other great too
 *This beautifully written **About Emacs** section credits to [Remacs](https://github.com/remacs/remacs).*
 
 
-<a id="org95dd0e7"></a>
+<a id="org6d99a81"></a>
 
 # About Doom Emacs
 
@@ -61,7 +79,7 @@ Doom is an opinionated collection of reasonable (and optional) defaults with a f
 *This **About Doom-Emacs** section credits to [Doom-Emacs](https://github.com/hlissner/doom-emacs).*
 
 
-<a id="orga2db611"></a>
+<a id="org55588d6"></a>
 
 # About Sakura Emacs
 
@@ -78,44 +96,66 @@ These principles have crystallized into a sort of philosophy that I try (sometim
 This configuration is designed and tested for **GNU Emacs 28 and above only**.
 
 
-<a id="org81ee263"></a>
+<a id="org1a9203e"></a>
 
-## Screenshot
+## TODO Screenshot
 
 
-<a id="org9ea2685"></a>
+<a id="org030998b"></a>
 
 ## About README
 
 This README is generated from `sakura.org` using `M-x org-gfm-export-to-markdown`. The code blocks found in this file are pulled in from the individual elisp files, which are themselves produced by running `M-x org-babel-tangle` on `index.org`. This provides me the benefit of having a clean documentation file for the entire configuration that is entirely decoupled from the back-end literate configuration - whatever its state of disarray.
 
 
-<a id="orgd703acf"></a>
+<a id="orgde13a0a"></a>
 
-## Installation
-
-
-<a id="org00c477a"></a>
-
-## Modification
+## TODO Installation
 
 
-<a id="org7aaa6b2"></a>
+<a id="orgcdb67b8"></a>
 
-## Contribiution
+## TODO Modification
+
+As mentioned in the **About README** section above, this file and the `README.md` generated from it are not the main literate configuration files! This file merely pulls the content of the config files in the `elisp/` directory and organizes them for documentation. The `index.org` file is the root of the actual literate configuration.
+
+You must manually update this README with new changes by doing the following steps:
 
 
-<a id="org670da4b"></a>
+<a id="org5cd393c"></a>
+
+## Contribution
+
+If you have spotted a bug or have a suggestion for this configuration, please file an issue. If you have something you&rsquo;d like to fix, feel free to create a pull request.
+
+
+<a id="orgaf43988"></a>
 
 ## Special Thanks
 
+To continue the trend of learning from people learning from people learning from people who know what they&rsquo;re doing, I want to acknowledge the configurations I&rsquo;ve taken inspiration from:
 
-<a id="orgeec9e43"></a>
+1.  [Justine Kizhakkinedath](https://gitlab.com/justinekizhak/dotfiles/blob/master/emacs/doom.d/)
+2.  [MatthewZMD](https://github.com/MatthewZMD/.emacs.d)
+3.  [hlissner](https://github.com/hlissner/doom-emacs)
 
-# Global Configuration
+
+<a id="org0b86c91"></a>
+
+# TODO Startup
 
 
-<a id="org96384a7"></a>
+<a id="orgb20ecbf"></a>
+
+# TODO Package Management
+
+
+<a id="orgd7d3bcb"></a>
+
+# TODO Global Configuration
+
+
+<a id="org9ac12a2"></a>
 
 ## User Information
 
@@ -123,3 +163,86 @@ This README is generated from `sakura.org` using `M-x org-gfm-export-to-markdown
 (setq user-full-name "Jonathan Crum")
 (setq user-mail-address "crumja@uga.edu")
 ```
+
+
+<a id="orga40ec0d"></a>
+
+# TODO Theming and UI
+
+
+<a id="org1cfc1c4"></a>
+
+## Treemacs
+
+
+<a id="org60304e5"></a>
+
+# TODO Programming
+
+
+<a id="org50de1de"></a>
+
+## Clojure
+
+
+<a id="orgee57a70"></a>
+
+## Dart
+
+
+<a id="org6ee52d9"></a>
+
+## Elisp
+
+
+<a id="orgc6c7ce8"></a>
+
+## Python
+
+
+### Jupyter
+
+
+<a id="orgab87c36"></a>
+
+## TypeScript
+
+
+<a id="orgda4708e"></a>
+
+# TODO Research
+
+
+<a id="orgad50bbf"></a>
+
+## Helm-Org-BibTeX
+
+
+<a id="org73aa378"></a>
+
+## LaTeX
+
+
+<a id="orgce1ceb6"></a>
+
+## Org
+
+
+<a id="org50bd4c0"></a>
+
+## Org-Roam
+
+
+<a id="org1743118"></a>
+
+## Org-Ref
+
+
+<a id="org925b03a"></a>
+
+## Zotxt
+
+
+<a id="org22aad18"></a>
+
+# TODO Miscellaneous
