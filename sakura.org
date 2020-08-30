@@ -119,7 +119,7 @@ c) [[https://github.com/hlissner/doom-emacs][hlissner]]
 
 ** User Information
 
-#+INCLUDE: "~/.doom.d/elisp/init-user-information.el" src emacs-lisp :lines "1-3"
+#+INCLUDE: "~/.doom.d/elisp/init-user-information.el" src emacs-lisp :lines "3-5"
 
 * TODO Theming and UI
 

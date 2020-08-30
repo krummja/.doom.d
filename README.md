@@ -1,43 +1,43 @@
-<a id="org70e8df6"></a>
+<a id="org8bb70cb"></a>
 
 # Sakura-EMACS
 
 
 # Table of Contents     :TOC_2_ORG:
 
--   [Sakura-EMACS](#org70e8df6)
--   [About Emacs](#org58d6132)
--   [About Doom Emacs](#org6d99a81)
--   [About Sakura Emacs](#org55588d6)
-    -   [Screenshot](#org1a9203e)
-    -   [About README](#org030998b)
-    -   [Installation](#orgde13a0a)
-    -   [Modification](#orgcdb67b8)
-    -   [Contribution](#org5cd393c)
-    -   [Special Thanks](#orgaf43988)
--   [Startup](#org0b86c91)
--   [Package Management](#orgb20ecbf)
--   [Global Configuration](#orgd7d3bcb)
-    -   [User Information](#org9ac12a2)
--   [Theming and UI](#orga40ec0d)
-    -   [Treemacs](#org1cfc1c4)
--   [Programming](#org60304e5)
-    -   [Clojure](#org50de1de)
-    -   [Dart](#orgee57a70)
-    -   [Elisp](#org6ee52d9)
-    -   [Python](#orgc6c7ce8)
-    -   [TypeScript](#orgab87c36)
--   [Research](#orgda4708e)
-    -   [Helm-Org-BibTeX](#orgad50bbf)
-    -   [LaTeX](#org73aa378)
-    -   [Org](#orgce1ceb6)
-    -   [Org-Roam](#org50bd4c0)
-    -   [Org-Ref](#org1743118)
-    -   [Zotxt](#org925b03a)
--   [Miscellaneous](#org22aad18)
+-   [Sakura-EMACS](#org8bb70cb)
+-   [About Emacs](#org388dee8)
+-   [About Doom Emacs](#orgca4a473)
+-   [About Sakura Emacs](#orgcaf271d)
+    -   [Screenshot](#org6971418)
+    -   [About README](#orgd970cbb)
+    -   [Installation](#orgf513430)
+    -   [Modification](#org8494620)
+    -   [Contribution](#org9381abb)
+    -   [Special Thanks](#orgbc011ad)
+-   [Startup](#orgb76f7cb)
+-   [Package Management](#orgd97b497)
+-   [Global Configuration](#org5878a9a)
+    -   [User Information](#org41d62db)
+-   [Theming and UI](#org0a9bb86)
+    -   [Treemacs](#orgca765ab)
+-   [Programming](#orgda854ef)
+    -   [Clojure](#orgec54534)
+    -   [Dart](#orgf04a6d5)
+    -   [Elisp](#orga814180)
+    -   [Python](#org4f1a43a)
+    -   [TypeScript](#orgfdb1499)
+-   [Research](#orgaf5c319)
+    -   [Helm-Org-BibTeX](#orgd5368b3)
+    -   [LaTeX](#org515400a)
+    -   [Org](#org7ee623e)
+    -   [Org-Roam](#org81b7d42)
+    -   [Org-Ref](#org5871515)
+    -   [Zotxt](#org1594f8a)
+-   [Miscellaneous](#org8d464d2)
 
 
-<a id="org58d6132"></a>
+<a id="org388dee8"></a>
 
 # About Emacs
 
@@ -68,7 +68,7 @@ Emacs doesn&rsquo;t have a monopoly on good ideas, and there are other great too
 *This beautifully written **About Emacs** section credits to [Remacs](https://github.com/remacs/remacs).*
 
 
-<a id="org6d99a81"></a>
+<a id="orgca4a473"></a>
 
 # About Doom Emacs
 
@@ -79,7 +79,7 @@ Doom is an opinionated collection of reasonable (and optional) defaults with a f
 *This **About Doom-Emacs** section credits to [Doom-Emacs](https://github.com/hlissner/doom-emacs).*
 
 
-<a id="org55588d6"></a>
+<a id="orgcaf271d"></a>
 
 # About Sakura Emacs
 
@@ -96,24 +96,24 @@ These principles have crystallized into a sort of philosophy that I try (sometim
 This configuration is designed and tested for **GNU Emacs 28 and above only**.
 
 
-<a id="org1a9203e"></a>
+<a id="org6971418"></a>
 
 ## TODO Screenshot
 
 
-<a id="org030998b"></a>
+<a id="orgd970cbb"></a>
 
 ## About README
 
 This README is generated from `sakura.org` using `M-x org-gfm-export-to-markdown`. The code blocks found in this file are pulled in from the individual elisp files, which are themselves produced by running `M-x org-babel-tangle` on `index.org`. This provides me the benefit of having a clean documentation file for the entire configuration that is entirely decoupled from the back-end literate configuration - whatever its state of disarray.
 
 
-<a id="orgde13a0a"></a>
+<a id="orgf513430"></a>
 
 ## TODO Installation
 
 
-<a id="orgcdb67b8"></a>
+<a id="org8494620"></a>
 
 ## TODO Modification
 
@@ -122,14 +122,14 @@ As mentioned in the **About README** section above, this file and the `README.md
 You must manually update this README with new changes by doing the following steps:
 
 
-<a id="org5cd393c"></a>
+<a id="org9381abb"></a>
 
 ## Contribution
 
 If you have spotted a bug or have a suggestion for this configuration, please file an issue. If you have something you&rsquo;d like to fix, feel free to create a pull request.
 
 
-<a id="orgaf43988"></a>
+<a id="orgbc011ad"></a>
 
 ## Special Thanks
 
@@ -140,22 +140,22 @@ To continue the trend of learning from people learning from people learning from
 3.  [hlissner](https://github.com/hlissner/doom-emacs)
 
 
-<a id="org0b86c91"></a>
+<a id="orgb76f7cb"></a>
 
 # TODO Startup
 
 
-<a id="orgb20ecbf"></a>
+<a id="orgd97b497"></a>
 
 # TODO Package Management
 
 
-<a id="orgd7d3bcb"></a>
+<a id="org5878a9a"></a>
 
 # TODO Global Configuration
 
 
-<a id="org9ac12a2"></a>
+<a id="org41d62db"></a>
 
 ## User Information
 
@@ -165,37 +165,37 @@ To continue the trend of learning from people learning from people learning from
 ```
 
 
-<a id="orga40ec0d"></a>
+<a id="org0a9bb86"></a>
 
 # TODO Theming and UI
 
 
-<a id="org1cfc1c4"></a>
+<a id="orgca765ab"></a>
 
 ## Treemacs
 
 
-<a id="org60304e5"></a>
+<a id="orgda854ef"></a>
 
 # TODO Programming
 
 
-<a id="org50de1de"></a>
+<a id="orgec54534"></a>
 
 ## Clojure
 
 
-<a id="orgee57a70"></a>
+<a id="orgf04a6d5"></a>
 
 ## Dart
 
 
-<a id="org6ee52d9"></a>
+<a id="orga814180"></a>
 
 ## Elisp
 
 
-<a id="orgc6c7ce8"></a>
+<a id="org4f1a43a"></a>
 
 ## Python
 
@@ -203,46 +203,46 @@ To continue the trend of learning from people learning from people learning from
 ### Jupyter
 
 
-<a id="orgab87c36"></a>
+<a id="orgfdb1499"></a>
 
 ## TypeScript
 
 
-<a id="orgda4708e"></a>
+<a id="orgaf5c319"></a>
 
 # TODO Research
 
 
-<a id="orgad50bbf"></a>
+<a id="orgd5368b3"></a>
 
 ## Helm-Org-BibTeX
 
 
-<a id="org73aa378"></a>
+<a id="org515400a"></a>
 
 ## LaTeX
 
 
-<a id="orgce1ceb6"></a>
+<a id="org7ee623e"></a>
 
 ## Org
 
 
-<a id="org50bd4c0"></a>
+<a id="org81b7d42"></a>
 
 ## Org-Roam
 
 
-<a id="org1743118"></a>
+<a id="org5871515"></a>
 
 ## Org-Ref
 
 
-<a id="org925b03a"></a>
+<a id="org1594f8a"></a>
 
 ## Zotxt
 
 
-<a id="org22aad18"></a>
+<a id="org8d464d2"></a>
 
 # TODO Miscellaneous

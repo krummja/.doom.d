@@ -1,6 +1,7 @@
 #+TITLE: Sakura Emacs Literate Configuration Index
 
 
+
 * Package Management
 
 #+BEGIN_SRC emacs-lisp :tangle "./elisp/init-package-management.el"
@@ -12,6 +13,8 @@
 ** User Information
 
 #+BEGIN_SRC emacs-lisp :tangle "./elisp/init-user-information.el"
+;;; init-user-information.el --- -*- lexical-binding: t -*-
+
 (setq user-full-name "Jonathan Crum")
 (setq user-mail-address "crumja@uga.edu")
 #+END_SRC
