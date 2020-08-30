@@ -15,9 +15,11 @@
   - [[Contribution][Contribution]]
   - [[Special Thanks][Special Thanks]]
 - [[Startup][Startup]]
-- [[Package Management][Package Management]]
 - [[Global Configuration][Global Configuration]]
   - [[User Information][User Information]]
+  - [[Path Constants][Path Constants]]
+- [[Custom Functions][Custom Functions]]
+- [[Keybindings][Keybindings]]
 - [[Theming and UI][Theming and UI]]
   - [[Treemacs][Treemacs]]
 - [[Programming][Programming]]
@@ -90,14 +92,10 @@ This configuration is designed and tested for *GNU Emacs 28 and above only*.
 ** TODO Screenshot
 ** About README
 
-This README is generated from =sakura.org= using =M-x org-gfm-export-to-markdown=. The code blocks found in this file are pulled in from the individual elisp files, which are themselves produced by running =M-x org-babel-tangle= on =index.org=. This provides me the benefit of having a clean documentation file for the entire configuration that is entirely decoupled from the back-end literate configuration - whatever its state of disarray.
+This README is generated from =sakura.org= using =M-x org-gfm-export-to-markdown=. This file also generates the actual configuration by running =M-x org-babel-tangle=.
 
 ** TODO Installation
 ** TODO Modification
-
-As mentioned in the *About README* section above, this file and the =README.md= generated from it are not the main literate configuration files! This file merely pulls the content of the config files in the =elisp/= directory and organizes them for documentation. The =index.org= file is the root of the actual literate configuration.
-
-You must manually update this README with new changes by doing the following steps:
 
 ** Contribution
 
@@ -113,14 +111,33 @@ c) [[https://github.com/hlissner/doom-emacs][hlissner]]
   
 * TODO Startup
 
-* TODO Package Management
+#+BEGIN_SRC emacs-lisp :tangle "./config.el"
+(load! "./elisp/init-user-information.el")
+(load! "./elisp/init-path-constants.el")
+#+END_SRC
 
 * TODO Global Configuration
 
+The *Global Configuration* houses all settings that are not specific to a layer.
+
 ** User Information
+#+BEGIN_SRC emacs-lisp :tangle "./elisp/init-user-information.el"
+;;; init-user-information.el --- -*- lexical-binding: t -*-
 
-#+INCLUDE: "~/.doom.d/elisp/init-user-information.el" src emacs-lisp :lines "3-5"
+(setq user-full-name "Jonathan Crum")
+(setq user-mail-address "crumja@uga.edu")
+#+END_SRC
 
+** Path Constants
+#+BEGIN_SRC emacs-lisp :tangle "./elisp/init-path-constants.el"
+;;; init-path-constants.el --- -*- lexical-binding: t -*-
+
+(setq NOTEBOOK (concat (getenv "HOME") "/Notebook"))
+(setq BIBLIOGRAPHY (concat (getenv "HOME") "/texmf/bibtex/bib/master.bib"))
+#+END_SRC
+
+* TODO Custom Functions
+* TODO Keybindings
 * TODO Theming and UI
 
 ** Treemacs
