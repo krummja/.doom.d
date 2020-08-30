@@ -14,8 +14,26 @@
   - [[Modification][Modification]]
   - [[Contribiution][Contribiution]]
   - [[Special Thanks][Special Thanks]]
+- [[Startup][Startup]]
+- [[Package Management][Package Management]]
 - [[Global Configuration][Global Configuration]]
   - [[User Information][User Information]]
+- [[Theming and UI][Theming and UI]]
+  - [[Treemacs][Treemacs]]
+- [[Programming][Programming]]
+  - [[Clojure][Clojure]]
+  - [[Dart][Dart]]
+  - [[Elisp][Elisp]]
+  - [[Python][Python]]
+  - [[TypeScript][TypeScript]]
+- [[Research][Research]]
+  - [[Helm-Org-BibTeX][Helm-Org-BibTeX]]
+  - [[LaTeX][LaTeX]]
+  - [[Org][Org]]
+  - [[Org-Roam][Org-Roam]]
+  - [[Org-Ref][Org-Ref]]
+  - [[Zotxt][Zotxt]]
+- [[Miscellaneous][Miscellaneous]]
 
 * About Emacs
 Emacs changes how you /think/ about programming.
@@ -69,18 +87,60 @@ These principles have crystallized into a sort of philosophy that I try (sometim
 
 This configuration is designed and tested for *GNU Emacs 28 and above only*.
 
-** Screenshot
+** TODO Screenshot
 ** About README
 
 This README is generated from =sakura.org= using =M-x org-gfm-export-to-markdown=. The code blocks found in this file are pulled in from the individual elisp files, which are themselves produced by running =M-x org-babel-tangle= on =index.org=. This provides me the benefit of having a clean documentation file for the entire configuration that is entirely decoupled from the back-end literate configuration - whatever its state of disarray.
 
-** Installation
-** Modification
+** TODO Installation
+** TODO Modification
+
+As mentioned in the *About README* section above, this file and the =README.md= generated from it are not the main literate configuration files! This file merely pulls the content of the config files in the =elisp/= directory and organizes them for documentation. The =index.org= file is the root of the actual literate configuration.
+
+You must manually update this README with new changes by doing the following steps:
+
 ** Contribiution
+
+If you have spotted a bug or have a suggestion for this configuration, please file an issue. If you have something you'd like to fix, feel free to create a pull request.
+
 ** Special Thanks
 
-* Global Configuration
+To continue the trend of learning from people learning from people learning from people who know what they're doing, I want to acknowledge the configurations I've taken inspiration from:
+
+a) [[https://gitlab.com/justinekizhak/dotfiles/blob/master/emacs/doom.d/][Justine Kizhakkinedath]]
+b) [[https://github.com/MatthewZMD/.emacs.d][MatthewZMD]]
+c) [[https://github.com/hlissner/doom-emacs][hlissner]]
+  
+* TODO Startup
+
+* TODO Package Management
+
+* TODO Global Configuration
 
 ** User Information
 
 #+INCLUDE: "~/.doom.d/elisp/init-user-information.el" src emacs-lisp :lines "1-3"
+
+* TODO Theming and UI
+
+** Treemacs
+
+* TODO Programming
+
+** Clojure
+** Dart
+** Elisp
+** Python
+*** Jupyter
+** TypeScript
+
+* TODO Research
+
+** Helm-Org-BibTeX
+** LaTeX
+** Org
+** Org-Roam
+** Org-Ref
+** Zotxt
+
+* TODO Miscellaneous
