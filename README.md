@@ -1,45 +1,48 @@
-<a id="org31a77e8"></a>
+<a id="org90c96b9"></a>
 
 # Sakura-EMACS
 
 
 # Table of Contents     :TOC_2_ORG:
 
--   [Sakura-EMACS](#org31a77e8)
--   [About Emacs](#org38ac41b)
--   [About Doom Emacs](#orgbb76833)
--   [About Sakura Emacs](#org1099f42)
-    -   [Screenshot](#org90adcb1)
-    -   [About README](#org0a633cb)
-    -   [Installation](#org485117c)
-    -   [Modification](#org703ec76)
-    -   [Contribution](#org4470b81)
-    -   [Special Thanks](#org70c6aaf)
--   [Startup](#org17bfa63)
--   [Global Configuration](#org5bc8739)
-    -   [User Information](#org245e036)
-    -   [Path Constants](#orgf69a280)
--   [Custom Functions](#org4591ce9)
--   [Keybindings](#org12384c5)
--   [Theming and UI](#orgcba2970)
-    -   [Treemacs](#org6a08e11)
--   [Programming](#org9281196)
-    -   [Clojure](#org0e2f2f7)
-    -   [Dart](#org9207809)
-    -   [Elisp](#org6421464)
-    -   [Python](#orgc550081)
-    -   [TypeScript](#orgedee693)
--   [Research](#org7d5f266)
-    -   [Helm-Org-BibTeX](#orgc591959)
-    -   [LaTeX](#org71665f2)
-    -   [Org](#org659c591)
-    -   [Org-Roam](#orgcf1b7b5)
-    -   [Org-Ref](#orgc76e69a)
-    -   [Zotxt](#org691adb7)
--   [Miscellaneous](#org0fee04f)
+-   [Sakura-EMACS](#org90c96b9)
+-   [About Emacs](#org7fdb6b8)
+-   [About Doom Emacs](#orgd984ea7)
+-   [About Sakura Emacs](#org969529a)
+    -   [Screenshot](#org219595a)
+    -   [About README](#org5d713c2)
+    -   [Installation](#orgbeee84b)
+    -   [Modification](#org876092c)
+    -   [Contribution](#orge668938)
+    -   [Special Thanks](#orgcbe2171)
+-   [Startup](#orge506c24)
+    -   [Load Configurations](#org12dcc89)
+    -   [Hooks](#orgea8c74c)
+-   [Global Configuration](#org56fea4c)
+    -   [User Information](#org969021e)
+    -   [Path Constants](#org098f5b4)
+-   [Custom Functions](#org7365939)
+    -   [Add Tangle Headers](#org5f96559)
+-   [Keybindings](#orgd02e80e)
+-   [Theming and UI](#orgfb2f160)
+    -   [Treemacs](#org9eff4d8)
+-   [Programming](#org80cf393)
+    -   [Clojure](#org5314b6f)
+    -   [Dart](#orgad33b6a)
+    -   [Elisp](#orgbb23678)
+    -   [Python](#org42c8069)
+    -   [TypeScript](#orgf03b102)
+-   [Research](#org5dde795)
+    -   [Helm-Org-BibTeX](#org7593bff)
+    -   [LaTeX](#org9e7f580)
+    -   [Org](#orgdb6a037)
+    -   [Org-Roam](#orgc12a97b)
+    -   [Org-Ref](#orgf9e55a0)
+    -   [Zotxt](#org9da3c02)
+-   [Miscellaneous](#org5aa10de)
 
 
-<a id="org38ac41b"></a>
+<a id="org7fdb6b8"></a>
 
 # About Emacs
 
@@ -70,7 +73,7 @@ Emacs doesn&rsquo;t have a monopoly on good ideas, and there are other great too
 *This beautifully written **About Emacs** section credits to [Remacs](https://github.com/remacs/remacs).*
 
 
-<a id="orgbb76833"></a>
+<a id="orgd984ea7"></a>
 
 # About Doom Emacs
 
@@ -81,7 +84,7 @@ Doom is an opinionated collection of reasonable (and optional) defaults with a f
 *This **About Doom-Emacs** section credits to [Doom-Emacs](https://github.com/hlissner/doom-emacs).*
 
 
-<a id="org1099f42"></a>
+<a id="org969529a"></a>
 
 # About Sakura Emacs
 
@@ -98,36 +101,36 @@ These principles have crystallized into a sort of philosophy that I try (sometim
 This configuration is designed and tested for **GNU Emacs 28 and above only**.
 
 
-<a id="org90adcb1"></a>
+<a id="org219595a"></a>
 
 ## TODO Screenshot
 
 
-<a id="org0a633cb"></a>
+<a id="org5d713c2"></a>
 
 ## About README
 
 This README is generated from `sakura.org` using `M-x org-gfm-export-to-markdown`. This file also generates the actual configuration by running `M-x org-babel-tangle`.
 
 
-<a id="org485117c"></a>
+<a id="orgbeee84b"></a>
 
 ## TODO Installation
 
 
-<a id="org703ec76"></a>
+<a id="org876092c"></a>
 
 ## TODO Modification
 
 
-<a id="org4470b81"></a>
+<a id="orge668938"></a>
 
 ## Contribution
 
 If you have spotted a bug or have a suggestion for this configuration, please file an issue. If you have something you&rsquo;d like to fix, feel free to create a pull request.
 
 
-<a id="org70c6aaf"></a>
+<a id="orgcbe2171"></a>
 
 ## Special Thanks
 
@@ -138,88 +141,123 @@ To continue the trend of learning from people learning from people learning from
 3.  [hlissner](https://github.com/hlissner/doom-emacs)
 
 
-<a id="org17bfa63"></a>
+<a id="orge506c24"></a>
 
 # TODO Startup
+
+
+<a id="org12dcc89"></a>
+
+## Load Configurations
 
 ```emacs-lisp
 (load! "./elisp/init-user-information.el")
 (load! "./elisp/init-path-constants.el")
+(load! "./elisp/custom-functions.el")
 ```
 
 
-<a id="org5bc8739"></a>
+<a id="orgea8c74c"></a>
+
+## Hooks
+
+```emacs-lisp
+(add-hook 'org-babel-post-tangle-hook 'add-tangle-headers)
+```
+
+
+<a id="org56fea4c"></a>
 
 # TODO Global Configuration
 
 The **Global Configuration** houses all settings that are not specific to a layer.
 
 
-<a id="org245e036"></a>
+<a id="org969021e"></a>
 
 ## User Information
 
 ```emacs-lisp
-;;; init-user-information.el --- -*- lexical-binding: t -*-
-
 (setq user-full-name "Jonathan Crum")
 (setq user-mail-address "crumja@uga.edu")
 ```
 
 
-<a id="orgf69a280"></a>
+<a id="org098f5b4"></a>
 
 ## Path Constants
 
 ```emacs-lisp
-;;; init-path-constants.el --- -*- lexical-binding: t -*-
-
 (setq NOTEBOOK (concat (getenv "HOME") "/Notebook"))
 (setq BIBLIOGRAPHY (concat (getenv "HOME") "/texmf/bibtex/bib/master.bib"))
 ```
 
 
-<a id="org4591ce9"></a>
+<a id="org7365939"></a>
 
 # TODO Custom Functions
 
 
-<a id="org12384c5"></a>
+<a id="org5f96559"></a>
+
+## Add Tangle Headers
+
+Append a specific string or header to a file on executing `org-babel-tangle`. From [this stackexchange](https://emacs.stackexchange.com/questions/50488/adding-header-to-a-org-mode-tangled-file).
+
+This function is especially useful when tangling a configuration, such as this one, and then exporting separately to markdown. This prevents the generated markdown file from being polluted with unnecessary lines like `lexical-binding` headers.
+
+```emacs-lisp
+(defun add-tangle-headers ()
+  (message "running in %s" (buffer-file-name))
+  (cond
+   ((f-ext? (buffer-file-name) "py")
+    (goto-char (point-min))
+    (insert "# This is a generated file - do not edit.\n"))
+   ((f-ext? (buffer-file-name) "el")
+    (goto-char (point-min))
+    (insert ";;; -*- lexical-binding: t -*-\n"))
+   (t
+    nil))
+  (save-buffer))
+```
+
+
+<a id="orgd02e80e"></a>
 
 # TODO Keybindings
 
 
-<a id="orgcba2970"></a>
+<a id="orgfb2f160"></a>
 
 # TODO Theming and UI
 
 
-<a id="org6a08e11"></a>
+<a id="org9eff4d8"></a>
 
 ## Treemacs
 
 
-<a id="org9281196"></a>
+<a id="org80cf393"></a>
 
 # TODO Programming
 
 
-<a id="org0e2f2f7"></a>
+<a id="org5314b6f"></a>
 
 ## Clojure
 
 
-<a id="org9207809"></a>
+<a id="orgad33b6a"></a>
 
 ## Dart
 
 
-<a id="org6421464"></a>
+<a id="orgbb23678"></a>
 
 ## Elisp
 
 
-<a id="orgc550081"></a>
+<a id="org42c8069"></a>
 
 ## Python
 
@@ -227,46 +265,46 @@ The **Global Configuration** houses all settings that are not specific to a laye
 ### Jupyter
 
 
-<a id="orgedee693"></a>
+<a id="orgf03b102"></a>
 
 ## TypeScript
 
 
-<a id="org7d5f266"></a>
+<a id="org5dde795"></a>
 
 # TODO Research
 
 
-<a id="orgc591959"></a>
+<a id="org7593bff"></a>
 
 ## Helm-Org-BibTeX
 
 
-<a id="org71665f2"></a>
+<a id="org9e7f580"></a>
 
 ## LaTeX
 
 
-<a id="org659c591"></a>
+<a id="orgdb6a037"></a>
 
 ## Org
 
 
-<a id="orgcf1b7b5"></a>
+<a id="orgc12a97b"></a>
 
 ## Org-Roam
 
 
-<a id="orgc76e69a"></a>
+<a id="orgf9e55a0"></a>
 
 ## Org-Ref
 
 
-<a id="org691adb7"></a>
+<a id="org9da3c02"></a>
 
 ## Zotxt
 
 
-<a id="org0fee04f"></a>
+<a id="org5aa10de"></a>
 
 # TODO Miscellaneous
