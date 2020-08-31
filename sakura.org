@@ -1,46 +1,36 @@
 #+OPTIONS: toc:nil
 #+EXPORT_FILE_NAME: README
 
-* Sakura-EMACS
-
+* Sakura Emacs
 * Table of Contents :TOC_2_ORG:
-- [[Sakura-EMACS][Sakura-EMACS]]
-- [[About Emacs][About Emacs]]
-- [[About Doom Emacs][About Doom Emacs]]
-- [[About Sakura Emacs][About Sakura Emacs]]
-  - [[Screenshot][Screenshot]]
-  - [[About README][About README]]
-  - [[Installation][Installation]]
-  - [[Modification][Modification]]
-  - [[Contribution][Contribution]]
-  - [[Special Thanks][Special Thanks]]
-- [[Startup][Startup]]
-  - [[Load Configurations][Load Configurations]]
-  - [[Hooks][Hooks]]
-- [[Global Configuration][Global Configuration]]
-  - [[User Information][User Information]]
+- [[Sakura Emacs][Sakura Emacs]]
+- [[Introduction][Introduction]]
+  - [[About Emacs][About Emacs]]
+  - [[About Doom Emacs][About Doom Emacs]]
+  - [[About Sakura Emacs][About Sakura Emacs]]
+- [[Init][Init]]
+  - [[Completion][Completion]]
+  - [[UI][UI]]
+  - [[Editor][Editor]]
+  - [[Emacs][Emacs]]
+  - [[Tools][Tools]]
+  - [[Lang][Lang]]
+  - [[EMail][EMail]]
+  - [[App][App]]
+- [[Config][Config]]
+  - [[Basic Information][Basic Information]]
   - [[Path Constants][Path Constants]]
-- [[Custom Functions][Custom Functions]]
-  - [[Add Tangle Headers][Add Tangle Headers]]
-- [[Keybindings][Keybindings]]
-- [[Theming and UI][Theming and UI]]
-  - [[Treemacs][Treemacs]]
-- [[Programming][Programming]]
-  - [[Clojure][Clojure]]
-  - [[Dart][Dart]]
-  - [[Elisp][Elisp]]
-  - [[Python][Python]]
-  - [[TypeScript][TypeScript]]
-- [[Research][Research]]
-  - [[Helm-Org-BibTeX][Helm-Org-BibTeX]]
-  - [[LaTeX][LaTeX]]
-  - [[Org][Org]]
-  - [[Org-Roam][Org-Roam]]
-  - [[Org-Ref][Org-Ref]]
-  - [[Zotxt][Zotxt]]
-- [[Miscellaneous][Miscellaneous]]
+  - [[Load Private Modules][Load Private Modules]]
+  - [[Hooks][Hooks]]
+- [[Packages][Packages]]
+  - [[Research Packages][Research Packages]]
+  - [[Programming Packages][Programming Packages]]
+- [[Private Modules][Private Modules]]
+  - [[Theming][Theming]]
+  - [[Custom Functions][Custom Functions]]
 
-* About Emacs
+* Introduction
+** About Emacs
 Emacs changes how you /think/ about programming.
 
   Emacs is *totally introspectable*. You can always find out 'what code runs when I press this button?'.
@@ -65,7 +55,7 @@ Emacs changes how you /think/ about programming.
 
   /This beautifully written *About Emacs* section credits to [[https://github.com/remacs/remacs][Remacs]]./
 
-* About Doom Emacs
+** About Doom Emacs
 Doom is a configuration framework for [[https://www.gnu.org/software/emacs/][GNU Emacs 26.3+]] tailored for Emacs
 bankruptcy veterans who want less framework in their frameworks and the
 performance of a hand rolled config (or better). It can be a foundation for your
@@ -78,8 +68,7 @@ readable code design, so that there is less between you and Emacs.
 
 /This *About Doom-Emacs* section credits to [[https://github.com/hlissner/doom-emacs][Doom-Emacs]]./
 
-* About Sakura Emacs
-
+** About Sakura Emacs
 *Sakura Emacs* is a custom Doom Emacs configuration that aims to enhance the default Doom experience with certain opinionated package selections. Sakura's theming and color selection is based on my personal color palette that I use for my i3-regolith desktop configuration. One of my goals with this setup was to provide centralized documentation which can be easily navigated and referenced. This file contains virtually all of the configuration code for Sakura.
 
 As a neurodivergent grad student, I have gone through multiple productivity and notetaking suites, including many Emacs configurations, looking for the "perfect" setup for my research workflow. I have come to understand a few basic principles from this quest.
@@ -92,60 +81,420 @@ These principles have crystallized into a sort of philosophy that I try (sometim
 
 This configuration is designed and tested for *GNU Emacs 28 and above only*.
 
-** TODO Screenshot
-** About README
+*** Screenshot
+*** About README
 
 This README is generated from =sakura.org= using =M-x org-gfm-export-to-markdown=. This file also generates the actual configuration by running =M-x org-babel-tangle=.
 
-** TODO Installation
-** TODO Modification
+*** Installation
+*** Modification
 
-** Contribution
+*** Contribution
 
 If you have spotted a bug or have a suggestion for this configuration, please file an issue. If you have something you'd like to fix, feel free to create a pull request.
 
-** Special Thanks
+*** Special Thanks
 
 To continue the trend of learning from people learning from people learning from people who know what they're doing, I want to acknowledge the configurations I've taken inspiration from:
 
 a) [[https://gitlab.com/justinekizhak/dotfiles/blob/master/emacs/doom.d/][Justine Kizhakkinedath]]
+b) [[https://github.com/tecosaur/emacs-config/][tecosaur]]
 b) [[https://github.com/MatthewZMD/.emacs.d][MatthewZMD]]
 c) [[https://github.com/hlissner/doom-emacs][hlissner]]
   
-* TODO Startup
-
-** Load Configurations
-#+BEGIN_SRC emacs-lisp :tangle "./config.el"
-(load! "./elisp/init-user-information.el")
-(load! "./elisp/init-path-constants.el")
-(load! "./elisp/custom-functions.el")
+* Init
+** Completion
+#+BEGIN_SRC emacs-lisp :tangle "./init.el"
+(doom! :completion
+       company           ; the ultimate code completion backend
+       helm              ; the *other* search engine for love and life
+       )
 #+END_SRC
 
-** Hooks
-#+BEGIN_SRC emacs-lisp :tangle "./config.el"
-(add-hook 'org-babel-post-tangle-hook 'add-tangle-headers)
+** UI
+#+BEGIN_SRC emacs-lisp :tangle "./init.el"
+(doom! :ui
+       deft              ; notational velocity for Emacs
+       doom              ; what makes DOOM look the way it does
+       doom-dashboard    ; a nifty splash screen for
+       ;;doom-quit        ; DOOM quit-message prompts when you quit emacs
+       hl-todo           ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
+       nav-flash
+       modeline          ; snazzy, Atom-inspired modeline, plus API
+       ophints           ; highlight the region an operation acts on
+       (popup +defaults)   ; tame sudden yet inevitable temporary windows
+       vc-gutter         ; vcs diff in the fringe
+       vi-tilde-fringe   ; fringe tildes to mark beyond EOB
+       workspaces        ; tab emulation, persistence & separate workspaces
+       zen               ; distraction-free coding or writing
+       treemacs
+       )
 #+END_SRC
 
-* TODO Global Configuration
+** Editor
+#+BEGIN_SRC emacs-lisp :tangle "./init.el"
+(doom! :editor
+       (evil +everywhere); come to the dark side, we have cookies
+       file-templates    ; auto-snippets for empty files
+       fold              ; (nigh) universal code folding
+       snippets          ; my elves. They type so I don't have to
+       )
+#+END_SRC
 
-The *Global Configuration* houses all settings that are not specific to a layer.
+** Emacs
+#+BEGIN_SRC emacs-lisp :tangle "./init.el"
+(doom! :emacs
+       dired             ; making dired pretty [functional]
+       electric          ; smarter, keyword-based electric-indent
+       undo              ; persistent, smarter undo for your inevitable mistakes
+       vc                ; version-control and Emacs, sitting in a tree
+       )
+#+END_SRC
 
-** User Information
+** Tools
+#+BEGIN_SRC emacs-lisp :tangle "./init.el"
+(doom! :tools
+       (eval +overlay)   ; run code, run (also, repls)
+       ein               ; cruising the clouds of jupyter
+       lookup            ; navigate your code and its documentation
+       magit             ; a git porcelain for Emacs
+       rgb               ; creating color strings
+       )
+#+END_SRC
 
-#+BEGIN_SRC emacs-lisp :tangle "./elisp/init-user-information.el"
+** Lang
+#+BEGIN_SRC emacs-lisp :tangle "./init.el"
+(doom! :lang
+       clojure           ; java with a lisp
+       emacs-lisp        ; drown in parentheses
+       latex             ; writing papers in Emacs has never been so fun
+       markdown          ; writing docs for people to ignore
+       (org               ; organize your plain life in plain text
+        +babel
+        +brain
+        +capture
+        +export
+        +journal
+        +pandoc
+        +roam
+        )
+       sh                ; she sells {ba,z,fi}sh shells on the C xor
+       (dart +flutter)   ; paint ui and not much else
+       gdscript          ; the language you waited for
+       json              ; At least it ain't XML
+       javascript        ; all(hope(abandon(ye(who(enter(here))))))
+       python            ; beautiful is better than ugly
+       ;;rest              ; Emacs as a REST client
+       rst               ; ReST in peace
+       )
+#+END_SRC
+
+** EMail
+#+BEGIN_SRC emacs-lisp :tangle "./init.el"
+(doom! :email
+       ;;(mu4e +gmail)
+       ;;notmuch
+       ;;(wanderlust +gmail)
+       )
+#+END_SRC
+
+** App
+#+BEGIN_SRC emacs-lisp :tangle "./init.el"
+(doom! :app
+       ;;calendar
+       ;;irc               ; how neckbeards socialize
+       ;;(rss +org)        ; emacs as an RSS reader
+       ;;twitter           ; twitter client https://twitter.com/vnought
+       )
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp :tangle "./init.el"
+(doom! :config
+       (default +bindings +smartparens)
+)
+#+END_SRC
+
+* Config
+** Basic Information
+#+BEGIN_SRC emacs-lisp :tangle "./config.el"
 (setq user-full-name "Jonathan Crum")
 (setq user-mail-address "crumja@uga.edu")
 #+END_SRC
-
 ** Path Constants
-#+BEGIN_SRC emacs-lisp :tangle "./elisp/init-path-constants.el"
+#+BEGIN_SRC emacs-lisp :tangle "./config.el"
 (setq NOTEBOOK (concat (getenv "HOME") "/Notebook"))
 (setq BIBLIOGRAPHY (concat (getenv "HOME") "/texmf/bibtex/bib/master.bib"))
 #+END_SRC
+** Load Private Modules
+#+BEGIN_SRC emacs-lisp :tangle "./config.el"
+(load! "./elisp/init-sakura-theming.el")
+(load! "./elisp/custom-functions.el")
 
-* TODO Custom Functions
+(load! "./themes/doom-sakura-light-theme.el")
+(load! "./themes/doom-sakura-dark-theme.el")
+#+END_SRC
+** Hooks
+#+BEGIN_SRC emacs-lisp :tangle "./config.el"
+(add-hook! 'org-babel-post-tangle-hook 'add-tangle-headers)
+(add-hook! '(+doom-dashboard-mode-hook)
+  (setq fancy-splash-image "~/.doom.d/images/sakura_emacs.png"))
 
-** Add Tangle Headers
+;; Some hooks seem not to play so nice with the doom ! notation... something to do with using a lambda expression? Test this.
+(add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+
+(remove-hook! 'text-mode-hook #'auto-fill-mode)
+#+END_SRC
+* Packages
+** Research Packages
+*** Org-Mode
+*** Org-Ref
+*** Org-Roam
+** Programming Packages
+*** Clojure
+*** Dart
+*** TypeScript
+*** Python
+* Private Modules
+** Theming
+*** Theme Configuration
+#+BEGIN_SRC emacs-lisp :tangle "./elisp/init-sakura-theming.el"
+(setq doom-theme 'doom-sakura-light)
+(setq doom-font (font-spec :family "Fira Code" :size 14 :weight 'normal))
+(setq display-line-numbers-type nil)
+
+(setq org-superstar-headline-bullets-list '("☰" "☷" "☵" "☲" "☳" "☴" "☶" "☱" ))
+#+END_SRC
+
+*** Sakura Theming
+**** Light Theme
+#+BEGIN_SRC emacs-lisp :tangle "./themes/doom-sakura-light-theme.el"
+(require 'doom-themes)
+
+;;
+(defgroup doom-sakura-light-theme nil
+  "Options for doom-themes"
+  :group  'doom-themes)
+
+(defcustom doom-sakura-light-brighter-modeline nil
+  "If non-nil, more vivid colors will be used to style the mode-line."
+  :group  'doom-sakura-light-theme
+  :type   'boolean)
+
+(defcustom doom-sakura-light-brighter-comments nil
+  "If non-nil, comments will be highlighted in more vivid colors."
+  :group  'doom-sakura-light-theme
+  :type   'boolean)
+
+(defcustom doom-sakura-light-comment-bg doom-sakura-light-brighter-comments
+  "If non-nil, comments will have a subtle, darker background, enchancing legibility."
+  :group  'doom-sakura-light-theme
+  :type   'boolean)
+
+(defcustom doom-sakura-light-padded-modeline doom-themes-padded-modeline
+  "If non-nil, adds a 4px padding to the mode-line. Can beinteger to determine exact padding."
+  :group  'doom-sakura-light-theme
+  :type   '(choice integer boolean))
+
+;;
+(def-doom-theme doom-sakura-light
+  "A pleasant light theme."
+
+
+  ;; name           default     256   16
+  ( (bg           '("#FBF7EF"   nil   nil))
+    (bg-alt       '("#FBF7EF"   nil   nil))
+    (base0        '("#363636"   nil   nil))
+    (base1        '("#414141"   nil   nil))
+    (base2        '("#BF9B9F"   nil   nil))
+    (base3        '("#ebe6ea"   nil   nil)) ;; CONTROLS THE BLOCK HIGHLIGHT FFS
+    (base4        '("#C9678D"   nil   nil))
+    (base5        '("#ECA7D5"   nil   nil))
+    (base6        '("#C9678D"   nil   nil))
+    (base7        '("#E7CEEE"   nil   nil))
+    (base8        '("#E2D8F5"   nil   nil))
+    (fg           '("#2A2A2A"   nil   nil))
+    (fg-alt       '("#2A2A2A"   nil   nil))
+
+    (grey base6)
+    (red          '("#BE3445"   nil   nil))
+    (orange       '("#D36745"   nil   nil))
+    (green        '("#AAC275"   nil   nil))
+    (yellow       '("#E1B967"   nil   nil))
+    (magenta      '("#CE67CF"   nil   nil))
+
+    (teal         '("#29838D"   nil   nil))
+    (blue         '("#3B6EA8"   nil   nil))
+    (dark-blue    '("#5272AF"   nil   nil))
+    (violet       '("#842879"   nil   nil))
+    (cyan         '("#398EAC"   nil   nil))
+    (dark-cyan    '("#2C7088"   nil   nil))
+
+    ;; face categories -- required for all themes
+    (highlight (doom-blend blue bg 0.8))
+    (vertical-bar (doom-darken bg 0.15))
+    (selection (doom-blend blue bg 0.5))
+    (builtin teal)
+    (comments (if doom-sakura-light-brighter-comments dark-cyan (doom-darken base5 0.2)))
+    (doc-comments (doom-darken (if doom-sakura-light-brighter-comments dark-cyan base5) 0.25))
+    (constants magenta)
+    (functions teal)
+    (keywords blue)
+    (methods teal)
+    (operators blue)
+    (type yellow)
+    (strings green)
+    (variables violet)
+    (numbers magenta)
+    (region base4)
+    (error red)
+    (warning yellow)
+    (success green)
+    (vc-modified orange)
+    (vc-added green)
+    (vc-deleted red)
+    (cursor-color '("#000000"))
+    (hl-line base6)
+    (+evil--default-cursor-color '("#000000"))
+    (modeline-fg nil)
+  ))
+
+(setq org-src-block-faces nil)
+(custom-theme-set-faces
+  'user
+  `(org-document-info-keyword ((t :foreground "#9F9F9F")))
+  `(org-level-1 ((t :foreground "#000000"
+                    :weight bold)))
+  `(org-level-2 ((t :foreground "#000000"
+                    :weight bold)))
+  `(org-level-3 ((t :foreground "#000000"
+                    :weight bold)))
+  `(org-level-4 ((t :foreground "#000000"
+                    :weight bold)))
+  `(org-level-5 ((t :foreground "#000000"
+                    :weight bold)))
+  `(org-level-6 ((t :foreground "#000000"
+                    :weight bold)))
+  `(org-level-7 ((t :foreground "#000000"
+                    :weight bold)))
+  `(org-level-8 ((t :foreground "#000000"
+                    :weight bold)))
+  `(org-level-9 ((t :foreground "#000000"
+                    :weight bold)))
+  )
+#+END_SRC
+
+**** Dark Theme
+#+BEGIN_SRC emacs-lisp :tangle "./themes/doom-sakura-dark-theme.el"
+(require 'doom-themes)
+
+;;
+(defgroup doom-sakura-dark-theme nil
+  "Options for doom-themes"
+  :group  'doom-themes)
+
+(defcustom doom-sakura-dark-brighter-modeline nil
+  "If non-nil, more vivid colors will be used to style the mode-line."
+  :group  'doom-sakura-dark-theme
+  :type   'boolean)
+
+(defcustom doom-sakura-dark-brighter-comments nil
+  "If non-nil, comments will be highlighted in more vivid colors."
+  :group  'doom-sakura-dark-theme
+  :type   'boolean)
+
+(defcustom doom-sakura-dark-comment-bg doom-sakura-dark-brighter-comments
+  "If non-nil, comments will have a subtle, darker background, enchancing legibility."
+  :group  'doom-sakura-dark-theme
+  :type   'boolean)
+
+(defcustom doom-sakura-dark-padded-modeline doom-themes-padded-modeline
+  "If non-nil, adds a 4px padding to the mode-line. Can beinteger to determine exact padding."
+  :group  'doom-sakura-dark-theme
+  :type   '(choice integer boolean))
+
+;;
+(def-doom-theme doom-sakura-dark
+  "A calming dark theme."
+
+
+  ;; name           default     256   16
+  (
+    (bg           '("#2A2A2A"   nil   nil))
+    (bg-alt       '("#2A2A2A"   nil   nil))
+    (base0        '("#E2D8F5"   nil   nil))
+    (base1        '("#E7CEEE"   nil   nil))
+    (base2        '("#DDB3D8"   nil   nil))
+    (base3        '("#383838"   nil   nil))
+    (base4        '("#C9678D"   nil   nil))
+    (base5        '("#B48EAD"   nil   nil))
+    (base6        '("#4F4B4F"   nil   nil))
+    (base7        '("#414141"   nil   nil))
+    (base8        '("#363636"   nil   nil))
+    (fg           '("#FBF7EF"   nil   nil))
+    (fg-alt       '("#FBF7EF"   nil   nil))
+
+    (grey base6)
+    (red          '("#BE3445"   nil   nil))
+    (orange       '("#D36745"   nil   nil))
+    (green        '("#AAC275"   nil   nil))
+    (yellow       '("#E1B967"   nil   nil))
+    (magenta      '("#CE67CF"   nil   nil))
+
+    (teal         '("#29838D"   nil   nil))
+    (blue         '("#4295f2"   nil   nil))
+    (dark-blue    '("#5272AF"   nil   nil))
+    (violet       '("#842879"   nil   nil))
+    (cyan         '("#398EAC"   nil   nil))
+    (dark-cyan    '("#2C7088"   nil   nil))
+
+    ;; face categories -- required for all themes
+    ;; Wait... I can have it dynamically blend with the background color... rad
+    (highlight (doom-blend blue bg 0.8))
+    (vertical-bar (doom-darken bg 0.15))
+    (selection (doom-blend blue bg 0.5))
+    (builtin teal)
+    ;;(comments base6)
+    (comments (if doom-sakura-dark-brighter-comments dark-cyan (doom-darken base5 0.2)))
+    (doc-comments (doom-darken (if doom-sakura-dark-brighter-comments dark-cyan base5) 0.25))
+    (constants magenta)
+    (functions teal)
+    (keywords blue)
+    (methods teal)
+    (operators blue)
+    (type yellow)
+    (strings green)
+    (variables magenta)
+    (numbers magenta)
+    (region base4)
+    (error red)
+    (warning yellow)
+    (success green)
+    (vc-modified orange)
+    (vc-added green)
+    (vc-deleted red)
+    (cursor-color '("#000000"))
+    (hl-line base6)
+ ;   (org-block-begin-line
+ ;    '((t (:foreground "#008ED1" :background '(bg)))))
+    (+evil--default-cursor-color '("#000000"))
+
+    (modeline-fg nil)
+;    (modeline-fg-alt (doom-blend violet base4 (if -modeline-bright 0.5 0.2)))
+
+;    (modeline-bg
+;      (if -modeline-bright
+;        (doom-darken bg 0.475)
+;        `(,(doom-darken (car bg) 0.15) ,@(cdr base0))))
+;    (modeline-bg-1
+;      (if -modeline-bright
+;        (doom-darken blue 0.45)
+;        `(,(doom-darken (car bg-alt) 0.1) ,@(cdr base1))))
+  ))
+#+END_SRC
+
+** Custom Functions
+This tangles to =./elisp/custom-functions.el=.
+*** Add Tangle Headers
 Append a specific string or header to a file on executing =org-babel-tangle=. From [[https://emacs.stackexchange.com/questions/50488/adding-header-to-a-org-mode-tangled-file][this stackexchange]].
 
 This function is especially useful when tangling a configuration, such as this one, and then exporting separately to markdown. This prevents the generated markdown file from being polluted with unnecessary lines like =lexical-binding= headers.
@@ -164,28 +513,3 @@ This function is especially useful when tangling a configuration, such as this o
     nil))
   (save-buffer))
 #+END_SRC
-
-* TODO Keybindings
-* TODO Theming and UI
-
-** Treemacs
-
-* TODO Programming
-
-** Clojure
-** Dart
-** Elisp
-** Python
-*** Jupyter
-** TypeScript
-
-* TODO Research
-
-** Helm-Org-BibTeX
-** LaTeX
-** Org
-** Org-Roam
-** Org-Ref
-** Zotxt
-
-* TODO Miscellaneous
