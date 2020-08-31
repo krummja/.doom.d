@@ -38,6 +38,7 @@
     (base1        '("#414141"   nil   nil))
     (base2        '("#BF9B9F"   nil   nil))
     (base3        '("#ebe6ea"   nil   nil)) ;; CONTROLS THE BLOCK HIGHLIGHT FFS
+    ;;(base3        '("#FBF7EF"   nil   nil))
     (base4        '("#C9678D"   nil   nil))
     (base5        '("#ECA7D5"   nil   nil))
     (base6        '("#C9678D"   nil   nil))

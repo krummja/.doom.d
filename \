@@ -18,8 +18,6 @@
   - [[Research Packages][Research Packages]]
   - [[Programming Packages][Programming Packages]]
   - [[Other Packages][Other Packages]]
-- [[Keybindings][Keybindings]]
-  - [[Doom Bindings][Doom Bindings]]
 - [[Private Modules][Private Modules]]
   - [[Theming][Theming]]
   - [[Custom Functions][Custom Functions]]
@@ -110,79 +108,18 @@ Useful macros: =after!=, =use-package!=, =add-hook!=
 #+END_SRC
 ** Configure Packages
 *** Helm-Bibtex
-[[https://github.com/tmalsburg/helm-bibtex][Helm-Bibtex Repository]]
-
-The *Helm-Bibtex* package is a powerful bibliography management system that run on the Helm completion framework. Some key features of Helm-Bibtex:
-
-1. Quickly bibliography access from within Emacs.
-2. Powerful search with instant results as you type.
-3. Tightly integrated with LaTeX authoring and Org-Mode.
-4. Insert LaTeX cite commands, BibTeX entries, or plain text references at point.
-5. Support for note-taking.
-6. Quick access to online databases like Google Scholar.
-7. Import BibTeX from CrossRef and other sources.
-
 #+BEGIN_SRC emacs-lisp :tangle "./config.el"
-(use-package! helm-bibtex
-  :defer t
-  :config
-  (setq bibtex-completion-bibliography '(BIBLIOGRAPHY))
-  (setq bibtex-completion-library-path (concat (getenv "HOME") "Dropbox/Library"))
-  (setq bibtex-completion-pdf-field "File")
-  (setq bibtex-completion-notes-path NOTEBOOK)
-  )
+(use-package! helm-bibtex)
 #+END_SRC
-
-**** Basic Configuration
-Helm-Bibtex configuration involves, at minimum, specifying a bibliography file and a pdf library path to feed to the completion engine. A =listp= can be used to specify multiple bibliography files.
-
-BibTeX entries are able to keep a reference to a local pdf file (or note files, etc.) using a =File= field. Helm-Bibtex can be configured to use this field for attachment completion.
-
-**** Notes Configuration
-Bibtex-completion support two methods for note storage, either all notes in a single large file, or across multiple per-publication files. The variable =bibtex-completion-notes-path= should point to an =.org= file or file directory, respectively.
-
-**** Advanced Configuration
-***** Additional fields
-By default, the package searches the =author=, =title=, =year=, =BibTeX key=, and =entry type= fields. Additional fields can be specified with the variable =bibtex-completion-additional-search-fields=.
-
-#+BEGIN_SRC emacs-lisp
-(setq bibtex-completion-additional-search-fields '(keywords))
-#+END_SRC
-
-***** Symbols for indicating notes
-#+BEGIN_SRC emacs-lisp
-(setq bibtex-completion-pdf-symbol "#")
-(setq bibtex-completion-notes-symbol "!")
-#+END_SRC
-
-***** PDF application
-By default, Emacs is used to open PDF files. This means that either DocView is used, or if it is installed, the much more feature-rich *pdf-tools* package. Other PDF viewers can be configured as well.
 
 *** Helm-Org-Rifle
-[[https://github.com/alphapapa/org-rifle][Org-Rifle Repository]]
-
-The *Helm-Org-Rifle* package is a search engine for your =.org= files. Other similar engines exist, but *Helm-Org-Rifle* has the benefit of providing the heading context for the file the query result is found in. Entries are presented in a way that mimics an org-mode document, providing a nice unifying touch to the experience.
-
-Not much in the way of configuration is needed to set this utter madlad off searching. I might want to set up keybindings to make my life easier, however!
-
 #+BEGIN_SRC emacs-lisp :tangle "./config.el"
 (use-package! helm-org-rifle)
 #+END_SRC
 
 *** Org-Mode
 #+BEGIN_SRC emacs-lisp :tangle "./config.el"
-(use-package! org
-  :defer t
-  :config
-  (setq org-startup-with-inline-images nil)
-  (setq org-startup-shrink-all-tables t)
-  (setq org-use-property-inheritance t)
-  (setq org-hide-emphasis-markers t))
-
-(add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
-
-;(after! org
-;  (setq org-superstar-mode 1))
+(use-package! org)
 #+END_SRC
 
 *** Org-Ref
@@ -235,7 +172,6 @@ Not much in the way of configuration is needed to set this utter madlad off sear
 
 (remove-hook! 'text-mode-hook #'auto-fill-mode)
 #+END_SRC
-
 * Packages
 Package management happens here. Declare packages to install and where they should be installed from.
 
@@ -255,10 +191,6 @@ Useful macros: =package!=, =disable-packages!=, =featurep!=
 *** Org-Mode
 #+BEGIN_SRC emacs-lisp :tangle "./packages.el"
 (package! org)
-#+END_SRC
-*** Org-Superstar-Mode
-#+BEGIN_SRC emacs-lisp :tangle "./packages.el"
-(package! org-superstar)
 #+END_SRC
 *** Org-Ref
 #+BEGIN_SRC emacs-lisp :tangle "./packages.el"
@@ -291,59 +223,6 @@ Useful macros: =package!=, =disable-packages!=, =featurep!=
 *** TypeScript
 *** Python
 ** Other Packages
-* Keybindings
-** Doom Bindings
-
-| Leader | Binding | Function                     | Used | Replace? | Notes |
-|--------+---------+------------------------------+------+----------+-------|
-| =SPC-=   | =RET=     | Jump to bookmark             |      |          |       |
-|        | =SPC=     | Find file in project         |      |          |       |
-|        | ='=       | Resume last search           |      |          |       |
-|        | =*=       | Search for symbol in project |      |          |       |
-|        | =,=       | Switch workspace buffer      |      |          |       |
-|        | =.=       | Find file                    |      |          |       |
-|        | =:=       | =M-x=                          |      |          |       |
-|        | =;=       | Eval expression              |      |          |       |
-|        | =<=       | Switch buffer                |      |          |       |
-|        | =`=       | Switch to last buffer        |      |          |       |
-|        | =u=       | Universal argument           |      |          |       |
-|        | =x=       | Pop up scratch buffer        |      |          |       |
-|        | =~=       | Toggle last popup            |      |          |       |
-|        | =X=       | Org capture                  |      |          |       |
-|        | =TAB=     | +workspace                   |      |          |       |
-|        | =b=       | +buffer                      |      |          |       |
-|        | =c=       | [[*+code][+code]]                        |      |          |       |
-|        | =f=       | +file                        |      |          |       |
-|        | =g=       | +git                         |      |          |       |
-|        | =h=       | +help                        |      |          |       |
-|        | =i=       | +insert                      |      |          |       |
-|        | =m=       | +<localleader>               |      |          |       |
-|        | =n=       | +notes                       |      |          |       |
-|        | =o=       | +open                        |      |          |       |
-|        | =p=       | +project                     |      |          |       |
-|        | =q=       | +quit/session                |      |          |       |
-|        | =s=       | +search                      |      |          |       |
-|        | =t=       | +toggle                      |      |          |       |
-|        | =w=       | +window                      |      |          |       |
-| =C-=     | =c=       | +org                         |      |          |       |
-
-*** SPC-
-**** +code
-*** C-
-**** +org
-
-| Binding | Function |
-|---------+----------|
-| =C-c C-v= | [[*Babel][Babel]]    |
-|         |          |
-
-***** Babel
-
-| Binding     | Function |
-|-------------+----------|
-| =C-c C-v C-t= | Tangle   |
-|             |          |
-
 * Private Modules
 ** Theming
 *** Theme Configuration
@@ -397,7 +276,6 @@ Useful macros: =package!=, =disable-packages!=, =featurep!=
     (base1        '("#414141"   nil   nil))
     (base2        '("#BF9B9F"   nil   nil))
     (base3        '("#ebe6ea"   nil   nil)) ;; CONTROLS THE BLOCK HIGHLIGHT FFS
-    ;;(base3        '("#FBF7EF"   nil   nil))
     (base4        '("#C9678D"   nil   nil))
     (base5        '("#ECA7D5"   nil   nil))
     (base6        '("#C9678D"   nil   nil))

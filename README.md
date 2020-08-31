@@ -1,45 +1,40 @@
 
 
-<a id="orga2f2a90"></a>
+<a id="orge12e814"></a>
 
 # Sakura Emacs
 
 
 # Table of Contents     :TOC_2_ORG:
 
--   [Sakura Emacs](#orga2f2a90)
--   [Introduction](#orgcff936b)
-    -   [About Emacs](#orgea4268e)
-    -   [About Doom Emacs](#orgbd9769a)
-    -   [About Sakura Emacs](#orgc5a69a9)
--   [Init](#orgfdc360f)
-    -   [Completion](#org7fca982)
-    -   [UI](#org82e6ac2)
-    -   [Editor](#org90e1af6)
-    -   [Emacs](#org91305ca)
-    -   [Tools](#org9eb8888)
-    -   [Lang](#org736241d)
-    -   [EMail](#orgb6b92fd)
-    -   [App](#orge88835b)
--   [Config](#org00db02a)
-    -   [Basic Information](#orgf87f3c1)
-    -   [Path Constants](#orga42e0a5)
-    -   [Load Private Modules](#orgadb4a11)
-    -   [Hooks](#org5ca3f88)
--   [Packages](#orgae202a6)
-    -   [Research Packages](#org7782211)
-    -   [Programming Packages](#org97bf421)
--   [Private Modules](#org47bf9f1)
-    -   [Theming](#org2cecbba)
-    -   [Custom Functions](#org519ebd9)
+-   [Sakura Emacs](#orge12e814)
+-   [Introduction](#org792dbb6)
+    -   [About Emacs](#org77b1c1e)
+    -   [About Doom Emacs](#orge1a58b3)
+    -   [About Sakura Emacs](#orgf58edae)
+-   [Config](#org1e601d8)
+    -   [Basic Information](#org8ff43de)
+    -   [Path Constants](#org036c48a)
+    -   [Configure Packages](#org3f57d72)
+    -   [Load Private Modules](#org562a8b5)
+    -   [Hooks](#orgd154445)
+-   [Packages](#org5788820)
+    -   [Research Packages](#orgbbe218b)
+    -   [Programming Packages](#orga3134b4)
+    -   [Other Packages](#org56596d4)
+-   [Keybindings](#org8d760e4)
+    -   [Doom Bindings](#org50b42d0)
+-   [Private Modules](#org9a6a3ee)
+    -   [Theming](#org6fbe52e)
+    -   [Custom Functions](#org4c22f21)
 
 
-<a id="orgcff936b"></a>
+<a id="org792dbb6"></a>
 
 # Introduction
 
 
-<a id="orgea4268e"></a>
+<a id="org77b1c1e"></a>
 
 ## About Emacs
 
@@ -70,7 +65,7 @@ Emacs doesn&rsquo;t have a monopoly on good ideas, and there are other great too
 *This beautifully written **About Emacs** section credits to [Remacs](https://github.com/remacs/remacs).*
 
 
-<a id="orgbd9769a"></a>
+<a id="orge1a58b3"></a>
 
 ## About Doom Emacs
 
@@ -87,7 +82,7 @@ readable code design, so that there is less between you and Emacs.
 *This **About Doom-Emacs** section credits to [Doom-Emacs](https://github.com/hlissner/doom-emacs).*
 
 
-<a id="orgc5a69a9"></a>
+<a id="orgf58edae"></a>
 
 ## About Sakura Emacs
 
@@ -109,7 +104,7 @@ This configuration is designed and tested for **GNU Emacs 28 and above only**.
 
 ### About README
 
-This README is generated from `sakura.org` using `M-x org-gfm-export-to-markdown`. This file also generates the actual configuration by running `M-x org-babel-tangle`.
+This README is generated from `sakura.org` using `M-x org-gfm-export-to-markdown`. This file is also used to generate the actual configuration files by running `M-x org-babel-tangle`.
 
 
 ### Installation
@@ -133,142 +128,16 @@ To continue the trend of learning from people learning from people learning from
 4.  [hlissner](https://github.com/hlissner/doom-emacs)
 
 
-<a id="orgfdc360f"></a>
-
-# Init
-
-
-<a id="org7fca982"></a>
-
-## Completion
-
-    (doom! :completion
-           company           ; the ultimate code completion backend
-           helm              ; the *other* search engine for love and life
-           )
-
-
-<a id="org82e6ac2"></a>
-
-## UI
-
-    (doom! :ui
-           deft              ; notational velocity for Emacs
-           doom              ; what makes DOOM look the way it does
-           doom-dashboard    ; a nifty splash screen for
-           ;;doom-quit        ; DOOM quit-message prompts when you quit emacs
-           hl-todo           ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
-           nav-flash
-           modeline          ; snazzy, Atom-inspired modeline, plus API
-           ophints           ; highlight the region an operation acts on
-           (popup +defaults)   ; tame sudden yet inevitable temporary windows
-           vc-gutter         ; vcs diff in the fringe
-           vi-tilde-fringe   ; fringe tildes to mark beyond EOB
-           workspaces        ; tab emulation, persistence & separate workspaces
-           zen               ; distraction-free coding or writing
-           treemacs
-           )
-
-
-<a id="org90e1af6"></a>
-
-## Editor
-
-    (doom! :editor
-           (evil +everywhere); come to the dark side, we have cookies
-           file-templates    ; auto-snippets for empty files
-           fold              ; (nigh) universal code folding
-           snippets          ; my elves. They type so I don't have to
-           )
-
-
-<a id="org91305ca"></a>
-
-## Emacs
-
-    (doom! :emacs
-           dired             ; making dired pretty [functional]
-           electric          ; smarter, keyword-based electric-indent
-           undo              ; persistent, smarter undo for your inevitable mistakes
-           vc                ; version-control and Emacs, sitting in a tree
-           )
-
-
-<a id="org9eb8888"></a>
-
-## Tools
-
-    (doom! :tools
-           (eval +overlay)   ; run code, run (also, repls)
-           ein               ; cruising the clouds of jupyter
-           lookup            ; navigate your code and its documentation
-           magit             ; a git porcelain for Emacs
-           rgb               ; creating color strings
-           )
-
-
-<a id="org736241d"></a>
-
-## Lang
-
-    (doom! :lang
-           clojure           ; java with a lisp
-           emacs-lisp        ; drown in parentheses
-           latex             ; writing papers in Emacs has never been so fun
-           markdown          ; writing docs for people to ignore
-           (org               ; organize your plain life in plain text
-            +babel
-            +brain
-            +capture
-            +export
-            +journal
-            +pandoc
-            +roam
-            )
-           sh                ; she sells {ba,z,fi}sh shells on the C xor
-           (dart +flutter)   ; paint ui and not much else
-           gdscript          ; the language you waited for
-           json              ; At least it ain't XML
-           javascript        ; all(hope(abandon(ye(who(enter(here))))))
-           python            ; beautiful is better than ugly
-           ;;rest              ; Emacs as a REST client
-           rst               ; ReST in peace
-           )
-
-
-<a id="orgb6b92fd"></a>
-
-## EMail
-
-    (doom! :email
-           ;;(mu4e +gmail)
-           ;;notmuch
-           ;;(wanderlust +gmail)
-           )
-
-
-<a id="orge88835b"></a>
-
-## App
-
-    (doom! :app
-           ;;calendar
-           ;;irc               ; how neckbeards socialize
-           ;;(rss +org)        ; emacs as an RSS reader
-           ;;twitter           ; twitter client https://twitter.com/vnought
-           )
-
-    (doom! :config
-           (default +bindings +smartparens)
-    )
-
-
-<a id="org00db02a"></a>
+<a id="org1e601d8"></a>
 
 # Config
 
+This is where the majority of your private configuration should go. Anything in this file is evaluated after all Doom modules have been loaded.
 
-<a id="orgf87f3c1"></a>
+Useful macros: `after!`, `use-package!`, `add-hook!`
+
+
+<a id="org8ff43de"></a>
 
 ## Basic Information
 
@@ -276,7 +145,7 @@ To continue the trend of learning from people learning from people learning from
     (setq user-mail-address "crumja@uga.edu")
 
 
-<a id="orga42e0a5"></a>
+<a id="org036c48a"></a>
 
 ## Path Constants
 
@@ -284,7 +153,120 @@ To continue the trend of learning from people learning from people learning from
     (setq BIBLIOGRAPHY (concat (getenv "HOME") "/texmf/bibtex/bib/master.bib"))
 
 
-<a id="orgadb4a11"></a>
+<a id="org3f57d72"></a>
+
+## Configure Packages
+
+
+### Helm-Bibtex
+
+[Helm-Bibtex Repository](https://github.com/tmalsburg/helm-bibtex)
+
+The **Helm-Bibtex** package is a powerful bibliography management system that run on the Helm completion framework. Some key features of Helm-Bibtex:
+
+1.  Quickly bibliography access from within Emacs.
+2.  Powerful search with instant results as you type.
+3.  Tightly integrated with LaTeX authoring and Org-Mode.
+4.  Insert LaTeX cite commands, BibTeX entries, or plain text references at point.
+5.  Support for note-taking.
+6.  Quick access to online databases like Google Scholar.
+7.  Import BibTeX from CrossRef and other sources.
+
+    (use-package! helm-bibtex
+      :defer t
+      :config
+      (setq bibtex-completion-bibliography '(BIBLIOGRAPHY))
+      (setq bibtex-completion-library-path (concat (getenv "HOME") "Dropbox/Library"))
+      (setq bibtex-completion-pdf-field "File")
+      (setq bibtex-completion-notes-path NOTEBOOK)
+      )
+
+1.  Basic Configuration
+
+    Helm-Bibtex configuration involves, at minimum, specifying a bibliography file and a pdf library path to feed to the completion engine. A `listp` can be used to specify multiple bibliography files.
+    
+    BibTeX entries are able to keep a reference to a local pdf file (or note files, etc.) using a `File` field. Helm-Bibtex can be configured to use this field for attachment completion.
+
+2.  Notes Configuration
+
+    Bibtex-completion support two methods for note storage, either all notes in a single large file, or across multiple per-publication files. The variable `bibtex-completion-notes-path` should point to an `.org` file or file directory, respectively.
+
+3.  Advanced Configuration
+
+    1.  Additional fields
+    
+        By default, the package searches the `author`, `title`, `year`, `BibTeX key`, and `entry type` fields. Additional fields can be specified with the variable `bibtex-completion-additional-search-fields`.
+        
+            (setq bibtex-completion-additional-search-fields '(keywords))
+    
+    2.  Symbols for indicating notes
+    
+            (setq bibtex-completion-pdf-symbol "#")
+            (setq bibtex-completion-notes-symbol "!")
+    
+    3.  PDF application
+    
+        By default, Emacs is used to open PDF files. This means that either DocView is used, or if it is installed, the much more feature-rich **pdf-tools** package. Other PDF viewers can be configured as well.
+
+
+### Helm-Org-Rifle
+
+[Org-Rifle Repository](https://github.com/alphapapa/org-rifle)
+
+The **Helm-Org-Rifle** package is a search engine for your `.org` files. Other similar engines exist, but **Helm-Org-Rifle** has the benefit of providing the heading context for the file the query result is found in. Entries are presented in a way that mimics an org-mode document, providing a nice unifying touch to the experience.
+
+Not much in the way of configuration is needed to set this utter madlad off searching. I might want to set up keybindings to make my life easier, however!
+
+    (use-package! helm-org-rifle)
+
+
+### Org-Mode
+
+    (use-package! org
+      :defer t
+      :config
+      (setq org-startup-with-inline-images nil)
+      (setq org-startup-shrink-all-tables t)
+      (setq org-use-property-inheritance t)
+      (setq org-hide-emphasis-markers t))
+    
+    (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+    
+    ;(after! org
+    ;  (setq org-superstar-mode 1))
+
+
+### Org-Ref
+
+    (use-package! org-ref)
+
+
+### Org-Roam
+
+    (use-package! org-roam)
+
+
+### Pdfgrep
+
+    (use-package! pdfgrep)
+
+
+### Pdf-Tools
+
+    (use-package! pdf-tools)
+
+
+### Rainbow-Mode
+
+    (use-package! rainbow-mode)
+
+
+### Zotxt
+
+    (use-package! zotxt)
+
+
+<a id="org562a8b5"></a>
 
 ## Load Private Modules
 
@@ -295,7 +277,7 @@ To continue the trend of learning from people learning from people learning from
     (load! "./themes/doom-sakura-dark-theme.el")
 
 
-<a id="org5ca3f88"></a>
+<a id="orgd154445"></a>
 
 ## Hooks
 
@@ -304,31 +286,78 @@ To continue the trend of learning from people learning from people learning from
       (setq fancy-splash-image "~/.doom.d/images/sakura_emacs.png"))
     
     ;; Some hooks seem not to play so nice with the doom ! notation... something to do with using a lambda expression? Test this.
-    (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+    ; (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
     
     (remove-hook! 'text-mode-hook #'auto-fill-mode)
 
 
-<a id="orgae202a6"></a>
+<a id="org5788820"></a>
 
 # Packages
 
+Package management happens here. Declare packages to install and where they should be installed from.
 
-<a id="org7782211"></a>
+Note that Doom Emacs does not utilize `package.el`. Instead, it uses its own package manager which relies on `packages.el`, which becomes a repository of resources for your own configuration in `config.el`.
+
+Useful macros: `package!`, `disable-packages!`, `featurep!`
+
+
+<a id="orgbbe218b"></a>
 
 ## Research Packages
 
 
+### Helm-Bibtex
+
+    (package! helm-bibtex)
+
+
+### Helm-Org-Rifle
+
+    (package! helm-org-rifle)
+
+
 ### Org-Mode
+
+    (package! org)
+
+
+### Org-Superstar-Mode
+
+    (package! org-superstar)
 
 
 ### Org-Ref
 
+    (package! org-ref)
+
 
 ### Org-Roam
 
+    (package! org-roam)
 
-<a id="org97bf421"></a>
+
+### Pdfgrep
+
+    (package! pdfgrep)
+
+
+### Pdf-Tools
+
+    (package! pdf-tools)
+
+
+### Rainbow-Mode
+
+    (package! rainbow-mode)
+
+
+### Zotxt
+
+    (package! zotxt)
+
+
+<a id="orga3134b4"></a>
 
 ## Programming Packages
 
@@ -345,12 +374,426 @@ To continue the trend of learning from people learning from people learning from
 ### Python
 
 
-<a id="org47bf9f1"></a>
+<a id="org56596d4"></a>
+
+## Other Packages
+
+
+<a id="org8d760e4"></a>
+
+# Keybindings
+
+
+<a id="org50b42d0"></a>
+
+## Doom Bindings
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Leader</th>
+<th scope="col" class="org-left">Binding</th>
+<th scope="col" class="org-left">Function</th>
+<th scope="col" class="org-left">Used</th>
+<th scope="col" class="org-left">Replace?</th>
+<th scope="col" class="org-left">Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="org-left"><code>SPC-</code></td>
+<td class="org-left"><code>RET</code></td>
+<td class="org-left">Jump to bookmark</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>SPC</code></td>
+<td class="org-left">Find file in project</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>'</code></td>
+<td class="org-left">Resume last search</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>*</code></td>
+<td class="org-left">Search for symbol in project</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>,</code></td>
+<td class="org-left">Switch workspace buffer</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>.</code></td>
+<td class="org-left">Find file</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>:</code></td>
+<td class="org-left"><code>M-x</code></td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>;</code></td>
+<td class="org-left">Eval expression</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>&lt;</code></td>
+<td class="org-left">Switch buffer</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>`</code></td>
+<td class="org-left">Switch to last buffer</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>u</code></td>
+<td class="org-left">Universal argument</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>x</code></td>
+<td class="org-left">Pop up scratch buffer</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>~</code></td>
+<td class="org-left">Toggle last popup</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>X</code></td>
+<td class="org-left">Org capture</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>TAB</code></td>
+<td class="org-left">+workspace</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>b</code></td>
+<td class="org-left">+buffer</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>c</code></td>
+<td class="org-left"><a href="#orgc32c481">+code</a></td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>f</code></td>
+<td class="org-left">+file</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>g</code></td>
+<td class="org-left">+git</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>h</code></td>
+<td class="org-left">+help</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>i</code></td>
+<td class="org-left">+insert</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>m</code></td>
+<td class="org-left">+&lt;localleader&gt;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>n</code></td>
+<td class="org-left">+notes</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>o</code></td>
+<td class="org-left">+open</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>p</code></td>
+<td class="org-left">+project</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>q</code></td>
+<td class="org-left">+quit/session</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>s</code></td>
+<td class="org-left">+search</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>t</code></td>
+<td class="org-left">+toggle</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>w</code></td>
+<td class="org-left">+window</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left"><code>C-</code></td>
+<td class="org-left"><code>c</code></td>
+<td class="org-left">+org</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+
+### SPC-
+
+1.  +code
+
+
+### C-
+
+1.  +org
+
+    <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+    
+    
+    <colgroup>
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th scope="col" class="org-left">Binding</th>
+    <th scope="col" class="org-left">Function</th>
+    </tr>
+    </thead>
+    
+    <tbody>
+    <tr>
+    <td class="org-left"><code>C-c C-v</code></td>
+    <td class="org-left"><a href="#org5fb11cc">Babel</a></td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    </tr>
+    </tbody>
+    </table>
+    
+    1.  Babel
+    
+        <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+        
+        
+        <colgroup>
+        <col  class="org-left" />
+        
+        <col  class="org-left" />
+        </colgroup>
+        <thead>
+        <tr>
+        <th scope="col" class="org-left">Binding</th>
+        <th scope="col" class="org-left">Function</th>
+        </tr>
+        </thead>
+        
+        <tbody>
+        <tr>
+        <td class="org-left"><code>C-c C-v C-t</code></td>
+        <td class="org-left">Tangle</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="org-left">&#xa0;</td>
+        <td class="org-left">&#xa0;</td>
+        </tr>
+        </tbody>
+        </table>
+
+
+<a id="org9a6a3ee"></a>
 
 # Private Modules
 
 
-<a id="org2cecbba"></a>
+<a id="org6fbe52e"></a>
 
 ## Theming
 
@@ -407,6 +850,7 @@ To continue the trend of learning from people learning from people learning from
             (base1        '("#414141"   nil   nil))
             (base2        '("#BF9B9F"   nil   nil))
             (base3        '("#ebe6ea"   nil   nil)) ;; CONTROLS THE BLOCK HIGHLIGHT FFS
+            ;;(base3        '("#FBF7EF"   nil   nil))
             (base4        '("#C9678D"   nil   nil))
             (base5        '("#ECA7D5"   nil   nil))
             (base6        '("#C9678D"   nil   nil))
@@ -591,7 +1035,7 @@ To continue the trend of learning from people learning from people learning from
           ))
 
 
-<a id="org519ebd9"></a>
+<a id="org4c22f21"></a>
 
 ## Custom Functions
 
