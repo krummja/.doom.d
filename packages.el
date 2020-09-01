@@ -15,6 +15,10 @@
 
 (package! pdf-tools)
 
+;(package! pdf-view)
+
 (package! rainbow-mode)
 
 (package! zotxt)
+
+(package! plantuml-mode)

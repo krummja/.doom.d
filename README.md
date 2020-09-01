@@ -1,40 +1,32 @@
 
 
-<a id="orge12e814"></a>
-
-# Sakura Emacs
-
-
 # Table of Contents     :TOC_2_ORG:
 
--   [Sakura Emacs](#orge12e814)
--   [Introduction](#org792dbb6)
-    -   [About Emacs](#org77b1c1e)
-    -   [About Doom Emacs](#orge1a58b3)
-    -   [About Sakura Emacs](#orgf58edae)
--   [Config](#org1e601d8)
-    -   [Basic Information](#org8ff43de)
-    -   [Path Constants](#org036c48a)
-    -   [Configure Packages](#org3f57d72)
-    -   [Load Private Modules](#org562a8b5)
-    -   [Hooks](#orgd154445)
--   [Packages](#org5788820)
-    -   [Research Packages](#orgbbe218b)
-    -   [Programming Packages](#orga3134b4)
-    -   [Other Packages](#org56596d4)
--   [Keybindings](#org8d760e4)
-    -   [Doom Bindings](#org50b42d0)
--   [Private Modules](#org9a6a3ee)
-    -   [Theming](#org6fbe52e)
-    -   [Custom Functions](#org4c22f21)
+-   [Introduction](#orge9fd54e)
+    -   [About Emacs](#org330e307)
+    -   [About Doom Emacs](#org73e832d)
+    -   [About Sakura Emacs](#org0b9e38e)
+-   [Packages](#orgdf1c32c)
+    -   [Research Packages](#orga8e3b0d)
+    -   [Programming Packages](#org3e55ed6)
+    -   [Other Packages](#orgedf8729)
+-   [Config](#org141a19f)
+    -   [Basic Information](#orgeafbbb7)
+    -   [Path Constants](#orgdff3edb)
+    -   [Configure Packages](#org6204ef6)
+    -   [Load Private Modules](#org7307e31)
+    -   [Hooks](#org9844069)
+-   [Private Modules](#org3f912f5)
+    -   [Theming](#org48f6dae)
+    -   [Custom Functions](#org84dd19e)
 
 
-<a id="org792dbb6"></a>
+<a id="orge9fd54e"></a>
 
 # Introduction
 
 
-<a id="org77b1c1e"></a>
+<a id="org330e307"></a>
 
 ## About Emacs
 
@@ -65,7 +57,7 @@ Emacs doesn&rsquo;t have a monopoly on good ideas, and there are other great too
 *This beautifully written **About Emacs** section credits to [Remacs](https://github.com/remacs/remacs).*
 
 
-<a id="orge1a58b3"></a>
+<a id="org73e832d"></a>
 
 ## About Doom Emacs
 
@@ -82,7 +74,7 @@ readable code design, so that there is less between you and Emacs.
 *This **About Doom-Emacs** section credits to [Doom-Emacs](https://github.com/hlissner/doom-emacs).*
 
 
-<a id="orgf58edae"></a>
+<a id="org0b9e38e"></a>
 
 ## About Sakura Emacs
 
@@ -128,7 +120,105 @@ To continue the trend of learning from people learning from people learning from
 4.  [hlissner](https://github.com/hlissner/doom-emacs)
 
 
-<a id="org1e601d8"></a>
+<a id="orgdf1c32c"></a>
+
+# Packages
+
+Package management happens here. Declare packages to install and where they should be installed from.
+
+Note that Doom Emacs does not utilize `package.el`. Instead, it uses its own package manager which relies on `packages.el`, which becomes a repository of resources for your own configuration in `config.el`.
+
+Useful macros: `package!`, `disable-packages!`, `featurep!`
+
+
+<a id="orga8e3b0d"></a>
+
+## Research Packages
+
+
+### Helm-Bibtex
+
+    (package! helm-bibtex)
+
+
+### Helm-Org-Rifle
+
+    (package! helm-org-rifle)
+
+
+### Org-Mode
+
+    (package! org)
+
+
+### Org-Superstar-Mode
+
+    (package! org-superstar)
+
+
+### Org-Ref
+
+    (package! org-ref)
+
+
+### Org-Roam
+
+    (package! org-roam)
+
+
+### Pdfgrep
+
+    (package! pdfgrep)
+
+
+### Pdf-Tools
+
+    (package! pdf-tools)
+
+
+### Pdf-View
+
+    ;(package! pdf-view)
+
+
+### Rainbow-Mode
+
+    (package! rainbow-mode)
+
+
+### Zotxt
+
+    (package! zotxt)
+
+
+<a id="org3e55ed6"></a>
+
+## Programming Packages
+
+
+### Clojure
+
+
+### Dart
+
+
+### TypeScript
+
+
+### Python
+
+
+### PlantUML
+
+    (package! plantuml-mode)
+
+
+<a id="orgedf8729"></a>
+
+## Other Packages
+
+
+<a id="org141a19f"></a>
 
 # Config
 
@@ -137,7 +227,7 @@ This is where the majority of your private configuration should go. Anything in 
 Useful macros: `after!`, `use-package!`, `add-hook!`
 
 
-<a id="org8ff43de"></a>
+<a id="orgeafbbb7"></a>
 
 ## Basic Information
 
@@ -145,7 +235,7 @@ Useful macros: `after!`, `use-package!`, `add-hook!`
     (setq user-mail-address "crumja@uga.edu")
 
 
-<a id="org036c48a"></a>
+<a id="orgdff3edb"></a>
 
 ## Path Constants
 
@@ -153,12 +243,12 @@ Useful macros: `after!`, `use-package!`, `add-hook!`
     (setq BIBLIOGRAPHY (concat (getenv "HOME") "/texmf/bibtex/bib/master.bib"))
 
 
-<a id="org3f57d72"></a>
+<a id="org6204ef6"></a>
 
 ## Configure Packages
 
 
-### Helm-Bibtex
+### DONE Helm-Bibtex
 
 [Helm-Bibtex Repository](https://github.com/tmalsburg/helm-bibtex)
 
@@ -209,7 +299,7 @@ The **Helm-Bibtex** package is a powerful bibliography management system that ru
         By default, Emacs is used to open PDF files. This means that either DocView is used, or if it is installed, the much more feature-rich **pdf-tools** package. Other PDF viewers can be configured as well.
 
 
-### Helm-Org-Rifle
+### DONE Helm-Org-Rifle
 
 [Org-Rifle Repository](https://github.com/alphapapa/org-rifle)
 
@@ -220,7 +310,7 @@ Not much in the way of configuration is needed to set this utter madlad off sear
     (use-package! helm-org-rifle)
 
 
-### Org-Mode
+### TODO Org-Mode
 
     (use-package! org
       :defer t
@@ -236,37 +326,48 @@ Not much in the way of configuration is needed to set this utter madlad off sear
     ;  (setq org-superstar-mode 1))
 
 
-### Org-Ref
+### TODO Org-Ref
 
     (use-package! org-ref)
 
 
-### Org-Roam
+### TODO Org-Roam
 
     (use-package! org-roam)
 
 
-### Pdfgrep
+### TODO Pdfgrep
 
     (use-package! pdfgrep)
 
 
-### Pdf-Tools
+### TODO Pdf-Tools
 
     (use-package! pdf-tools)
 
 
-### Rainbow-Mode
+### TODO Pdf-View
+
+    ;(use-package! pdf-view)
+
+
+### TODO PlantUML
+
+    (use-package! plantuml-mode
+      :defer t)
+
+
+### HOLD Rainbow-Mode
 
     (use-package! rainbow-mode)
 
 
-### Zotxt
+### HOLD Zotxt
 
     (use-package! zotxt)
 
 
-<a id="org562a8b5"></a>
+<a id="org7307e31"></a>
 
 ## Load Private Modules
 
@@ -277,7 +378,7 @@ Not much in the way of configuration is needed to set this utter madlad off sear
     (load! "./themes/doom-sakura-dark-theme.el")
 
 
-<a id="orgd154445"></a>
+<a id="org9844069"></a>
 
 ## Hooks
 
@@ -291,509 +392,12 @@ Not much in the way of configuration is needed to set this utter madlad off sear
     (remove-hook! 'text-mode-hook #'auto-fill-mode)
 
 
-<a id="org5788820"></a>
-
-# Packages
-
-Package management happens here. Declare packages to install and where they should be installed from.
-
-Note that Doom Emacs does not utilize `package.el`. Instead, it uses its own package manager which relies on `packages.el`, which becomes a repository of resources for your own configuration in `config.el`.
-
-Useful macros: `package!`, `disable-packages!`, `featurep!`
-
-
-<a id="orgbbe218b"></a>
-
-## Research Packages
-
-
-### Helm-Bibtex
-
-    (package! helm-bibtex)
-
-
-### Helm-Org-Rifle
-
-    (package! helm-org-rifle)
-
-
-### Org-Mode
-
-    (package! org)
-
-
-### Org-Superstar-Mode
-
-    (package! org-superstar)
-
-
-### Org-Ref
-
-    (package! org-ref)
-
-
-### Org-Roam
-
-    (package! org-roam)
-
-
-### Pdfgrep
-
-    (package! pdfgrep)
-
-
-### Pdf-Tools
-
-    (package! pdf-tools)
-
-
-### Rainbow-Mode
-
-    (package! rainbow-mode)
-
-
-### Zotxt
-
-    (package! zotxt)
-
-
-<a id="orga3134b4"></a>
-
-## Programming Packages
-
-
-### Clojure
-
-
-### Dart
-
-
-### TypeScript
-
-
-### Python
-
-
-<a id="org56596d4"></a>
-
-## Other Packages
-
-
-<a id="org8d760e4"></a>
-
-# Keybindings
-
-
-<a id="org50b42d0"></a>
-
-## Doom Bindings
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">Leader</th>
-<th scope="col" class="org-left">Binding</th>
-<th scope="col" class="org-left">Function</th>
-<th scope="col" class="org-left">Used</th>
-<th scope="col" class="org-left">Replace?</th>
-<th scope="col" class="org-left">Notes</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td class="org-left"><code>SPC-</code></td>
-<td class="org-left"><code>RET</code></td>
-<td class="org-left">Jump to bookmark</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left"><code>SPC</code></td>
-<td class="org-left">Find file in project</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left"><code>'</code></td>
-<td class="org-left">Resume last search</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left"><code>*</code></td>
-<td class="org-left">Search for symbol in project</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left"><code>,</code></td>
-<td class="org-left">Switch workspace buffer</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left"><code>.</code></td>
-<td class="org-left">Find file</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left"><code>:</code></td>
-<td class="org-left"><code>M-x</code></td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left"><code>;</code></td>
-<td class="org-left">Eval expression</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left"><code>&lt;</code></td>
-<td class="org-left">Switch buffer</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left"><code>`</code></td>
-<td class="org-left">Switch to last buffer</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left"><code>u</code></td>
-<td class="org-left">Universal argument</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left"><code>x</code></td>
-<td class="org-left">Pop up scratch buffer</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left"><code>~</code></td>
-<td class="org-left">Toggle last popup</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left"><code>X</code></td>
-<td class="org-left">Org capture</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left"><code>TAB</code></td>
-<td class="org-left">+workspace</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left"><code>b</code></td>
-<td class="org-left">+buffer</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left"><code>c</code></td>
-<td class="org-left"><a href="#orgc32c481">+code</a></td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left"><code>f</code></td>
-<td class="org-left">+file</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left"><code>g</code></td>
-<td class="org-left">+git</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left"><code>h</code></td>
-<td class="org-left">+help</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left"><code>i</code></td>
-<td class="org-left">+insert</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left"><code>m</code></td>
-<td class="org-left">+&lt;localleader&gt;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left"><code>n</code></td>
-<td class="org-left">+notes</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left"><code>o</code></td>
-<td class="org-left">+open</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left"><code>p</code></td>
-<td class="org-left">+project</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left"><code>q</code></td>
-<td class="org-left">+quit/session</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left"><code>s</code></td>
-<td class="org-left">+search</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left"><code>t</code></td>
-<td class="org-left">+toggle</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left"><code>w</code></td>
-<td class="org-left">+window</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left"><code>C-</code></td>
-<td class="org-left"><code>c</code></td>
-<td class="org-left">+org</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-</tbody>
-</table>
-
-
-### SPC-
-
-1.  +code
-
-
-### C-
-
-1.  +org
-
-    <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-    
-    
-    <colgroup>
-    <col  class="org-left" />
-    
-    <col  class="org-left" />
-    </colgroup>
-    <thead>
-    <tr>
-    <th scope="col" class="org-left">Binding</th>
-    <th scope="col" class="org-left">Function</th>
-    </tr>
-    </thead>
-    
-    <tbody>
-    <tr>
-    <td class="org-left"><code>C-c C-v</code></td>
-    <td class="org-left"><a href="#org5fb11cc">Babel</a></td>
-    </tr>
-    
-    
-    <tr>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    </tr>
-    </tbody>
-    </table>
-    
-    1.  Babel
-    
-        <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-        
-        
-        <colgroup>
-        <col  class="org-left" />
-        
-        <col  class="org-left" />
-        </colgroup>
-        <thead>
-        <tr>
-        <th scope="col" class="org-left">Binding</th>
-        <th scope="col" class="org-left">Function</th>
-        </tr>
-        </thead>
-        
-        <tbody>
-        <tr>
-        <td class="org-left"><code>C-c C-v C-t</code></td>
-        <td class="org-left">Tangle</td>
-        </tr>
-        
-        
-        <tr>
-        <td class="org-left">&#xa0;</td>
-        <td class="org-left">&#xa0;</td>
-        </tr>
-        </tbody>
-        </table>
-
-
-<a id="org9a6a3ee"></a>
+<a id="org3f912f5"></a>
 
 # Private Modules
 
 
-<a id="org6fbe52e"></a>
+<a id="org48f6dae"></a>
 
 ## Theming
 
@@ -843,63 +447,62 @@ Useful macros: `package!`, `disable-packages!`, `featurep!`
           "A pleasant light theme."
         
         
-          ;; name           default     256   16
-          ( (bg           '("#FBF7EF"   nil   nil))
-            (bg-alt       '("#FBF7EF"   nil   nil))
-            (base0        '("#363636"   nil   nil))
-            (base1        '("#414141"   nil   nil))
-            (base2        '("#BF9B9F"   nil   nil))
-            (base3        '("#ebe6ea"   nil   nil)) ;; CONTROLS THE BLOCK HIGHLIGHT FFS
-            ;;(base3        '("#FBF7EF"   nil   nil))
-            (base4        '("#C9678D"   nil   nil))
-            (base5        '("#ECA7D5"   nil   nil))
-            (base6        '("#C9678D"   nil   nil))
-            (base7        '("#E7CEEE"   nil   nil))
-            (base8        '("#E2D8F5"   nil   nil))
-            (fg           '("#2A2A2A"   nil   nil))
-            (fg-alt       '("#2A2A2A"   nil   nil))
+          ;; name           default     256         16
+          ( (bg           '("#FBF7EF"   "#FBF7EF"   "white"))
+            (bg-alt       '("#FBF7EF"   "#FBF7EF"   "white"))
+            (base0        '("#363636"   "#363636"   "black"))
+            (base1        '("#414141"   "#414141"   nil))
+            (base2        '("#BF9B9F"   "#BF9B9F"   nil))
+            (base3        '("#ebe6ea"   "#EBE6EA"   nil)) ;; block highlights
+            (base4        '("#C9678D"   "#C9678D"   nil))
+            (base5        '("#ECA7D5"   "#ECA7D5"   nil))
+            (base6        '("#C9678D"   "#C9678D"   nil))
+            (base7        '("#E7CEEE"   "#E7CEEE"   nil))
+            (base8        '("#E2D8F5"   "#E2D8F5"   nil))
+            (fg           '("#2A2A2A"   "#2A2A2A"   nil))
+            (fg-alt       '("#2A2A2A"   "#2A2A2A"   nil))
         
             (grey base6)
-            (red          '("#BE3445"   nil   nil))
-            (orange       '("#D36745"   nil   nil))
-            (green        '("#AAC275"   nil   nil))
-            (yellow       '("#E1B967"   nil   nil))
-            (magenta      '("#CE67CF"   nil   nil))
+            (red          '("#BE3445"   "#BE3445"   nil))
+            (orange       '("#D36745"   "#D36745"   nil))
+            (green        '("#AAC275"   "#BE3445"   nil))
+            (yellow       '("#E1B967"   "#E1B967"   nil))
+            (magenta      '("#CE67CF"   "#CE67CF"   nil))
         
-            (teal         '("#29838D"   nil   nil))
-            (blue         '("#3B6EA8"   nil   nil))
-            (dark-blue    '("#5272AF"   nil   nil))
-            (violet       '("#842879"   nil   nil))
-            (cyan         '("#398EAC"   nil   nil))
-            (dark-cyan    '("#2C7088"   nil   nil))
+            (teal         '("#29838D"   "#29838D"   nil))
+            (blue         '("#3B6EA8"   "#3B6EA8"   nil))
+            (dark-blue    '("#5272AF"   "#5272AF"   nil))
+            (violet       '("#842879"   "#842879"   nil))
+            (cyan         '("#398EAC"   "#398EAC"   nil))
+            (dark-cyan    '("#2C7088"   "#2C7088"   nil))
         
             ;; face categories -- required for all themes
-            (highlight (doom-blend blue bg 0.8))
-            (vertical-bar (doom-darken bg 0.15))
-            (selection (doom-blend blue bg 0.5))
-            (builtin teal)
-            (comments (if doom-sakura-light-brighter-comments dark-cyan (doom-darken base5 0.2)))
-            (doc-comments (doom-darken (if doom-sakura-light-brighter-comments dark-cyan base5) 0.25))
-            (constants magenta)
-            (functions teal)
-            (keywords blue)
-            (methods teal)
-            (operators blue)
-            (type yellow)
-            (strings green)
-            (variables violet)
-            (numbers magenta)
-            (region base4)
-            (error red)
-            (warning yellow)
-            (success green)
-            (vc-modified orange)
-            (vc-added green)
-            (vc-deleted red)
-            (cursor-color '("#000000"))
-            (hl-line base6)
+            (highlight          (doom-blend blue bg 0.8))
+            (vertical-bar       (doom-darken bg 0.15))
+            (selection          (doom-blend blue bg 0.5))
+            (builtin            teal)
+            (comments           (if doom-sakura-light-brighter-comments dark-cyan (doom-darken base5 0.2)))
+            (doc-comments       (doom-darken (if doom-sakura-light-brighter-comments dark-cyan base5) 0.25))
+            (constants          magenta)
+            (functions          teal)
+            (keywords           blue)
+            (methods            teal)
+            (operators          blue)
+            (type               yellow)
+            (strings            green)
+            (variables          violet)
+            (numbers            magenta)
+            (region             base4)
+            (error              red)
+            (warning            yellow)
+            (success            green)
+            (vc-modified        orange)
+            (vc-added           green)
+            (vc-deleted         red)
+            (cursor-color       '("#000000"))
+            (hl-line            base6)
             (+evil--default-cursor-color '("#000000"))
-            (modeline-fg nil)
+            (modeline-fg        nil)
           ))
         
         (setq org-src-block-faces nil)
@@ -924,6 +527,11 @@ Useful macros: `package!`, `disable-packages!`, `featurep!`
                             :weight bold)))
           `(org-level-9 ((t :foreground "#000000"
                             :weight bold)))
+          `(org-verbatim ((t :foreground "#BE3445"
+                             :weight normal)))
+          `(org-block ((t :background "#ebe6ea")))
+          `(org-block-begin-line ((t :foreground "#2A2A2A" :underline "#2A2A2A" :background nil)))
+          `(org-block-end-line   ((t :foreground "#2A2A2A" :underline nil :overline "#2A2A2A" :background nil)))
           )
 
 2.  Dark Theme
@@ -1035,7 +643,7 @@ Useful macros: `package!`, `disable-packages!`, `featurep!`
           ))
 
 
-<a id="org4c22f21"></a>
+<a id="org84dd19e"></a>
 
 ## Custom Functions
 

@@ -37,6 +37,9 @@
 
 (use-package! pdf-tools)
 
+(use-package! plantuml-mode
+  :defer t)
+
 (use-package! rainbow-mode)
 
 (use-package! zotxt)

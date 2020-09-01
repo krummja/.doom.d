@@ -1,25 +1,23 @@
 #+OPTIONS: toc:nil
 #+EXPORT_FILE_NAME: README
+#+TITLE: Sakura Emacs Literate Configuration
+#+AUTHOR: Jonathan Crum
 
-* Sakura Emacs
 * Table of Contents :TOC_2_ORG:
-- [[Sakura Emacs][Sakura Emacs]]
 - [[Introduction][Introduction]]
   - [[About Emacs][About Emacs]]
   - [[About Doom Emacs][About Doom Emacs]]
   - [[About Sakura Emacs][About Sakura Emacs]]
+- [[Packages][Packages]]
+  - [[Research Packages][Research Packages]]
+  - [[Programming Packages][Programming Packages]]
+  - [[Other Packages][Other Packages]]
 - [[Config][Config]]
   - [[Basic Information][Basic Information]]
   - [[Path Constants][Path Constants]]
   - [[Configure Packages][Configure Packages]]
   - [[Load Private Modules][Load Private Modules]]
   - [[Hooks][Hooks]]
-- [[Packages][Packages]]
-  - [[Research Packages][Research Packages]]
-  - [[Programming Packages][Programming Packages]]
-  - [[Other Packages][Other Packages]]
-- [[Keybindings][Keybindings]]
-  - [[Doom Bindings][Doom Bindings]]
 - [[Private Modules][Private Modules]]
   - [[Theming][Theming]]
   - [[Custom Functions][Custom Functions]]
@@ -93,6 +91,80 @@ b) [[https://github.com/tecosaur/emacs-config/][tecosaur]]
 b) [[https://github.com/MatthewZMD/.emacs.d][MatthewZMD]]
 c) [[https://github.com/hlissner/doom-emacs][hlissner]]
   
+* Packages
+Package management happens here. Declare packages to install and where they should be installed from.
+
+Note that Doom Emacs does not utilize =package.el=. Instead, it uses its own package manager which relies on =packages.el=, which becomes a repository of resources for your own configuration in =config.el=.
+
+Useful macros: =package!=, =disable-packages!=, =featurep!=
+
+** Research Packages
+*** Helm-Bibtex
+#+BEGIN_SRC emacs-lisp :tangle "./packages.el"
+(package! helm-bibtex)
+#+END_SRC
+
+*** Helm-Org-Rifle
+#+BEGIN_SRC emacs-lisp :tangle "./packages.el"
+(package! helm-org-rifle)
+#+END_SRC
+
+*** Org-Mode
+#+BEGIN_SRC emacs-lisp :tangle "./packages.el"
+(package! org)
+#+END_SRC
+
+*** Org-Superstar-Mode
+#+BEGIN_SRC emacs-lisp :tangle "./packages.el"
+(package! org-superstar)
+#+END_SRC
+
+*** Org-Ref
+#+BEGIN_SRC emacs-lisp :tangle "./packages.el"
+(package! org-ref)
+#+END_SRC
+
+*** Org-Roam
+#+BEGIN_SRC emacs-lisp :tangle "./packages.el"
+(package! org-roam)
+#+END_SRC
+
+*** Pdfgrep
+#+BEGIN_SRC emacs-lisp :tangle "./packages.el"
+(package! pdfgrep)
+#+END_SRC
+
+*** Pdf-Tools
+#+BEGIN_SRC emacs-lisp :tangle "./packages.el"
+(package! pdf-tools)
+#+END_SRC
+
+*** Pdf-View
+#+BEGIN_SRC emacs-lisp :tangle "./packages.el"
+;(package! pdf-view)
+#+END_SRC
+
+*** Rainbow-Mode
+#+BEGIN_SRC emacs-lisp :tangle "./packages.el"
+(package! rainbow-mode)
+#+END_SRC
+
+*** Zotxt
+#+BEGIN_SRC emacs-lisp :tangle "./packages.el"
+(package! zotxt)
+#+END_SRC
+
+** Programming Packages
+*** Clojure
+*** Dart
+*** TypeScript
+*** Python
+*** PlantUML
+#+BEGIN_SRC emacs-lisp :tangle "./packages.el"
+(package! plantuml-mode)
+#+END_SRC
+
+** Other Packages
 * Config
 This is where the majority of your private configuration should go. Anything in this file is evaluated after all Doom modules have been loaded.
 
@@ -103,13 +175,15 @@ Useful macros: =after!=, =use-package!=, =add-hook!=
 (setq user-full-name "Jonathan Crum")
 (setq user-mail-address "crumja@uga.edu")
 #+END_SRC
+
 ** Path Constants
 #+BEGIN_SRC emacs-lisp :tangle "./config.el"
 (setq NOTEBOOK (concat (getenv "HOME") "/Notebook"))
 (setq BIBLIOGRAPHY (concat (getenv "HOME") "/texmf/bibtex/bib/master.bib"))
 #+END_SRC
+
 ** Configure Packages
-*** Helm-Bibtex
+*** DONE Helm-Bibtex
 [[https://github.com/tmalsburg/helm-bibtex][Helm-Bibtex Repository]]
 
 The *Helm-Bibtex* package is a powerful bibliography management system that run on the Helm completion framework. Some key features of Helm-Bibtex:
@@ -158,7 +232,7 @@ By default, the package searches the =author=, =title=, =year=, =BibTeX key=, an
 ***** PDF application
 By default, Emacs is used to open PDF files. This means that either DocView is used, or if it is installed, the much more feature-rich *pdf-tools* package. Other PDF viewers can be configured as well.
 
-*** Helm-Org-Rifle
+*** DONE Helm-Org-Rifle
 [[https://github.com/alphapapa/org-rifle][Org-Rifle Repository]]
 
 The *Helm-Org-Rifle* package is a search engine for your =.org= files. Other similar engines exist, but *Helm-Org-Rifle* has the benefit of providing the heading context for the file the query result is found in. Entries are presented in a way that mimics an org-mode document, providing a nice unifying touch to the experience.
@@ -169,7 +243,7 @@ Not much in the way of configuration is needed to set this utter madlad off sear
 (use-package! helm-org-rifle)
 #+END_SRC
 
-*** Org-Mode
+*** TODO Org-Mode
 #+BEGIN_SRC emacs-lisp :tangle "./config.el"
 (use-package! org
   :defer t
@@ -185,32 +259,43 @@ Not much in the way of configuration is needed to set this utter madlad off sear
 ;  (setq org-superstar-mode 1))
 #+END_SRC
 
-*** Org-Ref
+*** TODO Org-Ref
 #+BEGIN_SRC emacs-lisp :tangle "./config.el"
 (use-package! org-ref)
 #+END_SRC
 
-*** Org-Roam
+*** TODO Org-Roam
 #+BEGIN_SRC emacs-lisp :tangle "./config.el"
 (use-package! org-roam)
 #+END_SRC
 
-*** Pdfgrep
+*** TODO Pdfgrep
 #+BEGIN_SRC emacs-lisp :tangle "./config.el"
 (use-package! pdfgrep)
 #+END_SRC
 
-*** Pdf-Tools
+*** TODO Pdf-Tools
 #+BEGIN_SRC emacs-lisp :tangle "./config.el"
 (use-package! pdf-tools)
 #+END_SRC
 
-*** Rainbow-Mode
+*** TODO Pdf-View
+#+BEGIN_SRC emacs-lisp :tangle ".config.el"
+;(use-package! pdf-view)
+#+END_SRC
+
+*** TODO PlantUML
+#+BEGIN_SRC emacs-lisp :tangle "./config.el"
+(use-package! plantuml-mode
+  :defer t)
+#+END_SRC
+
+*** HOLD Rainbow-Mode
 #+BEGIN_SRC emacs-lisp :tangle "./config.el"
 (use-package! rainbow-mode)
 #+END_SRC
 
-*** Zotxt
+*** HOLD Zotxt
 #+BEGIN_SRC emacs-lisp :tangle "./config.el"
 (use-package! zotxt)
 #+END_SRC
@@ -235,114 +320,6 @@ Not much in the way of configuration is needed to set this utter madlad off sear
 
 (remove-hook! 'text-mode-hook #'auto-fill-mode)
 #+END_SRC
-
-* Packages
-Package management happens here. Declare packages to install and where they should be installed from.
-
-Note that Doom Emacs does not utilize =package.el=. Instead, it uses its own package manager which relies on =packages.el=, which becomes a repository of resources for your own configuration in =config.el=.
-
-Useful macros: =package!=, =disable-packages!=, =featurep!=
-
-** Research Packages
-*** Helm-Bibtex
-#+BEGIN_SRC emacs-lisp :tangle "./packages.el"
-(package! helm-bibtex)
-#+END_SRC
-*** Helm-Org-Rifle
-#+BEGIN_SRC emacs-lisp :tangle "./packages.el"
-(package! helm-org-rifle)
-#+END_SRC
-*** Org-Mode
-#+BEGIN_SRC emacs-lisp :tangle "./packages.el"
-(package! org)
-#+END_SRC
-*** Org-Superstar-Mode
-#+BEGIN_SRC emacs-lisp :tangle "./packages.el"
-(package! org-superstar)
-#+END_SRC
-*** Org-Ref
-#+BEGIN_SRC emacs-lisp :tangle "./packages.el"
-(package! org-ref)
-#+END_SRC
-*** Org-Roam
-#+BEGIN_SRC emacs-lisp :tangle "./packages.el"
-(package! org-roam)
-#+END_SRC
-*** Pdfgrep
-#+BEGIN_SRC emacs-lisp :tangle "./packages.el"
-(package! pdfgrep)
-#+END_SRC
-*** Pdf-Tools
-#+BEGIN_SRC emacs-lisp :tangle "./packages.el"
-(package! pdf-tools)
-#+END_SRC
-*** Rainbow-Mode
-#+BEGIN_SRC emacs-lisp :tangle "./packages.el"
-(package! rainbow-mode)
-#+END_SRC
-*** Zotxt
-#+BEGIN_SRC emacs-lisp :tangle "./packages.el"
-(package! zotxt)
-#+END_SRC
-
-** Programming Packages
-*** Clojure
-*** Dart
-*** TypeScript
-*** Python
-** Other Packages
-* Keybindings
-** Doom Bindings
-
-| Leader | Binding | Function                     | Used | Replace? | Notes |
-|--------+---------+------------------------------+------+----------+-------|
-| =SPC-=   | =RET=     | Jump to bookmark             |      |          |       |
-|        | =SPC=     | Find file in project         |      |          |       |
-|        | ='=       | Resume last search           |      |          |       |
-|        | =*=       | Search for symbol in project |      |          |       |
-|        | =,=       | Switch workspace buffer      |      |          |       |
-|        | =.=       | Find file                    |      |          |       |
-|        | =:=       | =M-x=                          |      |          |       |
-|        | =;=       | Eval expression              |      |          |       |
-|        | =<=       | Switch buffer                |      |          |       |
-|        | =`=       | Switch to last buffer        |      |          |       |
-|        | =u=       | Universal argument           |      |          |       |
-|        | =x=       | Pop up scratch buffer        |      |          |       |
-|        | =~=       | Toggle last popup            |      |          |       |
-|        | =X=       | Org capture                  |      |          |       |
-|        | =TAB=     | +workspace                   |      |          |       |
-|        | =b=       | +buffer                      |      |          |       |
-|        | =c=       | [[*+code][+code]]                        |      |          |       |
-|        | =f=       | +file                        |      |          |       |
-|        | =g=       | +git                         |      |          |       |
-|        | =h=       | +help                        |      |          |       |
-|        | =i=       | +insert                      |      |          |       |
-|        | =m=       | +<localleader>               |      |          |       |
-|        | =n=       | +notes                       |      |          |       |
-|        | =o=       | +open                        |      |          |       |
-|        | =p=       | +project                     |      |          |       |
-|        | =q=       | +quit/session                |      |          |       |
-|        | =s=       | +search                      |      |          |       |
-|        | =t=       | +toggle                      |      |          |       |
-|        | =w=       | +window                      |      |          |       |
-| =C-=     | =c=       | +org                         |      |          |       |
-
-*** SPC-
-**** +code
-*** C-
-**** +org
-
-| Binding | Function |
-|---------+----------|
-| =C-c C-v= | [[*Babel][Babel]]    |
-|         |          |
-
-***** Babel
-
-| Binding     | Function |
-|-------------+----------|
-| =C-c C-v C-t= | Tangle   |
-|             |          |
 
 * Private Modules
 ** Theming
@@ -390,63 +367,62 @@ Useful macros: =package!=, =disable-packages!=, =featurep!=
   "A pleasant light theme."
 
 
-  ;; name           default     256   16
-  ( (bg           '("#FBF7EF"   nil   nil))
-    (bg-alt       '("#FBF7EF"   nil   nil))
-    (base0        '("#363636"   nil   nil))
-    (base1        '("#414141"   nil   nil))
-    (base2        '("#BF9B9F"   nil   nil))
-    (base3        '("#ebe6ea"   nil   nil)) ;; CONTROLS THE BLOCK HIGHLIGHT FFS
-    ;;(base3        '("#FBF7EF"   nil   nil))
-    (base4        '("#C9678D"   nil   nil))
-    (base5        '("#ECA7D5"   nil   nil))
-    (base6        '("#C9678D"   nil   nil))
-    (base7        '("#E7CEEE"   nil   nil))
-    (base8        '("#E2D8F5"   nil   nil))
-    (fg           '("#2A2A2A"   nil   nil))
-    (fg-alt       '("#2A2A2A"   nil   nil))
+  ;; name           default     256         16
+  ( (bg           '("#FBF7EF"   "#FBF7EF"   "white"))
+    (bg-alt       '("#FBF7EF"   "#FBF7EF"   "white"))
+    (base0        '("#363636"   "#363636"   "black"))
+    (base1        '("#414141"   "#414141"   nil))
+    (base2        '("#BF9B9F"   "#BF9B9F"   nil))
+    (base3        '("#ebe6ea"   "#EBE6EA"   nil)) ;; block highlights
+    (base4        '("#C9678D"   "#C9678D"   nil))
+    (base5        '("#ECA7D5"   "#ECA7D5"   nil))
+    (base6        '("#C9678D"   "#C9678D"   nil))
+    (base7        '("#E7CEEE"   "#E7CEEE"   nil))
+    (base8        '("#E2D8F5"   "#E2D8F5"   nil))
+    (fg           '("#2A2A2A"   "#2A2A2A"   nil))
+    (fg-alt       '("#2A2A2A"   "#2A2A2A"   nil))
 
     (grey base6)
-    (red          '("#BE3445"   nil   nil))
-    (orange       '("#D36745"   nil   nil))
-    (green        '("#AAC275"   nil   nil))
-    (yellow       '("#E1B967"   nil   nil))
-    (magenta      '("#CE67CF"   nil   nil))
+    (red          '("#BE3445"   "#BE3445"   nil))
+    (orange       '("#D36745"   "#D36745"   nil))
+    (green        '("#AAC275"   "#BE3445"   nil))
+    (yellow       '("#E1B967"   "#E1B967"   nil))
+    (magenta      '("#CE67CF"   "#CE67CF"   nil))
 
-    (teal         '("#29838D"   nil   nil))
-    (blue         '("#3B6EA8"   nil   nil))
-    (dark-blue    '("#5272AF"   nil   nil))
-    (violet       '("#842879"   nil   nil))
-    (cyan         '("#398EAC"   nil   nil))
-    (dark-cyan    '("#2C7088"   nil   nil))
+    (teal         '("#29838D"   "#29838D"   nil))
+    (blue         '("#3B6EA8"   "#3B6EA8"   nil))
+    (dark-blue    '("#5272AF"   "#5272AF"   nil))
+    (violet       '("#842879"   "#842879"   nil))
+    (cyan         '("#398EAC"   "#398EAC"   nil))
+    (dark-cyan    '("#2C7088"   "#2C7088"   nil))
 
     ;; face categories -- required for all themes
-    (highlight (doom-blend blue bg 0.8))
-    (vertical-bar (doom-darken bg 0.15))
-    (selection (doom-blend blue bg 0.5))
-    (builtin teal)
-    (comments (if doom-sakura-light-brighter-comments dark-cyan (doom-darken base5 0.2)))
-    (doc-comments (doom-darken (if doom-sakura-light-brighter-comments dark-cyan base5) 0.25))
-    (constants magenta)
-    (functions teal)
-    (keywords blue)
-    (methods teal)
-    (operators blue)
-    (type yellow)
-    (strings green)
-    (variables violet)
-    (numbers magenta)
-    (region base4)
-    (error red)
-    (warning yellow)
-    (success green)
-    (vc-modified orange)
-    (vc-added green)
-    (vc-deleted red)
-    (cursor-color '("#000000"))
-    (hl-line base6)
+    (highlight          (doom-blend blue bg 0.8))
+    (vertical-bar       (doom-darken bg 0.15))
+    (selection          (doom-blend blue bg 0.5))
+    (builtin            teal)
+    (comments           (if doom-sakura-light-brighter-comments dark-cyan (doom-darken base5 0.2)))
+    (doc-comments       (doom-darken (if doom-sakura-light-brighter-comments dark-cyan base5) 0.25))
+    (constants          magenta)
+    (functions          teal)
+    (keywords           blue)
+    (methods            teal)
+    (operators          blue)
+    (type               yellow)
+    (strings            green)
+    (variables          violet)
+    (numbers            magenta)
+    (region             base4)
+    (error              red)
+    (warning            yellow)
+    (success            green)
+    (vc-modified        orange)
+    (vc-added           green)
+    (vc-deleted         red)
+    (cursor-color       '("#000000"))
+    (hl-line            base6)
     (+evil--default-cursor-color '("#000000"))
-    (modeline-fg nil)
+    (modeline-fg        nil)
   ))
 
 (setq org-src-block-faces nil)
@@ -471,6 +447,11 @@ Useful macros: =package!=, =disable-packages!=, =featurep!=
                     :weight bold)))
   `(org-level-9 ((t :foreground "#000000"
                     :weight bold)))
+  `(org-verbatim ((t :foreground "#BE3445"
+                     :weight normal)))
+  `(org-block ((t :background "#ebe6ea")))
+  `(org-block-begin-line ((t :foreground "#2A2A2A" :underline "#2A2A2A" :background nil)))
+  `(org-block-end-line   ((t :foreground "#2A2A2A" :underline nil :overline "#2A2A2A" :background nil)))
   )
 #+END_SRC
 
