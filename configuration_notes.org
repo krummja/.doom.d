@@ -6,16 +6,17 @@
 - [[Configuration][Configuration]]
   - [[Init][Init]]
     - [[DOs and DONTs][DOs and DONTs]]
+  - [[Packages][Packages]]
+    - [[DOs and DONTs:][DOs and DONTs:]]
+    - [[Installing packages][Installing packages]]
   - [[Config][Config]]
     - [[DOs and DONTs][DOs and DONTs]]
     - [[Basic Macros][Basic Macros]]
     - [[Keybinding][Keybinding]]
-  - [[Packages][Packages]]
-    - [[DOs and DONTs:][DOs and DONTs:]]
-    - [[Installing packages][Installing packages]]
   - [[Additional Files][Additional Files]]
   - [[Writing Modules][Writing Modules]]
     - [[Module Structure][Module Structure]]
+- [[Helm-Find-Files][Helm-Find-Files]]
 
 * Configuration
 Doom Emacs can be configured by modifying the files found in your local =$DOOMDIR=. Doom expects this to be either =$HOME/.config/doom/= or =$HOME/.doom.d/=. When Doom is first set up, this directory contains three files:
@@ -34,50 +35,6 @@ Note that a Doom "module" is actually just the Doom-specific term for a layer. I
 - Configure packages with =use-package!= or =after!=.
 - Perform expensive or error-prone operations.
 - Define new =bin/doom= commands; use =cli.el= instead.
-
-** Config
-This is where the majority of your private configuration should go. Anything in this file is evaluated after all Doom modules have been loaded.
-
-*** DOs and DONTs
-**** DO:
-- Use =after!= and =use-package!= to configure packages.
-- Lazy load packages with =use-package='s =:defer= property.
-- Use the =featurep!= macro to make some configuration conditional based on the state of another module or the presence of a flag.
-**** DONT:
-- Use =package!=.
-- Install packages with =package.el= or =use-package='s =:ensure= property. That is what =packages.el= is for.
-
-*** Basic Macros
-**** Set Variables
-#+BEGIN_SRC emacs-lisp
-(setq doom-font (font-spec :family "Fira Code"
-                           :size 12))
-#+END_SRC
-
-**** Defer
-#+BEGIN_SRC emacs-lisp
-(after! evil
-  (setq evil-magic nil))
-#+END_SRC
-
-**** Hook
-#+BEGIN_SRC emacs-lisp
-(add-hook! python-mode
-           (setq python-shell-interpreter "bpython"))
-#+END_SRC
-
-**** Use Package
-#+BEGIN_SRC emacs-lisp
-(use-package! hl-todo
-  :hook (prog-mode . hl-todo-mode)
-  :init
-  ;; Code here will run immediately
-  :config
-  ;; Code here will run after the package is loaded
-  (setq hl-todo-highlight-punctuation ":"))
-#+END_SRC
-
-*** Keybinding
 
 ** Packages
    Package management happens here. Declare packages to install and where they should be installed from.
@@ -139,6 +96,50 @@ You might want to install a package only if Doom does not have it built-in.
 (package! example :built-in 'prefer)
 #+END_SRC
 
+** Config
+This is where the majority of your private configuration should go. Anything in this file is evaluated after all Doom modules have been loaded.
+
+*** DOs and DONTs
+**** DO:
+- Use =after!= and =use-package!= to configure packages.
+- Lazy load packages with =use-package='s =:defer= property.
+- Use the =featurep!= macro to make some configuration conditional based on the state of another module or the presence of a flag.
+**** DONT:
+- Use =package!=.
+- Install packages with =package.el= or =use-package='s =:ensure= property. That is what =packages.el= is for.
+
+*** Basic Macros
+**** Set Variables
+#+BEGIN_SRC emacs-lisp
+(setq doom-font (font-spec :family "Fira Code"
+                           :size 12))
+#+END_SRC
+
+**** Defer
+#+BEGIN_SRC emacs-lisp
+(after! evil
+  (setq evil-magic nil))
+#+END_SRC
+
+**** Hook
+#+BEGIN_SRC emacs-lisp
+(add-hook! python-mode
+           (setq python-shell-interpreter "bpython"))
+#+END_SRC
+
+**** Use Package
+#+BEGIN_SRC emacs-lisp
+(use-package! hl-todo
+  :hook (prog-mode . hl-todo-mode)
+  :init
+  ;; Code here will run immediately
+  :config
+  ;; Code here will run after the package is loaded
+  (setq hl-todo-highlight-punctuation ":"))
+#+END_SRC
+
+*** Keybinding
+
 ** Additional Files
 Any files beyond the three that come stock in Doom emacs are not given any particular treatment. These files must be manually loaded, and can be organized however you wish. One convention that has emerged in the Doom community applies to such files in the root of the module: append a =+= to the file name, e.g. =+extra.el=.
 
@@ -156,3 +157,46 @@ If a private module possesses the same name as a built-in Doom module (e.g. =:la
 
 *** Module Structure
 A module can minimally have *nothing* inside of it. But a minimal functional module will have at least a =packages.el= file to declare all packages it will install and a =config.el= file to configure and load those packages. Occasionally an =autoload.el= can be included to store a module's functions, to be loaded when used.
+
+* Helm-Find-Files
+[[file:~/.emacs.d/.local/straight/repos/helm/helm-files.el::defun helm-ff-RET (][Helm-FF-RET]]
+
+In =helm-files.el= I can find the following definition for =helm-ff-RET=:
+
+#+BEGIN_SRC emacs-lisp
+(defun helm-ff-RET ()
+  (interactive)
+  (helm-ff-RET-1)
+  )
+#+END_SRC
+
+The accompanying docstring states that if the candidate targeted on calling this function is a file, then it opens it - clearly using =helm-ff-RET-1=. This is defined just above =helm-ff-RET=:
+
+#+BEGIN_SRC emacs-lisp
+(defun helm-ff-RET-1 (&optional must-match)
+  (let ((sel (helm-get-selection))
+        non-essential)
+    (cl-assert sel nil "Trying to exit with no candidates.")
+    (if
+        (and
+         (or (file-directory-p sel))
+         (null current-prefix-arg)
+         (null helm-ff--RET-disabled)
+         (or (and (file-remote-p sel)
+                  (string= "." (helm-basename sel))
+                  (string-match-p "\\`[/].*:.*:\\'"
+                                  helm-pattern))
+             (not (string= "." (helm-basename sel)))))
+        (helm-execute-persistent-action)
+      (if must-match
+          (helm-confirm-and-exit-minibuffer)
+        (helm-maybe-exit-minibuffer)))))
+#+END_SRC
+
+Which says, get the current selection and pass it to a conditional.
+
+=IF  [current-prefix-arg is null]=
+    =AND
+    [helm-ff--RET-disabled is null]=
+=THEN=
+    =[helm-execute-persistent-action]=

@@ -30,7 +30,6 @@
 (def-doom-theme doom-sakura-light
   "A pleasant light theme."
 
-
   ;; name           default     256         16
   ( (bg           '("#FBF7EF"   "#FBF7EF"   "white"))
     (bg-alt       '("#FBF7EF"   "#FBF7EF"   "white"))
@@ -86,34 +85,30 @@
     (cursor-color       '("#000000"))
     (hl-line            base6)
     (+evil--default-cursor-color '("#000000"))
-    (modeline-fg        nil)
-  ))
+    (modeline-fg        nil)))
 
 (setq org-src-block-faces nil)
 (custom-theme-set-faces
   'user
   `(org-document-info-keyword ((t :foreground "#9F9F9F")))
-  `(org-level-1 ((t :foreground "#000000"
-                    :weight bold)))
-  `(org-level-2 ((t :foreground "#000000"
-                    :weight bold)))
-  `(org-level-3 ((t :foreground "#000000"
-                    :weight bold)))
-  `(org-level-4 ((t :foreground "#000000"
-                    :weight bold)))
-  `(org-level-5 ((t :foreground "#000000"
-                    :weight bold)))
-  `(org-level-6 ((t :foreground "#000000"
-                    :weight bold)))
-  `(org-level-7 ((t :foreground "#000000"
-                    :weight bold)))
-  `(org-level-8 ((t :foreground "#000000"
-                    :weight bold)))
-  `(org-level-9 ((t :foreground "#000000"
-                    :weight bold)))
-  `(org-verbatim ((t :foreground "#BE3445"
-                     :weight normal)))
-  `(org-block ((t :background "#ebe6ea")))
-  `(org-block-begin-line ((t :foreground "#2A2A2A" :underline "#2A2A2A" :background nil)))
-  `(org-block-end-line   ((t :foreground "#2A2A2A" :underline nil :overline "#2A2A2A" :background nil)))
+
+  `(org-level-1 ((t :foreground "#BE3445" :weight bold)))
+  `(org-level-2 ((t :foreground "#BE3445" :weight bold)))
+  `(org-level-3 ((t :foreground "#BE3445" :weight normal)))
+  `(org-level-4 ((t :foreground "#BE3445" :weight normal)))
+  `(org-level-5 ((t :foreground "#BE3445" :weight normal)))
+  `(org-level-6 ((t :foreground "#BE3445" :weight normal)))
+  `(org-level-7 ((t :foreground "#BE3445" :weight normal)))
+  `(org-level-8 ((t :foreground "#BE3445" :weight normal)))
+  `(org-level-9 ((t :foreground "#BE3445" :weight normal)))
+
+  `(org-block            ((t :background "#ebe6ea")))
+  `(org-block-begin-line ((t :foreground "#BF9B9F" :background nil :underline "#2A2A2A")))
+  `(org-block-end-line   ((t :foreground "#BF9B9F" :background nil :underline nil :overline "#2A2A2A")))
+  `(org-verbatim         ((t :foreground "#BE3445" :background nil :weight normal)))
+
+  `(org-table   ((t :background "#ebe6ea")))
+  `(org-formula ((t :background "#ebe6ea")))
+  `(org-ref-cite-face ((t :foreground "#BE3445")))
+  `(org-drawer ((t :foreground "#9F9F9F")))
   )

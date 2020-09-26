@@ -2,31 +2,31 @@
 
 # Table of Contents     :TOC_2_ORG:
 
--   [Introduction](#orge9fd54e)
-    -   [About Emacs](#org330e307)
-    -   [About Doom Emacs](#org73e832d)
-    -   [About Sakura Emacs](#org0b9e38e)
--   [Packages](#orgdf1c32c)
-    -   [Research Packages](#orga8e3b0d)
-    -   [Programming Packages](#org3e55ed6)
-    -   [Other Packages](#orgedf8729)
--   [Config](#org141a19f)
-    -   [Basic Information](#orgeafbbb7)
-    -   [Path Constants](#orgdff3edb)
-    -   [Configure Packages](#org6204ef6)
-    -   [Load Private Modules](#org7307e31)
-    -   [Hooks](#org9844069)
--   [Private Modules](#org3f912f5)
-    -   [Theming](#org48f6dae)
-    -   [Custom Functions](#org84dd19e)
+-   [Introduction](#org242bfcb)
+    -   [About Emacs](#org97c58f6)
+    -   [About Doom Emacs](#orgbe77384)
+    -   [About Sakura Emacs](#org1c66707)
+-   [Global Configuration](#org3947f70)
+    -   [Basic Information](#org70adfba)
+    -   [Path Constants](#org966d6d8)
+-   [Package Configuration](#org90f2000)
+    -   [About This Section](#org1fed80a)
+    -   [Research Packages](#orgc259d79)
+    -   [External Packages](#org58fce2d)
+    -   [Testing Area](#orgd9f4e9e)
+    -   [Load Private Modules](#org171a282)
+    -   [Hooks](#orgb79dc1d)
+-   [Private Modules](#orge0435d3)
+    -   [Theming](#org62bf852)
+    -   [Custom Functions](#orgc9b27d1)
 
 
-<a id="orge9fd54e"></a>
+<a id="org242bfcb"></a>
 
 # Introduction
 
 
-<a id="org330e307"></a>
+<a id="org97c58f6"></a>
 
 ## About Emacs
 
@@ -57,7 +57,7 @@ Emacs doesn&rsquo;t have a monopoly on good ideas, and there are other great too
 *This beautifully written **About Emacs** section credits to [Remacs](https://github.com/remacs/remacs).*
 
 
-<a id="org73e832d"></a>
+<a id="orgbe77384"></a>
 
 ## About Doom Emacs
 
@@ -74,7 +74,7 @@ readable code design, so that there is less between you and Emacs.
 *This **About Doom-Emacs** section credits to [Doom-Emacs](https://github.com/hlissner/doom-emacs).*
 
 
-<a id="org0b9e38e"></a>
+<a id="org1c66707"></a>
 
 ## About Sakura Emacs
 
@@ -91,7 +91,7 @@ These principles have crystallized into a sort of philosophy that I try (sometim
 This configuration is designed and tested for **GNU Emacs 28 and above only**.
 
 
-### Screenshot
+### TODO Screenshot
 
 
 ### About README
@@ -99,10 +99,10 @@ This configuration is designed and tested for **GNU Emacs 28 and above only**.
 This README is generated from `sakura.org` using `M-x org-gfm-export-to-markdown`. This file is also used to generate the actual configuration files by running `M-x org-babel-tangle`.
 
 
-### Installation
+### TODO Installation
 
 
-### Modification
+### TODO Modification
 
 
 ### Contribution
@@ -120,9 +120,44 @@ To continue the trend of learning from people learning from people learning from
 4.  [hlissner](https://github.com/hlissner/doom-emacs)
 
 
-<a id="orgdf1c32c"></a>
+<a id="org3947f70"></a>
 
-# Packages
+# Global Configuration
+
+
+<a id="org70adfba"></a>
+
+## Basic Information
+
+    (setq user-full-name "Jonathan Crum")
+    (setq user-mail-address "crumja@uga.edu")
+
+
+<a id="org966d6d8"></a>
+
+## Path Constants
+
+    (setq NOTEBOOK (concat (getenv "HOME") "/Notebook"))
+    (setq BIBLIOGRAPHY (concat (getenv "HOME") "/texmf/bibtex/bib/master.bib"))
+    (setq LIBRARY (concat (getenv "HOME") "/Dropbox/Library"))
+    (setq WORKSPACE (concat (getenv "HOME") "/Workspace"))
+
+
+<a id="org90f2000"></a>
+
+# Package Configuration
+
+
+<a id="org1fed80a"></a>
+
+## About This Section
+
+This section of the configuration handles the declaration and setup of specific packages loaded from external libraries. Each package is split into minimally two parts, with one part tangling to `./packages.el` and the other tangling to `./config.el`. The former is part of Doom Emacs&rsquo; package management system (built on top of `straight`), while the latter is where the bulk of the actual private config happens. Below are some notes and useful macros for each.
+
+Some of the packages sections will also have a third section for custom keybindings.
+
+
+### Declaration (Packages)
 
 Package management happens here. Declare packages to install and where they should be installed from.
 
@@ -131,124 +166,80 @@ Note that Doom Emacs does not utilize `package.el`. Instead, it uses its own pac
 Useful macros: `package!`, `disable-packages!`, `featurep!`
 
 
-<a id="orga8e3b0d"></a>
-
-## Research Packages
-
-
-### Helm-Bibtex
-
-    (package! helm-bibtex)
-
-
-### Helm-Org-Rifle
-
-    (package! helm-org-rifle)
-
-
-### Org-Mode
-
-    (package! org)
-
-
-### Org-Superstar-Mode
-
-    (package! org-superstar)
-
-
-### Org-Ref
-
-    (package! org-ref)
-
-
-### Org-Roam
-
-    (package! org-roam)
-
-
-### Pdfgrep
-
-    (package! pdfgrep)
-
-
-### Pdf-Tools
-
-    (package! pdf-tools)
-
-
-### Pdf-View
-
-    ;(package! pdf-view)
-
-
-### Rainbow-Mode
-
-    (package! rainbow-mode)
-
-
-### Zotxt
-
-    (package! zotxt)
-
-
-<a id="org3e55ed6"></a>
-
-## Programming Packages
-
-
-### Clojure
-
-
-### Dart
-
-
-### TypeScript
-
-
-### Python
-
-
-### PlantUML
-
-    (package! plantuml-mode)
-
-
-<a id="orgedf8729"></a>
-
-## Other Packages
-
-
-<a id="org141a19f"></a>
-
-# Config
+### Configuration (Config)
 
 This is where the majority of your private configuration should go. Anything in this file is evaluated after all Doom modules have been loaded.
 
 Useful macros: `after!`, `use-package!`, `add-hook!`
 
 
-<a id="orgeafbbb7"></a>
+### Keybindings (Keybindings)
 
-## Basic Information
-
-    (setq user-full-name "Jonathan Crum")
-    (setq user-mail-address "crumja@uga.edu")
+Useful macros: `define-key`, `global-set-key`, `map!`, `undefine-key!`, `define-key!`
 
 
-<a id="orgdff3edb"></a>
+<a id="orgc259d79"></a>
 
-## Path Constants
-
-    (setq NOTEBOOK (concat (getenv "HOME") "/Notebook"))
-    (setq BIBLIOGRAPHY (concat (getenv "HOME") "/texmf/bibtex/bib/master.bib"))
+## Research Packages
 
 
-<a id="org6204ef6"></a>
+### Notes
 
-## Configure Packages
+[RGoswami Config Notes](https://rgoswami.me/posts/org-note-workflow/)
+
+This selection of packages all work together to form a suite of research-related tools and functions. This is by far the piece of this configuration that will require the most fine-tuning and labor to get working the way I want, so I wanted to separate it out to discuss it independently.
+
+The overall workflow is something like this.
+
+1.  Add a reference to the master bibliography file.
+2.  Using Helm-Bibtex, access that bibliography item and insert a `cite:` link.
+3.  Alternatively, use Org-Ref to insert a `cite:` link.
+4.  On evaluating a `cite:` link, Org-Roam-Bibtex will open or create a relevant note file for that citation.
+
+1.  Some questions to consider:
+
+    1.  When do I want to put citations into Org documents?
+        Ideally I want to be able to have notes open when working with/processing a document.
+        I should be able to insert citations at any point. When I add a citation, I want it to in a references section, perhaps both in that document and in a separate index file. If I use an index file, I also want to show backlinks to the note files that cite that item.
+    
+    2.  How do I want to interface with the bibliography?
+        Helm-Bibtex gives me the power to do this already. I want to be able to open the bibliography file and manually add entries.
+        If Helm-Bibtex has a minibuffer for bib item entry, all the better. I should look into this.
+    
+    3.  How do I want to access PDFs?
+        I would like to access PDFs from Helm-Bibtex, and by evaluating citation links.
+    
+    4.  How do I want to associate PDFs to entries, and notes entries?
+        PDFs should be added to entries by default if the PDF is available. If not, I would like some way of having the list of PDF-less items put in my face to deal with.
+        I would also like some way of keeping accountability for the completeness of my bib entries, on that note; it&rsquo;s better if there are no incomplete or broken bib items.
+    
+    5.  How do I want to manage notes and interconnect them?
+        This is the perennial question&#x2026; I have Helm-Org-Rifle as a search engine, so that should work well enough. I can also use Org-Roam for backlinking.
+        I am not sure to what extent it is a good idea to have index files for things. Projects will automatically serve as central points where clusters of backlinks should accumulate.
+    
+    6.  When I open a PDF, what do I want to see/what should happen?
+        Ideally opening a PDF will also open its associated notes, if any exist.
+
+2.  Notes on workflow
+
+    The easiest way to get started on a project involving bibliography entries is to head over to a project heading in the notebook index and use `C-c b b` to open Helm-Bibtex.
+    From there, select a bibliography entry to add. It will insert a citation.
+    Select the citation, select add notes.
+    
+    One issue - how do I format the inserted citations?
 
 
-### DONE Helm-Bibtex
+### BibTeX
+
+1.  Keybindings
+
+    I need to set up some general keybindings for manipulating bibtex entries&#x2026;
+    
+        (map! :map bibtex-mode-map
+              :prefix ("C-c b" . "bibtex"))
+
+
+### STRT Helm-Bibtex
 
 [Helm-Bibtex Repository](https://github.com/tmalsburg/helm-bibtex)
 
@@ -262,44 +253,73 @@ The **Helm-Bibtex** package is a powerful bibliography management system that ru
 6.  Quick access to online databases like Google Scholar.
 7.  Import BibTeX from CrossRef and other sources.
 
-    (use-package! helm-bibtex
-      :defer t
-      :config
-      (setq bibtex-completion-bibliography '(BIBLIOGRAPHY))
-      (setq bibtex-completion-library-path (concat (getenv "HOME") "Dropbox/Library"))
-      (setq bibtex-completion-pdf-field "File")
-      (setq bibtex-completion-notes-path NOTEBOOK)
-      )
+1.  Declaration
 
-1.  Basic Configuration
+        (package! helm-bibtex)
 
-    Helm-Bibtex configuration involves, at minimum, specifying a bibliography file and a pdf library path to feed to the completion engine. A `listp` can be used to specify multiple bibliography files.
+2.  Configuration
+
+        (use-package! helm-bibtex
+          :defer t
+          :config
+          (setq bibtex-completion-bibliography BIBLIOGRAPHY)
+          (setq bibtex-completion-library-path LIBRARY)
+          (setq bibtex-completion-pdf-field "File")
+          (setq bibtex-completion-notes-path NOTEBOOK)
+          (setq bibtex-completion-notes-template-multiple-files
+                (concat
+                 "#+TITLE: ${title}\n"
+                 "#+ROAM_KEY: cite:${=key=}\n"
+                 "* TODO Notes\n"
+                 ":PROPERTIES:\n"
+                 ":Custom_ID: ${=key=}\n"
+                 ":NOTER_DOCUMENT: %(orb-process-file-field \"${=key=}\")\n"
+                 ":AUTHOR: ${author-abbrev}\n"
+                 ":JOURNAL: ${journaltitle}\n"
+                 ":DATE: ${date}\n"
+                 ":YEAR: ${year}\n"
+                 ":DOI: ${doi}\n"
+                 ":URL: ${url}\n"
+                 ":END:")))
+
+3.  Keybindings
+
+        (map! :map org-mode-map
+              :prefix ("C-c b" . "bibtex")
+              "b" #'helm-bibtex
+              "n b" #'helm-bibtex-with-notes)
+
+4.  Notes
+
+    1.  Basic Configuration
     
-    BibTeX entries are able to keep a reference to a local pdf file (or note files, etc.) using a `File` field. Helm-Bibtex can be configured to use this field for attachment completion.
-
-2.  Notes Configuration
-
-    Bibtex-completion support two methods for note storage, either all notes in a single large file, or across multiple per-publication files. The variable `bibtex-completion-notes-path` should point to an `.org` file or file directory, respectively.
-
-3.  Advanced Configuration
-
-    1.  Additional fields
-    
-        By default, the package searches the `author`, `title`, `year`, `BibTeX key`, and `entry type` fields. Additional fields can be specified with the variable `bibtex-completion-additional-search-fields`.
+        Helm-Bibtex configuration involves, at minimum, specifying a bibliography file and a pdf library path to feed to the completion engine. A `listp` can be used to specify multiple bibliography files.
         
-            (setq bibtex-completion-additional-search-fields '(keywords))
+        BibTeX entries are able to keep a reference to a local pdf file (or note files, etc.) using a `File` field. Helm-Bibtex can be configured to use this field for attachment completion.
     
-    2.  Symbols for indicating notes
+    2.  Notes Configuration
     
-            (setq bibtex-completion-pdf-symbol "#")
-            (setq bibtex-completion-notes-symbol "!")
+        Bibtex-completion support two methods for note storage, either all notes in a single large file, or across multiple per-publication files. The variable `bibtex-completion-notes-path` should point to an `.org` file or file directory, respectively.
     
-    3.  PDF application
+    3.  Advanced Configuration
     
-        By default, Emacs is used to open PDF files. This means that either DocView is used, or if it is installed, the much more feature-rich **pdf-tools** package. Other PDF viewers can be configured as well.
+        1.  Additional fields
+        
+            By default, the package searches the `author`, `title`, `year`, `BibTeX key`, and `entry type` fields. Additional fields can be specified with the variable `bibtex-completion-additional-search-fields`.
+            
+                (setq bibtex-completion-additional-search-fields '(keywords))
+        
+        2.  Symbols for indicating notes
+        
+                (setq bibtex-completion-pdf-symbol "#")
+                (setq bibtex-completion-notes-symbol "!")
+        
+        3.  PDF application
+        
+            By default, Emacs is used to open PDF files. This means that either DocView is used, or if it is installed, the much more feature-rich **pdf-tools** package. Other PDF viewers can be configured as well.
 
 
-### DONE Helm-Org-Rifle
+### STRT Helm-Org-Rifle
 
 [Org-Rifle Repository](https://github.com/alphapapa/org-rifle)
 
@@ -307,82 +327,362 @@ The **Helm-Org-Rifle** package is a search engine for your `.org` files. Other s
 
 Not much in the way of configuration is needed to set this utter madlad off searching. I might want to set up keybindings to make my life easier, however!
 
-    (use-package! helm-org-rifle)
+1.  Declaration
+
+        (package! helm-org-rifle)
+
+2.  Configuration
+
+        (use-package! helm-org-rifle)
+
+3.  Keybindings
+
+        (map! :map org-mode-map
+              :prefix ("C-c s" . "search")
+              "r" #'helm-org-rifle
+              "o" #'helm-org-rifle-occur
+              "f" #'helm-org-rifle-files)
 
 
-### TODO Org-Mode
+### STRT Org-Ref
 
-    (use-package! org
-      :defer t
-      :config
-      (setq org-startup-with-inline-images nil)
-      (setq org-startup-shrink-all-tables t)
-      (setq org-use-property-inheritance t)
-      (setq org-hide-emphasis-markers t))
-    
-    (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
-    
-    ;(after! org
-    ;  (setq org-superstar-mode 1))
+[Org-Ref Documentation](https://github.com/jkitchin/org-ref/blob/master/org-ref.org)
 
+The variable `org-ref-bibtex-journal-abbreviations` contains a mapping of a short string to full journal title, and an abbreviated journal title. We can use these to create new versions of a bibtex file with full or abbreviated journal titles. You can add new strings like:
 
-### TODO Org-Ref
+    (add-to-list 'org-ref-bibtex-journal-abbreviations
+                 '("JIR" "Journal of Irreproducible Research" "J. Irrep. Res."))
 
-    (use-package! org-ref)
+1.  Declaration
+
+        (package! org-ref)
+
+2.  Configuration
+
+        (use-package! org-ref
+          :after (:any org org-noter org-roam)
+          :config
+          (setq reftex-default-bibliography BIBLIOGRAPHY)
+        
+          (setq org-ref-bibliography-notes "~/Notebook/index.org")
+          (setq org-ref-default-bibliography '("~/texmf/bibtex/bib/master.bib"))
+          (setq org-ref-pdf-directory "~/Dropbox/Library")
+          (setq org-ref-completion-library 'helm-bibtex)
+          (setq org-ref-get-pdf-filename-function 'org-ref-get-pdf-filename-helm-bibtex)
+          (setq org-ref-note-title-format "* TODO %y - %t\n :PROPERTIES:\n  :Custom_ID: %k\n  :NOTER_DOCUMENT: %F\n :ROAM_KEY: cite:%k\n  :AUTHOR: %9a\n  :JOURNAL: %j\n  :YEAR: %y\n  :VOLUME: %v\n  :PAGES: %p\n  :DOI: %D\n  :URL: %U\n :END:\n\n")
+          (setq org-ref-notes-directory "~/Notebook")
+          (setq org-ref-notes-function 'orb-edit-notes))
+        
+          (setq bibtex-completion-bibliography BIBLIOGRAPHY)
+          (setq bibtex-completion-library-path LIBRARY)
+          (setq bibtex-completion-notes-path NOTEBOOK)
+
+3.  Keybindings
+
+    I need to make a binding for `org-ref-index`.
 
 
 ### TODO Org-Roam
 
-    (use-package! org-roam)
+Org-Roam is a notetaking package inspired by the Zettelkasten method; it is a loose implementation of the online application Roam.
+
+Notable features include:
+
+1.  Declaration
+
+        (package! org-roam)
+
+2.  Configuration
+
+        (use-package! org-roam
+          :config
+          (setq org-roam-directory NOTEBOOK))
+
+3.  Keybindings
+
+        (map! :map org-roam-mode-map
+              :prefix ("C-c r" . "Org-Roam")
+              "r" #'org-roam
+              "f" #'org-roam-find-file
+              "g" #'org-roam-graph-show )
+        
+        (map! :map org-mode-map
+              :prefix ("C-c r" . "Org-Roam")
+              "i" #'org-roam-insert
+              "I" #'org-roam-insert-immediate )
 
 
-### TODO Pdfgrep
+### TODO Org-Roam-Bibtex
 
-    (use-package! pdfgrep)
+Org-Roam-Bibtex is a library that tightens up the integration between Org-Roam, Helm-Bibtex, and Org-Ref.
+
+It allows the user to access their bibliographical notes as assigned to the variable `org-roam-directory` via Helm-Bibtex, Ivy-Bibtex, or by opening Org-Ref&rsquo;s `cite:` links and running `3. Add notes`. If the note does not already exist, it will be created.
+
+1.  Declaration
+
+        (package! org-roam-bibtex)
+
+2.  Configuration
+
+        (use-package! org-roam-bibtex
+          :after (org-roam)
+          :hook (org-roam-mode . org-roam-bibtex-mode)
+          :config
+          (setq org-roam-bibtex-preformat-keywords
+                '("=key=" "title" "url" "file" "author-or-editor" "keywords"))
+          (setq orb-templates
+                '(("r" "ref" plain (function org-roam-capture--get-point)
+                   ""
+                   :file-name "${slug}"
+                   :head "#+TITLE: ${=key=}: ${title}\n#+ROAM_KEY: ${ref}
+        
+        - tags ::
+        - keywords :: ${keywords}
+        
+        \n* ${title}\n  :PROPERTIES:\n  :Custom_ID: ${=key=}\n  :URL: ${url}\n  :AUTHOR: ${author-or-editor}\n  :NOTER_DOCUMENT: %(orb-process-file-field \"${=key=}\")\n  :NOTER_PAGE: \n  :END:\n\n"
+        
+                   :unnarrowed t))))
+
+3.  Keybindings
+
+        (map! :map org-mode-map
+              :prefix ("C-c b" . "bibtex")
+              "n a" #'orb-note-actions)
 
 
-### TODO Pdf-Tools
+### TODO Org-Noter
 
-    (use-package! pdf-tools)
+1.  Declaration
 
+        (package! org-noter)
 
-### TODO Pdf-View
+2.  Configuration
 
-    ;(use-package! pdf-view)
+        (use-package! org-noter
+          :after (:any org pdf-view)
+          :config
+          (setq org-noter-notes-window-location 'other-frame)
+          (setq org-noter-always-create-frame nil)
+          (setq org-noter-hide-other nil)
+          (setq org-noter-notes-search-path '("~/Notebook")))
 
+3.  Keybindings
 
-### TODO PlantUML
-
-    (use-package! plantuml-mode
-      :defer t)
-
-
-### HOLD Rainbow-Mode
-
-    (use-package! rainbow-mode)
+        (map! :map (org-mode-map pdf-view-mode-map)
+              :prefix ("C-c n" . "Org-Noter")
+              "n" #'org-noter
+              "i" #'org-noter-insert-note
+              "I" #'org-noter-insert-precise-note
+              "SPC" #'org-noter-sync-current-note)
 
 
 ### HOLD Zotxt
 
-    (use-package! zotxt)
+1.  Declaration
+
+        (package! zotxt)
+
+2.  Configuration
+
+        (use-package! zotxt)
 
 
-<a id="org7307e31"></a>
+<a id="org58fce2d"></a>
+
+## External Packages
+
+
+### TODO Org-Mode
+
+1.  Declaration
+
+        (package! org)
+
+2.  Configuration
+
+        (use-package! org
+          :defer t
+          :config
+          (setq org-startup-with-inline-images nil)
+          (setq org-startup-shrink-all-tables t)
+          (setq org-startup-folded t)
+          (setq org-use-property-inheritance t)
+          (setq org-hide-emphasis-markers t)
+          (setq org-capture-templates
+                '(("p" "Add Package" entry (file+headline "~/.doom.d/sakura.org" "External Packages")
+                   "\n*** TODO Package Name")))
+          ;(add-to-list 'org-file-apps '("\\.pdf\\'" . (lambda (file link)
+          ;                                              (org-pdfview-open link))))
+          )
+        
+        (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+
+3.  Keybindings
+
+
+### TODO Org-Babel
+
+1.  Declaration
+
+2.  Configuration
+
+3.  [?] Keybindings
+
+    Note that this ended up coming out as `SPC C-c C-v C-c` lol&#x2026;
+    
+        (map! :map org-mode-map
+              :desc "Execute target src block" "\C-v\C-c" #'org-babel-execute-src-block)
+
+
+### DONE Org-Superstar-Mode
+
+1.  Declaration
+
+        (package! org-superstar)
+
+
+### TODO Pdfgrep
+
+1.  Declaration
+
+        (package! pdfgrep)
+
+2.  Configuration
+
+        (use-package! pdfgrep)
+
+
+### STRT Pdf-Tools
+
+1.  Declaration
+
+        (package! pdf-tools)
+
+2.  Configuration
+
+        (use-package! pdf-tools
+          :if (display-graphic-p)
+          :mode ("\\.pdf$" . pdf-view-mode)
+          :init (load "pdf-tools-autoloads" nil t)
+          :config
+          (pdf-tools-install)
+          (setq-default pdf-view-display-size 'fit-width)
+          (add-hook 'pdf-view-mode-hook (lambda () (cua-mode 0)))
+        )
+
+
+### HOLD PlantUML
+
+1.  Declaration
+
+        (package! plantuml-mode)
+
+2.  Configuration
+
+        (use-package! plantuml-mode
+          :defer t)
+
+
+### TODO Powerthesaurus
+
+1.  Declaration
+
+        (package! powerthesaurus)
+
+2.  Configuration
+
+        (use-package! powerthesaurus
+          :defer t)
+
+3.  Keybindings
+
+        (map! :map org-mode-map
+              :prefix ("C-c w" . "writing")
+              "t" #'powerthesuarus-lookup-word-dwim)
+
+
+### DONE Rainbow-Mode
+
+1.  Declaration
+
+        (package! rainbow-mode)
+
+2.  Configuration
+
+        (use-package! rainbow-mode)
+
+
+### TODO Treemacs
+
+1.  Keybindings
+
+        (map! :leader
+              :nv "o n" nil
+              :desc "Open treemacs pane"
+              :n "o n" #'+treemacs/toggle)
+        (map! :leader
+              :nv "o N" nil
+              :desc "Treemacs find file"
+              :n "o N" #'treemacs-find-file)
+
+
+<a id="orgd9f4e9e"></a>
+
+## Testing Area
+
+This is just a space for folding in some configuration stuff that I&rsquo;m still getting dialed in. It could include custom functions, package configuration, hooks, or other random elisp that I want to partially compartmentalize from the rest of the setup.
+
+In the future, I might separate this out into its own file and just do a selective inclusion of it into the `./config.el` file.
+
+    (defalias 'doc-view-mode #'pdf-view-mode)
+    
+    (add-to-list 'auto-mode-alist '("\\.pdf\\'" . pdf-view-mode))
+    
+    (defun sakura-find-file (orig-fun &rest args)
+      (let* ((filename (car args)))
+        (if (cl-find-if
+             (lambda (regexp) (string-match regexp filename))
+             '("\\.pdf\\'"))
+            (xdg-open filename)
+          (if (not (file-directory-p directory))
+              (make-directory directory t))
+          (apply org-fun args))))
+    
+    ;;(advice-add 'find-file :around 'sakura-find-file)
+
+
+### Keybindings Tests
+
+I don&rsquo;t know enough about how Doom keybinding macros work.
+
+    (map! :leader
+          (:prefix "a"
+           :desc "Kill line" "d" (cmd! (previous-line)
+                                       (kill-line)
+                                       (forward-line))))
+
+
+<a id="org171a282"></a>
 
 ## Load Private Modules
+
+This just loads in files from the `elisp/` and `themes/` directories, consisting of my own private packages or modules. Sakura&rsquo;s theming is the critical piece that gets loaded here, but custom functions and helper functions are also called in this section.
 
     (load! "./elisp/init-sakura-theming.el")
     (load! "./elisp/custom-functions.el")
     
     (load! "./themes/doom-sakura-light-theme.el")
     (load! "./themes/doom-sakura-dark-theme.el")
+    
+    (load! "./keybindings.el")
 
 
-<a id="org9844069"></a>
+<a id="orgb79dc1d"></a>
 
 ## Hooks
 
     (add-hook! 'org-babel-post-tangle-hook 'add-tangle-headers)
+    ;; (add-hook! 'org-babel-post-tangle-hook 'add-latex-framework)
     (add-hook! '(+doom-dashboard-mode-hook)
       (setq fancy-splash-image "~/.doom.d/images/sakura_emacs.png"))
     
@@ -392,12 +692,12 @@ Not much in the way of configuration is needed to set this utter madlad off sear
     (remove-hook! 'text-mode-hook #'auto-fill-mode)
 
 
-<a id="org3f912f5"></a>
+<a id="orge0435d3"></a>
 
 # Private Modules
 
 
-<a id="org48f6dae"></a>
+<a id="org62bf852"></a>
 
 ## Theming
 
@@ -415,124 +715,127 @@ Not much in the way of configuration is needed to set this utter madlad off sear
 
 1.  Light Theme
 
-        (require 'doom-themes)
-        
-        ;;
-        (defgroup doom-sakura-light-theme nil
-          "Options for doom-themes"
-          :group  'doom-themes)
-        
-        (defcustom doom-sakura-light-brighter-modeline nil
-          "If non-nil, more vivid colors will be used to style the mode-line."
-          :group  'doom-sakura-light-theme
-          :type   'boolean)
-        
-        (defcustom doom-sakura-light-brighter-comments nil
-          "If non-nil, comments will be highlighted in more vivid colors."
-          :group  'doom-sakura-light-theme
-          :type   'boolean)
-        
-        (defcustom doom-sakura-light-comment-bg doom-sakura-light-brighter-comments
-          "If non-nil, comments will have a subtle, darker background, enchancing legibility."
-          :group  'doom-sakura-light-theme
-          :type   'boolean)
-        
-        (defcustom doom-sakura-light-padded-modeline doom-themes-padded-modeline
-          "If non-nil, adds a 4px padding to the mode-line. Can beinteger to determine exact padding."
-          :group  'doom-sakura-light-theme
-          :type   '(choice integer boolean))
-        
-        ;;
-        (def-doom-theme doom-sakura-light
-          "A pleasant light theme."
-        
-        
-          ;; name           default     256         16
-          ( (bg           '("#FBF7EF"   "#FBF7EF"   "white"))
-            (bg-alt       '("#FBF7EF"   "#FBF7EF"   "white"))
-            (base0        '("#363636"   "#363636"   "black"))
-            (base1        '("#414141"   "#414141"   nil))
-            (base2        '("#BF9B9F"   "#BF9B9F"   nil))
-            (base3        '("#ebe6ea"   "#EBE6EA"   nil)) ;; block highlights
-            (base4        '("#C9678D"   "#C9678D"   nil))
-            (base5        '("#ECA7D5"   "#ECA7D5"   nil))
-            (base6        '("#C9678D"   "#C9678D"   nil))
-            (base7        '("#E7CEEE"   "#E7CEEE"   nil))
-            (base8        '("#E2D8F5"   "#E2D8F5"   nil))
-            (fg           '("#2A2A2A"   "#2A2A2A"   nil))
-            (fg-alt       '("#2A2A2A"   "#2A2A2A"   nil))
-        
-            (grey base6)
-            (red          '("#BE3445"   "#BE3445"   nil))
-            (orange       '("#D36745"   "#D36745"   nil))
-            (green        '("#AAC275"   "#BE3445"   nil))
-            (yellow       '("#E1B967"   "#E1B967"   nil))
-            (magenta      '("#CE67CF"   "#CE67CF"   nil))
-        
-            (teal         '("#29838D"   "#29838D"   nil))
-            (blue         '("#3B6EA8"   "#3B6EA8"   nil))
-            (dark-blue    '("#5272AF"   "#5272AF"   nil))
-            (violet       '("#842879"   "#842879"   nil))
-            (cyan         '("#398EAC"   "#398EAC"   nil))
-            (dark-cyan    '("#2C7088"   "#2C7088"   nil))
-        
-            ;; face categories -- required for all themes
-            (highlight          (doom-blend blue bg 0.8))
-            (vertical-bar       (doom-darken bg 0.15))
-            (selection          (doom-blend blue bg 0.5))
-            (builtin            teal)
-            (comments           (if doom-sakura-light-brighter-comments dark-cyan (doom-darken base5 0.2)))
-            (doc-comments       (doom-darken (if doom-sakura-light-brighter-comments dark-cyan base5) 0.25))
-            (constants          magenta)
-            (functions          teal)
-            (keywords           blue)
-            (methods            teal)
-            (operators          blue)
-            (type               yellow)
-            (strings            green)
-            (variables          violet)
-            (numbers            magenta)
-            (region             base4)
-            (error              red)
-            (warning            yellow)
-            (success            green)
-            (vc-modified        orange)
-            (vc-added           green)
-            (vc-deleted         red)
-            (cursor-color       '("#000000"))
-            (hl-line            base6)
-            (+evil--default-cursor-color '("#000000"))
-            (modeline-fg        nil)
-          ))
-        
-        (setq org-src-block-faces nil)
-        (custom-theme-set-faces
-          'user
-          `(org-document-info-keyword ((t :foreground "#9F9F9F")))
-          `(org-level-1 ((t :foreground "#000000"
-                            :weight bold)))
-          `(org-level-2 ((t :foreground "#000000"
-                            :weight bold)))
-          `(org-level-3 ((t :foreground "#000000"
-                            :weight bold)))
-          `(org-level-4 ((t :foreground "#000000"
-                            :weight bold)))
-          `(org-level-5 ((t :foreground "#000000"
-                            :weight bold)))
-          `(org-level-6 ((t :foreground "#000000"
-                            :weight bold)))
-          `(org-level-7 ((t :foreground "#000000"
-                            :weight bold)))
-          `(org-level-8 ((t :foreground "#000000"
-                            :weight bold)))
-          `(org-level-9 ((t :foreground "#000000"
-                            :weight bold)))
-          `(org-verbatim ((t :foreground "#BE3445"
-                             :weight normal)))
-          `(org-block ((t :background "#ebe6ea")))
-          `(org-block-begin-line ((t :foreground "#2A2A2A" :underline "#2A2A2A" :background nil)))
-          `(org-block-end-line   ((t :foreground "#2A2A2A" :underline nil :overline "#2A2A2A" :background nil)))
-          )
+    1.  Dependencies
+    
+            (require 'doom-themes)
+    
+    2.  Group Definitions
+    
+            ;;
+            (defgroup doom-sakura-light-theme nil
+              "Options for doom-themes"
+              :group  'doom-themes)
+            
+            (defcustom doom-sakura-light-brighter-modeline nil
+              "If non-nil, more vivid colors will be used to style the mode-line."
+              :group  'doom-sakura-light-theme
+              :type   'boolean)
+            
+            (defcustom doom-sakura-light-brighter-comments nil
+              "If non-nil, comments will be highlighted in more vivid colors."
+              :group  'doom-sakura-light-theme
+              :type   'boolean)
+            
+            (defcustom doom-sakura-light-comment-bg doom-sakura-light-brighter-comments
+              "If non-nil, comments will have a subtle, darker background, enchancing legibility."
+              :group  'doom-sakura-light-theme
+              :type   'boolean)
+            
+            (defcustom doom-sakura-light-padded-modeline doom-themes-padded-modeline
+              "If non-nil, adds a 4px padding to the mode-line. Can beinteger to determine exact padding."
+              :group  'doom-sakura-light-theme
+              :type   '(choice integer boolean))
+    
+    3.  Color Palette
+    
+            ;;
+            (def-doom-theme doom-sakura-light
+              "A pleasant light theme."
+            
+              ;; name           default     256         16
+              ( (bg           '("#FBF7EF"   "#FBF7EF"   "white"))
+                (bg-alt       '("#FBF7EF"   "#FBF7EF"   "white"))
+                (base0        '("#363636"   "#363636"   "black"))
+                (base1        '("#414141"   "#414141"   nil))
+                (base2        '("#BF9B9F"   "#BF9B9F"   nil))
+                (base3        '("#ebe6ea"   "#EBE6EA"   nil)) ;; block highlights
+                (base4        '("#C9678D"   "#C9678D"   nil))
+                (base5        '("#ECA7D5"   "#ECA7D5"   nil))
+                (base6        '("#C9678D"   "#C9678D"   nil))
+                (base7        '("#E7CEEE"   "#E7CEEE"   nil))
+                (base8        '("#E2D8F5"   "#E2D8F5"   nil))
+                (fg           '("#2A2A2A"   "#2A2A2A"   nil))
+                (fg-alt       '("#2A2A2A"   "#2A2A2A"   nil))
+            
+                (grey base6)
+                (red          '("#BE3445"   "#BE3445"   nil))
+                (orange       '("#D36745"   "#D36745"   nil))
+                (green        '("#AAC275"   "#BE3445"   nil))
+                (yellow       '("#E1B967"   "#E1B967"   nil))
+                (magenta      '("#CE67CF"   "#CE67CF"   nil))
+            
+                (teal         '("#29838D"   "#29838D"   nil))
+                (blue         '("#3B6EA8"   "#3B6EA8"   nil))
+                (dark-blue    '("#5272AF"   "#5272AF"   nil))
+                (violet       '("#842879"   "#842879"   nil))
+                (cyan         '("#398EAC"   "#398EAC"   nil))
+                (dark-cyan    '("#2C7088"   "#2C7088"   nil))
+            
+                ;; face categories -- required for all themes
+                (highlight          (doom-blend blue bg 0.8))
+                (vertical-bar       (doom-darken bg 0.15))
+                (selection          (doom-blend blue bg 0.5))
+                (builtin            teal)
+                (comments           (if doom-sakura-light-brighter-comments dark-cyan (doom-darken base5 0.2)))
+                (doc-comments       (doom-darken (if doom-sakura-light-brighter-comments dark-cyan base5) 0.25))
+                (constants          magenta)
+                (functions          teal)
+                (keywords           blue)
+                (methods            teal)
+                (operators          blue)
+                (type               yellow)
+                (strings            green)
+                (variables          violet)
+                (numbers            magenta)
+                (region             base4)
+                (error              red)
+                (warning            yellow)
+                (success            green)
+                (vc-modified        orange)
+                (vc-added           green)
+                (vc-deleted         red)
+                (cursor-color       '("#000000"))
+                (hl-line            base6)
+                (+evil--default-cursor-color '("#000000"))
+                (modeline-fg        nil)))
+    
+    4.  Tweaks
+    
+            (setq org-src-block-faces nil)
+            (custom-theme-set-faces
+              'user
+              `(org-document-info-keyword ((t :foreground "#9F9F9F")))
+            
+              `(org-level-1 ((t :foreground "#BE3445" :weight bold)))
+              `(org-level-2 ((t :foreground "#BE3445" :weight bold)))
+              `(org-level-3 ((t :foreground "#BE3445" :weight normal)))
+              `(org-level-4 ((t :foreground "#BE3445" :weight normal)))
+              `(org-level-5 ((t :foreground "#BE3445" :weight normal)))
+              `(org-level-6 ((t :foreground "#BE3445" :weight normal)))
+              `(org-level-7 ((t :foreground "#BE3445" :weight normal)))
+              `(org-level-8 ((t :foreground "#BE3445" :weight normal)))
+              `(org-level-9 ((t :foreground "#BE3445" :weight normal)))
+            
+              `(org-block            ((t :background "#ebe6ea")))
+              `(org-block-begin-line ((t :foreground "#BF9B9F" :background nil :underline "#2A2A2A")))
+              `(org-block-end-line   ((t :foreground "#BF9B9F" :background nil :underline nil :overline "#2A2A2A")))
+              `(org-verbatim         ((t :foreground "#BE3445" :background nil :weight normal)))
+            
+              `(org-table   ((t :background "#ebe6ea")))
+              `(org-formula ((t :background "#ebe6ea")))
+              `(org-ref-cite-face ((t :foreground "#BE3445")))
+              `(org-drawer ((t :foreground "#9F9F9F")))
+              )
 
 2.  Dark Theme
 
@@ -643,7 +946,7 @@ Not much in the way of configuration is needed to set this utter madlad off sear
           ))
 
 
-<a id="org84dd19e"></a>
+<a id="orgc9b27d1"></a>
 
 ## Custom Functions
 
@@ -665,6 +968,28 @@ This function is especially useful when tangling a configuration, such as this o
        ((f-ext? (buffer-file-name) "el")
         (goto-char (point-min))
         (insert ";;; -*- lexical-binding: t -*-\n"))
+       (t
+        nil))
+      (save-buffer))
+
+
+### Tangle LaTeX
+
+    (defun add-latex-framework ()
+      (message "running in %s" (buffer-file-name))
+      (cond
+       ((f-ext? (buffer-file-name) "tex")
+        (goto-char (point-min))
+        (insert "\documentclass[12pt]{article}\n")
+        (forward-line 1)
+        (insert "\insert{preamble.tex}\n")
+        (forward-line 1)
+        (insert "\title{<Autogenerated LaTeX Title>}\n")
+        (forward-line 1)
+        (insert "\begin{document}")
+        (goto-char (point-max))
+        (forward-line 1)
+        (insert "\end{document}"))
        (t
         nil))
       (save-buffer))

@@ -1,0 +1,7 @@
+#+TITLE: Testing Area
+
+* Org-Ref-Bibtex Testing
+** Some Topic or other.
+Blah blah blah I want to talk about some topic, on which see cite:schwarz2014.
+
+Now what I want to do is access that citation. I can target it, and ORB should open a palette of commands.
